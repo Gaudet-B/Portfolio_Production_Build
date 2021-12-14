@@ -1,0 +1,496 @@
+/* ---> Fonts <--- */
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+
+/* ======> {{ ANIMATIONS }} <====== */
+
+/* TYPEWRITER */
+@keyframes caret {
+    50% { border-color: transparent; }
+}
+/* FADE-IN */
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes fade-in-out {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+/* FLOAT */
+@keyframes float {
+    0% {transform: 
+            perspective(750px)
+            translate3d(0px, 0px, -250px)
+            rotateX(27deg)
+            scale(0.9, 0.9);}
+    33% {transform: 
+            perspective(750px)
+            translate3d(2px, 6px, -250px)
+            rotateX(27deg)
+            scale(0.9, 0.9);}
+    66% {transform: 
+            perspective(750px)
+            translate3d(-2px, -6px, -250px)
+            rotateX(27deg)
+            scale(0.9, 0.9);}
+    100% {transform: 
+            perspective(750px)
+            translate3d(-0px, -0px, -250px)
+            rotateX(27deg)
+            scale(0.9, 0.9);}
+}
+/* BACKGROUND LIGHTS */
+@keyframes lighting {
+    0% {
+        height: 100%;
+        border-left: 1.5px solid transparent;
+    }
+    100% {
+        height: 0%;
+        border-left: 1.5px solid white;
+    }
+}
+@keyframes light-block {
+    0% {
+        height: 100%;
+        border-left: 1.5px solid transparent;
+    }
+    100% {
+        height: 0%;
+        border-left: 1.5px solid rgb(26,26,26);
+    }
+}
+
+@keyframes un-mask {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+/* ======> {{ LANDING }} <====== */
+
+/* ---> Global <--- */
+
+body {
+    margin: 0px;
+}
+
+/* these next two are for the typewriter */
+h1 {
+    font-size: 5em;
+    color: white;
+}
+.body span {
+    border-right: .05em solid;
+    animation: caret 1s steps(1) infinite;
+}
+
+.bg {
+    background-color: rgb(25,25,25); 
+    margin: 0px; 
+    min-height: 1500px;
+    min-width: 2500px;
+
+}
+.responsiveBg {
+    margin: 0px;
+    animation: un-mask 3s ease;
+    -webkit-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-size: cover;
+    text-align: center;
+}
+
+.body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: rgba(0, 218, 25, 0.5);
+    font-family: 'Anonymous Pro', monospace;  
+    background: linear-gradient(6deg, rgba(26,26,26,0.1) 0%, rgba(25,25,25,1) 62%);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+.responsiveBody {
+    position: absolute;
+    height: fit-content;
+    padding-top: 100px;
+    padding-bottom: 200px;
+    width: 100vw;
+    color: rgba(0, 218, 25, 0.5);
+    font-family: 'Anonymous Pro', monospace;  
+    background: linear-gradient(6deg, rgba(26,26,26,0) 0%, rgba(25,25,25,1) 62%);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+/* FLEX */
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* ---> BACKGROUND <--- */
+
+/* background effect divs */
+.bgHorizontal {
+    animation: fade-in 5s;
+    position: absolute;
+    margin-top: 380px;
+    border-top: 1px solid rgba(245, 245, 245, 0.493);
+    border-bottom: 1px solid rgba(245, 245, 245, 0.493);
+    width: 2500px;
+    height: 220px;
+}
+.bgVertical {
+    margin: 0;
+    padding: 0;
+    animation: fade-in 5s;
+    position: absolute;
+    border-right: 1px solid rgba(245, 245, 245, 0.287);
+    width: 0px;
+}
+.bgVertical0 {
+    margin-left: 0px;
+    height: 950px;
+    transform: rotate(60deg);
+}
+.bgVertical1 {
+    margin-left: 105px;
+    height: 1600px;
+    transform: rotate(42deg);
+}
+.bgVertical2 {
+    margin-left: 605px;
+    height: 1200px;
+    transform: rotate(22deg);
+}
+.bgVertical3 {
+    margin-left: 870px;
+    height: 1200px;
+}
+.bgVertical4 {
+    margin-left: 1135px;
+    height: 1200px;
+    transform: rotate(-22deg);
+}
+.bgVertical5 {
+    margin-left: 1450px;
+    height: 1200px;
+    transform: rotate(-42deg);
+}
+.bgVertical6 {
+    margin-left: 1960px;
+    height: 1250px;
+    transform: rotate(-60deg);
+}
+
+/* background light effects */
+.bgLights {
+    margin: 0;
+    padding: 0;
+    animation: lighting 3s ease-out infinite;
+    position: relative;
+    width: 0px;
+    border-left: 2px solid whitesmoke;
+}
+.bgLightBlock {
+    margin: 0;
+    padding: 0;
+    animation: light-block 3s ease-out infinite;
+    position: relative;
+    width: 0px;
+    border-left: 1px solid rgba(245, 245, 245, 0.287);
+}
+
+/* mobile background */
+.mobileBg {
+    animation: un-mask 3s ease;
+    background-image: url("../assets/3d-background.png");
+    width: 100%;
+    min-width: fit-content;
+    max-width: 100vw;
+    -webkit-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-size: cover;
+    text-align: center;
+}
+
+/* ---> TYPEWRITER <--- */
+
+/* Body */
+
+.typewriterDiv {
+    position: relative;
+    top: 16%;
+}
+
+.line1{
+    position: relative;
+    top: 16%;  
+    width: 10em;
+    margin: 0 auto;
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+
+.typedLine {
+    margin-top: 6px;
+}
+
+#name {
+    font-size: 6em;
+}
+
+.invis {
+    height: 20px;
+}
+
+
+/* ---> BUTTONS <--- */
+
+/* Individual Button Containers */
+
+/* 3d transform animation */
+.hoverZoom {
+    transform: 
+        perspective(750px)
+        translate3d(0px, 0px, -250px)
+        rotateX(27deg)
+        scale(0.9, 0.9);
+    box-shadow: 0 70px 40px -20px rgba(245, 245, 245, 0.1);
+    animation: fade-in 3s;
+    height: 150px;
+    width: 150px;
+    border: 2px solid whitesmoke;
+    border-radius: 20%;
+    margin: 0 auto;
+    transition: .6s ease-in-out transform;
+    cursor: pointer;
+}
+.responsiveButton {
+    box-shadow: 0 70px 40px -20px rgba(245, 245, 245, 0.1);
+    animation: fade-in 3s;
+    height: 150px;
+    width: 150px;
+    border: 2px solid whitesmoke;
+    border-radius: 20%;
+    margin: 0 auto;
+    transition: .6s ease-in-out transform;
+    cursor: pointer;
+}
+
+/* Hover Zoom Animation */
+.hoverZoom:hover {
+    transform: translate3d(0px, 0px, -250px);
+}
+
+/* Row of Buttons */
+.buttonContainer {
+    animation: fade-in 3s;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    justify-content: space-evenly;
+    margin-top: 18vh;
+}
+.responsiveContainer {
+    animation: fade-in 3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    justify-content: space-evenly;
+    margin-top: 6vh;
+}
+
+/* button class */
+.button {
+    animation: fade-in 3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* label class */
+.label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgba(0, 218, 25, 0.5);
+    font-size: 18pt;
+    padding-top: 12px;
+    animation: fade-in 3s;
+}
+/* spacing */
+.label p {
+    margin: 0px;
+    padding: 0px;
+}
+/* handle spacing exception */
+#resumeLabel {
+    text-align: left;
+    margin-left: 2px;
+}
+
+/* Button Images */
+.projects {
+    border: 6px double black;
+    border-radius: 20%;
+    animation: fade-in 3s;
+    background-image: url("../assets/projects-icon.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-color: whitesmoke;
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.contact {
+    border: 6px double black;
+    border-radius: 20%;
+    animation: fade-in 3s;
+    background-image: url("../assets/email-icon.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-color: whitesmoke;
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.resume {
+    border: 6px double black;
+    border-radius: 20%;
+    animation: fade-in 3s;
+    background-image: url("../assets/resume-icon.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-color: whitesmoke;
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* mask and unmask buttons */
+.mask {
+    width: inherit;
+    height: inherit;
+    border-radius: 20%;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(0,0,0,0.5);
+}
+.mask:hover {
+    background-color: transparent;
+}
+
+/* Copyright & est. text */
+.copyright {
+    animation: fade-in 3s;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgba(245, 245, 245, 0.3);
+}
+.copyright p {
+    margin: 0px;
+}
+.responsiveCopyright {
+    animation: fade-in 3s;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgba(0, 218, 25, 0.5);
+}
+.responsiveCopyright p {
+    margin: 0px;
+}
+/* Social Links */
+.social {
+    /* 3d perspective */
+    transform: 
+        perspective(750px)
+        translate3d(0px, 0px, -250px)
+        rotateX(27deg)
+        scale(0.9, 0.9);
+    box-shadow: 0 70px 40px -20px rgba(245, 245, 245, 0.24);
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid whitesmoke;
+    background-color: rgba(211, 211, 211, 0.616);
+    border-radius: 10% / 20%;
+    /* entrance animation */
+    animation: fade-in 3s;
+    /* zoom animation */
+    transition: 0.4s ease-in-out transform;
+}
+.responsiveSocial {
+    box-shadow: 0 70px 40px -20px rgba(245, 245, 245, 0.24);
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid whitesmoke;
+    background-color: rgba(211, 211, 211, 0.616);
+    border-radius: 10% / 20%;
+    /* entrance animation */
+    animation: fade-in 3s;
+    /* zoom animation */
+    transition: 0.4s ease-in-out transform;
+}
+.social:hover {
+    /* hover animation */
+    transform: translate3d(0px, 0px, -250px);
+}
+.social a {
+    margin: 5px;
+    height: 40px;
+    width: 40px;
+    border: 1px solid rgb(26,26,26);
+    border-radius: 20%;
+}
+.responsiveSocial a {
+    margin: 5px;
+    height: 40px;
+    width: 40px;
+    border: 1px solid rgb(26,26,26);
+    border-radius: 20%;
+}
+.socialLinkedIn {
+    background-image: url("../assets/LinkedIn.jpg");
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+}
+.socialGitHub {
+    background-image: url("../assets/GitHub.jpg");
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+}

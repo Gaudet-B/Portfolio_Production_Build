@@ -1,0 +1,104 @@
+/* THIS ENTIRE MODULE HAS BEEN MOVED TO LANDING.STYLE.MODULE */
+
+/* ======> {{ ANIMATIONS }} <====== */
+
+/* moving highlights along backround components */
+@keyframes lighting {
+    0% {
+        height: 100%;
+        border-left: 1.5px solid transparent;
+    }
+    100% {
+        height: 0%;
+        border-left: 1.5px solid white;
+    }
+}
+/* blocker than makes the lights appear to move */
+@keyframes light-block {
+    0% {
+        height: 100%;
+        border-left: 1.5px solid transparent;
+    }
+    100% {
+        height: 0%;
+        border-left: 1.5px solid rgb(26,26,26);
+    }
+}
+
+
+.bg {
+    background-color: rgb(25,25,25); 
+    margin: 0px; 
+    height: 100vh;
+}
+
+/* background effect divs */
+.bgHorizontal {
+    animation: fade-in 5s;
+    position: absolute;
+    margin-top: 380px;
+    border-top: 1px solid rgba(245, 245, 245, 0.493);
+    border-bottom: 1px solid rgba(245, 245, 245, 0.493);
+    width: 100%;
+    height: 220px;
+}
+.bgVertical {
+    margin: 0;
+    padding: 0;
+    animation: fade-in 5s;
+    position: absolute;
+    border-right: 1px solid rgba(245, 245, 245, 0.287);
+    width: 0px;
+}
+.bgVertical0 {
+    margin-left: 0px;
+    height: 950px;
+    transform: rotate(60deg);
+}
+.bgVertical1 {
+    margin-left: 105px;
+    height: 1600px;
+    transform: rotate(42deg);
+}
+.bgVertical2 {
+    margin-left: 605px;
+    height: 1200px;
+    transform: rotate(22deg);
+}
+.bgVertical3 {
+    margin-left: 870px;
+    height: 1200px;
+}
+.bgVertical4 {
+    margin-left: 1135px;
+    height: 1200px;
+    transform: rotate(-22deg);
+}
+.bgVertical5 {
+    margin-left: 1450px;
+    height: 1200px;
+    transform: rotate(-42deg);
+}
+.bgVertical6 {
+    margin-left: 1960px;
+    height: 1250px;
+    transform: rotate(-60deg);
+}
+
+/* background light effects */
+.bgLights {
+    margin: 0;
+    padding: 0;
+    animation: lighting 3s ease-out infinite;
+    position: relative;
+    width: 0px;
+    border-left: 2px solid whitesmoke;
+}
+.bgLightBlock {
+    margin: 0;
+    padding: 0;
+    animation: light-block 3s ease-out infinite;
+    position: relative;
+    width: 0px;
+    border-left: 1px solid rgba(245, 245, 245, 0.287);
+}

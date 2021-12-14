@@ -1,0 +1,17 @@
+.loadingBackground {
+    background-image: url("../assets/3d-background.png");
+    height: 100vh;
+    width: 100vw;
+    -webkit-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-size: cover;
+    text-align: center;
+}
+
+.loadingMask {
+    height: 100vh;
+    width: 100vw;
+    color: rgba(255,255,255,.75);
+    font-family: 'Anonymous Pro';  
+    background: linear-gradient(8deg, rgba(26,26,26,0.2) 0%, rgba(25,25,25,1) 70%);
+}

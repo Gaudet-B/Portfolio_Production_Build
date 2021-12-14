@@ -1,0 +1,135 @@
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+
+@keyframes float {
+    0% {
+        transform: 
+            translate3d(0px, 0px, -250px)
+        }
+    33% {
+        transform: 
+            perspective(1500px)
+            translate3d(2px, 6px, -250px)
+        }
+    66% {
+        transform: 
+            perspective(1500px)
+            translate3d(-2px, -6px, -250px)
+        }
+    100% {
+        transform: 
+            translate3d(-0px, -0px, -250px)
+        }
+}
+
+
+.mainForm {
+    min-width: fit-content;
+    max-width: 60vw;
+    height: fit-content;
+    margin: auto;
+    padding: 50px 80px;
+    display: flex;
+    flex-direction: column;
+    border: 5px double whitesmoke;
+    border-radius: 10% / 15%;
+    background-color: rgb(20, 20, 20, 0.4);
+}
+.responsiveMain {
+    max-width: fit-content;
+    height: fit-content;
+    margin: auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border: 5px double whitesmoke;
+    border-radius: 10% / 15%;
+    background-color: rgb(20, 20, 20, 0.4);
+}
+
+.formComponent {
+    width: 100%;
+    margin: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+}
+.responsiveComponent {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.label {
+    width: 38%;
+    font-size: 1.7rem;
+    color: whitesmoke;
+}
+.responsiveLabel {
+    width: 90%;
+    font-size: 1.7rem;
+    color: whitesmoke;
+    margin-bottom: 20px
+}
+
+.textInput {
+    margin: 0px 12px;
+    padding: 8px;
+    width: 60%;
+    max-width: 400px;
+    min-height: 30px;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 15px 15px -10px rgba(245, 245, 245, 0.24);
+}
+.responsiveInput {
+    margin: 0px 12px;
+    padding: 8px;
+    width: 80%;
+    max-width: 400px;
+    min-height: 30px;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 15px 15px -10px rgba(245, 245, 245, 0.24);
+}
+
+.option {
+    min-height: 30px;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.formButton {
+    height: 32px;
+    width: 100px;
+    background-color: rgba(168, 168, 168, 0.7);
+    border: 2px solid transparent;
+    border-radius: 5% / 10%;
+    box-shadow: 0 25px 12px -10px rgba(245, 245, 245, 0.24);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    color: whitesmoke;
+    text-shadow: 2px 2px 2px rgb(20, 20, 20, 0.9);
+    animation: float 20s linear infinite;
+}
+.formButton:hover {
+    background-color: whitesmoke; 
+    color: black;
+    cursor: pointer;
+    border: 4px double whitesmoke;
+    text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788);
+    box-shadow: 0 25px 12px -10px rgba(245, 245, 245, 0.788);
+    transform: scale(1.1);
+}

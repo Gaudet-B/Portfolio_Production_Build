@@ -1,0 +1,279 @@
+/* ======> {{ CAROUSEL COMPONENT }} <====== */
+
+/* Animations: */
+
+/* flip card link shines to subtly grab user attention */
+@keyframes shine {
+    0%, 45% { background-position: left;}
+    55%, 100% { background-position: right;}
+}
+
+/* flips card left-to-right */
+@keyframes front-flip {
+    0% {
+        transform-origin: center;
+        transform: rotateY(0deg);
+        filter: blur(0.1px);
+    }
+    50% {
+        transform-origin: center;
+        transform: rotateY(90deg);
+        filter: blur(5px);
+    }
+    100% {
+        transform-origin: center;
+        transform: rotateY(180deg);
+        filter: blur(0px);
+    }
+}
+
+/* flips card-right-to-left */
+@keyframes back-flip {
+    0% {
+        transform-origin: center;
+        transform: rotateY(0deg);
+        filter: blur(0.1px);
+    }
+    50% {
+        transform-origin: center;
+        transform: rotateY(-90deg);
+        filter: blur(5px);
+    }
+    100% {
+        transform-origin: center;
+        transform: rotateY(-180deg);
+        filter: blur(0px);
+    }
+}
+
+/* removes dark 'mask' from components on hover or reveals components on load */
+@keyframes un-mask {
+    0% {
+        background-color: #262626;
+        opacity: 1;
+    }
+    50% {
+        background-color: #262626;
+        opacity: 1;
+    }
+    90% {
+        background-color: #262626;
+        opacity: 1;
+    }
+    100% {
+        background-color: transparent;
+        opacity: 1;
+    }
+}
+
+/* subtle glow effect for headers */
+@keyframes glow {
+    0% {color: rgba(255,255,255,.75); }
+    50% {color: whitesmoke; font-size: 14.5pt;}
+    100% {color: rgba(255,255,255,.75); }
+}
+
+
+/* Styles: */
+
+.carousel {
+    width: 1130px;
+    perspective: 1500px; 
+    padding-top: 5%; 
+    margin-bottom: 3rem; 
+}
+
+.spinner { 
+    transform-style: preserve-3d; 
+    height: 700px; 
+    /* this creates the 3D "rotation" space */
+    transform-origin: 50% 50% -500px; 
+    transition: 1.25s ease-out; 
+}
+
+.card { 
+    transform-style: preserve-3d;
+    width: 40%; 
+    min-width: 550px;
+    max-width: 550px; 
+    height: 700px;
+    position: relative;
+    align-self: center;
+    border: 4px double whitesmoke;
+    border-radius: 6% / 5%;
+    background-color: #262626;
+}
+
+.cardDiv {
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    width: 40%; 
+    min-width: 600px;
+    max-width: 600px; 
+    height: fit-content;
+    position: absolute;
+    margin-left: 20%;
+    transform-origin: 50% 50% -500px;
+}
+
+/* Postiion cards around y-axis */
+.cardOneDiv { transform: rotateY(0deg); }
+.cardTwoDiv { transform: rotateY(-90deg); }
+.cardThreeDiv { transform: rotateY(-180deg); }
+.cardFourDiv { transform: rotateY(-270deg); }
+
+.cardFront {
+    width: 100%;
+    position: absolute;
+}
+
+.cardBack {
+    height: 100%;
+    position: relative;
+    border: 4px double whitesmoke;
+    border-radius: 6% / 5%;
+    transform: translate3d(0, 0, -10px) rotateY(180deg);
+    background-color: #262626;
+}
+
+.flipper { 
+    transform-style: preserve-3d; 
+    height: fit-content; 
+    width: fit-content; 
+    /* this creates the 3D "rotation" space */
+    transform-origin: center; 
+    transition: 2s ease-out; 
+}
+
+/* these are the 3D "sides" of the cards: */
+.left {
+    position: absolute;
+    margin-left: -2px;
+    height: 95%;
+    margin-top: 19px;
+    border: 1px solid transparent;
+    border-radius: 20% / 50%;
+    width: 10px;
+    background-color: whitesmoke;
+    opacity: .7;
+    transform-origin: center;
+    transform: translate3d(0, 0, -5px) translate(0px) rotateY(80deg);
+}
+.right {
+    position: absolute;
+    height: 95%;
+    margin-top: 19px;
+    border: 1px solid transparent;
+    border-radius: 20% / 50%;
+    width: 10px;
+    background-color: whitesmoke;
+    opacity: .7;
+    transform-origin: center;
+    transform: translate3d(0, 0, -5px) translate(542px) rotateY(-100deg);
+}
+
+/* left and right directional buttons -> *NOTE* the font syle of parent element will affect the style of these buttons! *NOTE* */
+.span { 
+    color: rgba(255,255,255,.75);
+    margin: 5%;
+    display: inline-block; 
+    text-decoration: none; 
+    font-size: 6rem; 
+    transition: 0.6s color; 
+    position: relative; 
+    margin-top: -33rem; 
+    border-bottom: none; 
+    line-height: 0;
+}
+.span:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 6.1rem; cursor: pointer; }
+
+.spanLeft {
+    margin-left: -40px;
+    float: left;
+}
+
+.spanRight {
+    margin-right: -25px;
+    float: right;
+    margin-left: 20px;
+}
+
+.card img {
+    width: 99%;
+    border: 1px solid transparent;
+    border-radius: 5% / 8%;
+}
+
+body {
+    background-color: #262626;
+}
+
+a {
+    color: rgba(0, 143, 17, .9);
+    font-family: helvetica;
+    font-size: 14pt;
+}
+a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 14.5pt; cursor: pointer; }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.cardFront {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: whitesmoke;
+    height: 100%;
+}
+
+.cardBack {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: whitesmoke;
+    height: 100%;
+}
+
+.container {
+    width: fit-content;
+    padding: 12px 40px;
+}
+
+/* classes that handle card flipping */
+.flip {
+    animation: front-flip .8s ease-in;
+}
+.reverse {
+    animation: back-flip .8s ease-in;
+}
+
+.flipLink {
+    font-weight: bold;
+    font-size: 14pt;
+    cursor: pointer;
+    
+    color: rgba(255,255,255,.3);
+    background: linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgb(0, 214, 25) 45%, rgb(0, 214, 25) 55%, rgba(26,26,26,0.5) 100%);
+    -webkit-background-size: 90px 100px;
+    -moz-background-size: 90px 100px;
+    background-size: 90px 100px;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    background-repeat: no-repeat;
+    animation: shine 10s infinite ease-in-out;
+    animation-delay: 5s;
+}
+.flipLink strong {
+    font-size: 16pt;
+}
+.flipLink:hover {
+    transition: 1s ease-in;
+    color: whitesmoke;
+    font-size: 14.5pt;
+    animation: none;
+}
