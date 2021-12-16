@@ -39,7 +39,7 @@ const Form = props => {
                     reason: 'Just saying "hello."'
                 })
                 document.getElementById("contactForm").reset()
-                alert("Message sent.")
+                alert("message sent.")
             })
             .catch(err => {
                 const {errors} = err.response.data
@@ -48,6 +48,7 @@ const Form = props => {
                     errObj[key] = value.message
                 }
                 setValidState(errObj)
+                alert("unable to send message.")
             })
     }
 

@@ -1,4 +1,4 @@
-
+const nodemailer = require("nodemailer")
 const userName = process.env.USER_SECRET_KEY
 const passWord = process.env.PASS_SECRET_KEY
 

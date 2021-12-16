@@ -9,16 +9,11 @@ const CustomCarousel = props => {
     // import classnames utility --> https://github.com/JedWatson/classnames //
     const classNames = require("classnames")
 
-    // starting agles for carousel rotation
+    // starting angles for carousel rotation
     const [leftAngle, setLeftAngle] = useState(90)
     const [rightAngle, setRightAngle] = useState(-90)
 
-    // starting booleans for card flipping
-    const [isFlippedOne, setIsFlippedOne] = useState(false)
-    const [isFlippedTwo, setIsFlippedTwo] = useState(false)
-    const [isFlippedThree, setIsFlippedThree] = useState(false)
-    const [isFlippedFour, setIsFlippedFour] = useState(false)
-
+    // starting angles for card flipping
     const [cardOneAngle, setCardOneAngle] = useState(180)
     const [cardTwoAngle, setCardTwoAngle] = useState(180)
     const [cardThreeAngle, setCardThreeAngle] = useState(180)

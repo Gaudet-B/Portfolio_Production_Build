@@ -209,7 +209,7 @@ const Resume = () => {
                     <div className="mx-4">
                         <ul>
                             <li><strong>Coding Dojo </strong> - San Jose, CA (online) - <strong> Full-Stack Developer Certificate - </strong> Python, MERN, Java - 2021</li>
-                            <li><strong>Court of Master Sommeliers </strong> - Americas - <strong> Introductor Course Certification - </strong> 2017</li>
+                            <li><strong>Court of Master Sommeliers </strong> - Americas - <strong> Introductory Course Certification - </strong> 2017</li>
                             <li><strong>Coding Dojo </strong> - San Jose, CA (online) - <strong> Full-Stack Developer Certificate - </strong> Python, MERN, Java - 2021</li>
                         </ul>
                     </div>
@@ -266,7 +266,7 @@ const Resume = () => {
                     
                     <div className="mx-5 border-top border-secondary my-4"></div>
                     <div className="text-center">
-                        <a href="#" className="link link-light text-decoration-underline" style={{ margin: "auto" }} >download a printable copy of this resume</a>
+                        <a href="https://drive.google.com/uc?id=1E67NoxGN3Vz7_lKF2YxiQ_nR3YMg_Z2u&export=download" className="link link-light text-decoration-underline" style={{ margin: "auto" }} >download a printable copy of this resume</a>
                     </div>
                 </div>
             </div>

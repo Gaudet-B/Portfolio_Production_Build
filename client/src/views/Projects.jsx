@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import CustomCarousel from '../components/CustomCarousel'
+import ProjectCards from '../components/ProjectCards'
 import Header from '../components/Header'
 
 import styles from '../components/projects.style.module.css'
@@ -83,7 +84,11 @@ const Projects = () => {
                     <h2>P R O J E C T S</h2>
                     <div style={{ width: "fit-content", margin: "auto" }}>
                         {/* arrays of projects and images are passed to the child component */}
+                        {(windowWidth > 800) ?
                         <CustomCarousel projects={projects} images={images} />
+                        :
+                        <ProjectCards projects={projects} images={images} />
+                        }
                     </div>
                 </div>
             </div>

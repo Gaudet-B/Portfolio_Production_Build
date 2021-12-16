@@ -277,3 +277,8 @@ a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788)
     font-size: 14.5pt;
     animation: none;
 }
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
