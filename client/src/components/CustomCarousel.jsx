@@ -20,7 +20,7 @@ const CustomCarousel = props => {
     const [cardFourAngle, setCardFourAngle] = useState(180)
 
     // pull projects array and images array from props
-    const { projects, images } = props
+    const { projects, images, windowWidth } = props
 
     // function to rotate the carousel
     const spin = e => {
@@ -87,10 +87,10 @@ const CustomCarousel = props => {
     var rightArrow = classNames([styles.span, styles.spanRight])
 
     return (
-        <div className={styles.container}>
-            <div id="carousel" className={styles.carousel}>
+        <div className={styles.container} style={(windowWidth < 1201 && windowWidth > 800) ? { transform: "scale(0.7) translateX(-15em) translateY(-18em)" } : {}} >
+            <div id="carousel" className={styles.carousel} >
 
-                <figure id="spinner" className={styles.spinner}>
+                <figure id="spinner" className={styles.spinner} >
                     <div className={cardDivOne} >
 
                         <figure id="card-one" className={styles.flipper} >
@@ -99,10 +99,10 @@ const CustomCarousel = props => {
                                 <div id="left" className={styles.left}></div>
                                 <div id="right" className={styles.right}></div>
                                 <div id="card-one-back" className={styles.cardBack}>
-                                    <CardBack flipCard={flipCard} flip={"one"} project={projects[0]} images={images.draft} />
+                                    <CardBack flipCard={flipCard} flip={"one"} project={projects[0]} images={images.draft} responsive={false} />
                                 </div>
                                 <div id="card-one-front" className={styles.cardFront}>
-                                    <CardFront flipCard={flipCard} flip={"one"} project = {projects[0]} />
+                                    <CardFront flipCard={flipCard} flip={"one"} project = {projects[0]} responsive={false} />
                                 </div>
                             </figure>
 
@@ -118,10 +118,10 @@ const CustomCarousel = props => {
                                 <div id="left" className={styles.left}></div>
                                 <div id="right" className={styles.right}></div>
                                 <div id="card-two-back" className={styles.cardBack}>
-                                    <CardBack flipCard={flipCard} flip={"two"} project={projects[3]} images={images.myth} />
+                                    <CardBack flipCard={flipCard} flip={"two"} project={projects[3]} images={images.myth} responsive={false} />
                                 </div>
                                 <div id="card-two-front" className={styles.cardFront}>
-                                    <CardFront flipCard={flipCard} flip={"two"} project = {projects[3]} />
+                                    <CardFront flipCard={flipCard} flip={"two"} project = {projects[3]} responsive={false} />
                                 </div>
                             </figure>
 
@@ -137,10 +137,10 @@ const CustomCarousel = props => {
                                 <div id="left" className={styles.left}></div>
                                 <div id="right" className={styles.right}></div>
                                 <div id="card-three-back" className={styles.cardBack}>
-                                    <CardBack flipCard={flipCard} flip={"three"} project={projects[2]} images={images.portfolio} />
+                                    <CardBack flipCard={flipCard} flip={"three"} project={projects[2]} images={images.portfolio} responsive={false} />
                                 </div>
                                 <div id="card-three-front" className={styles.cardFront}>
-                                    <CardFront flipCard={flipCard} flip={"three"} project = {projects[2]} />
+                                    <CardFront flipCard={flipCard} flip={"three"} project = {projects[2]} responsive={false} />
                                 </div>
                             </figure>
 
@@ -156,10 +156,10 @@ const CustomCarousel = props => {
                                 <div id="left" className={styles.left}></div>
                                 <div id="right" className={styles.right}></div>
                                 <div id="card-four-back" className={styles.cardBack}>
-                                    <CardBack flipCard={flipCard} flip={"four"} project={projects[1]} images={images.pizza} />
+                                    <CardBack flipCard={flipCard} flip={"four"} project={projects[1]} images={images.pizza} responsive={false} />
                                 </div>
                                 <div id="card-four-front" className={styles.cardFront}>
-                                    <CardFront flipCard={flipCard} flip={"four"} project = {projects[1]} />
+                                    <CardFront flipCard={flipCard} flip={"four"} project = {projects[1]} responsive={false} />
                                 </div>
 
                             </figure>
@@ -172,7 +172,7 @@ const CustomCarousel = props => {
             </div>
 
             <div id="spanLeft" className={leftArrow}  onClick={spin}>&lt;</div>
-            <div id="spanRight" className={rightArrow}  onClick={spin}>&gt;</div>
+            <div id="spanRight" className={rightArrow}  onClick={spin} style={(windowWidth < 1201 && windowWidth > 800) ? { marginRight: "18px" } : {}} >&gt;</div>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '../components/carousel.style.module.css'
+import styles from '../components/column.style.module.css'
 import CardBack from './CardBack'
 import CardFront from './CardFront'
 
@@ -8,10 +8,6 @@ const ProjectCards = props => {
 
     // import classnames utility --> https://github.com/JedWatson/classnames //
     const classNames = require("classnames")
-    
-    // starting angles for carousel rotation
-    const [leftAngle, setLeftAngle] = useState(90)
-    const [rightAngle, setRightAngle] = useState(-90)
 
     // starting angles for card flipping
     const [cardOneAngle, setCardOneAngle] = useState(180)
@@ -62,14 +58,14 @@ const ProjectCards = props => {
     var cardThreeClass = classNames(cardThree)
     var cardFourClass = classNames(cardFour)
 
-    var cardDivOne = `${styles.cardDiv} ${styles.cardOneDiv}`
-    var cardDivTwo = `${styles.cardDiv} ${styles.cardTwoDiv}`
-    var cardDivThree = `${styles.cardDiv} ${styles.cardThreeDiv}`
-    var cardDivFour = `${styles.cardDiv} ${styles.cardFourDiv}`
+    // var cardDivOne = `${styles.cardDiv} ${styles.cardOneDiv}`
+    // var cardDivTwo = `${styles.cardDiv} ${styles.cardTwoDiv}`
+    // var cardDivThree = `${styles.cardDiv} ${styles.cardThreeDiv}`
+    // var cardDivFour = `${styles.cardDiv} ${styles.cardFourDiv}`
 
     return (
         <div className={styles.column} >
-            <div className={cardDivOne} >
+            <div className={styles.cardDiv} >
 
                 <figure id="card-one" className={styles.flipper} >
 
@@ -77,10 +73,10 @@ const ProjectCards = props => {
                         <div id="left" className={styles.left}></div>
                         <div id="right" className={styles.right}></div>
                         <div id="card-one-back" className={styles.cardBack}>
-                            <CardBack flipCard={flipCard} flip={"one"} project={projects[0]} images={images.draft} />
+                            <CardBack flipCard={flipCard} flip={"one"} project={projects[0]} images={images.draft} responsive={true} />
                         </div>
                         <div id="card-one-front" className={styles.cardFront}>
-                            <CardFront flipCard={flipCard} flip={"one"} project = {projects[0]} />
+                            <CardFront flipCard={flipCard} flip={"one"} project = {projects[0]} responsive={true} />
                         </div>
                     </figure>
 
@@ -88,7 +84,7 @@ const ProjectCards = props => {
 
                 </div>
 
-                <div className={cardDivTwo}>
+                <div className={styles.cardDiv}>
 
                 <figure id="card-two" className={styles.flipper} >
 
@@ -96,10 +92,10 @@ const ProjectCards = props => {
                         <div id="left" className={styles.left}></div>
                         <div id="right" className={styles.right}></div>
                         <div id="card-two-back" className={styles.cardBack}>
-                            <CardBack flipCard={flipCard} flip={"two"} project={projects[3]} images={images.myth} />
+                            <CardBack flipCard={flipCard} flip={"two"} project={projects[1]} images={images.pizza} responsive={true} />
                         </div>
                         <div id="card-two-front" className={styles.cardFront}>
-                            <CardFront flipCard={flipCard} flip={"two"} project = {projects[3]} />
+                            <CardFront flipCard={flipCard} flip={"two"} project = {projects[1]} responsive={true} />
                         </div>
                     </figure>
 
@@ -107,7 +103,7 @@ const ProjectCards = props => {
 
                 </div>
 
-                <div className={cardDivThree}>
+                <div className={styles.cardDiv}>
 
                 <figure id="card-three" className={styles.flipper} >
 
@@ -115,10 +111,10 @@ const ProjectCards = props => {
                         <div id="left" className={styles.left}></div>
                         <div id="right" className={styles.right}></div>
                         <div id="card-three-back" className={styles.cardBack}>
-                            <CardBack flipCard={flipCard} flip={"three"} project={projects[2]} images={images.portfolio} />
+                            <CardBack flipCard={flipCard} flip={"three"} project={projects[2]} images={images.portfolio} responsive={true} />
                         </div>
                         <div id="card-three-front" className={styles.cardFront}>
-                            <CardFront flipCard={flipCard} flip={"three"} project = {projects[2]} />
+                            <CardFront flipCard={flipCard} flip={"three"} project = {projects[2]} responsive={true} />
                         </div>
                     </figure>
 
@@ -126,7 +122,7 @@ const ProjectCards = props => {
 
                 </div>
 
-                <div className={cardDivFour}>
+                <div className={styles.cardDiv}>
 
                 <figure id="card-four" className={styles.flipper} >
 
@@ -134,10 +130,10 @@ const ProjectCards = props => {
                         <div id="left" className={styles.left}></div>
                         <div id="right" className={styles.right}></div>
                         <div id="card-four-back" className={styles.cardBack}>
-                            <CardBack flipCard={flipCard} flip={"four"} project={projects[1]} images={images.pizza} />
+                            <CardBack flipCard={flipCard} flip={"four"} project={projects[3]} images={images.myth} responsive={true} />
                         </div>
                         <div id="card-four-front" className={styles.cardFront}>
-                            <CardFront flipCard={flipCard} flip={"four"} project = {projects[1]} />
+                            <CardFront flipCard={flipCard} flip={"four"} project = {projects[3]} responsive={true} />
                         </div>
 
                     </figure>

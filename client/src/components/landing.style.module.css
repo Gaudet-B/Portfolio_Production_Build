@@ -313,7 +313,7 @@ h1 {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 96px 12px 12px 12px;
     justify-content: space-evenly;
     margin-top: 6vh;
 }

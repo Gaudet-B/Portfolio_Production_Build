@@ -91,6 +91,7 @@
     display: flex;
     animation: un-mask 3s ease;
     background-image: url("../assets/3d-background.png");
+    min-height: 100vh;
     height: 100%;
     -webkit-backgound-size: cover;
     -moz-backgound-size: cover;

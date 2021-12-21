@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Modal from 'react-bootstrap/Modal'
@@ -10,7 +10,7 @@ import styles from './demo.style.module.css'
 const DemoModal = props => {
 
     // data to be displayed passed down from parent
-    const { project, images } = props
+    const { project, images, responsive } = props
 
     // functions that track height and width of the window for responsive components
     const getWindowHeight = () => {
@@ -31,6 +31,9 @@ const DemoModal = props => {
     const [show, setShow] = useState(false)
     // cycle through images in modal
     const [step, setStep] = useState(1)
+
+    // instantiate useHistory
+    const history = useHistory()
     
     // handler that closes the modal
     const handleClose = () => {
@@ -59,13 +62,29 @@ const DemoModal = props => {
             setLoading(false)
         }, 500);
     }
+
+    // function that displays View component for mobile users
+    const handleView = (title, img) => {
+        console.log(title, img)
+        let proj = 0
+
+        if (title === "P!ZZA") {
+            proj = 1
+        } else if (title === "briangaudet.com") {
+            proj = 2
+        } else if (title === "Myth Game") {
+            proj = 3
+        }
+
+        history.push(`/projects/view/${proj}/${img}`)
+    }
     
     // function to be added to the onResize event listener
     const resizeWindow = () => {
         setWindowHeight(window.innerHeight)
         setWindowWidth(window.innerWidth)
-        console.log(windowHeight)
-        console.log(windowWidth)
+        // console.log(windowHeight)
+        // console.log(windowWidth)
     }
 
     useEffect(() => {
@@ -93,17 +112,25 @@ const DemoModal = props => {
     return (
         <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", width: "100%" }}>
-            {/* displays images in a row - 5 max */}
+            {/* displays images in a row - 5 max or 3 max for small screens */}
             {(images) ? images.map((image, idx) => {
-                if (idx < 5) return(
 
+                if (!responsive && idx < 5) return(
                     <div key={idx} id={idx + 1} onClick={handleShow} className={styles.demo} style={{ backgroundImage: `url(${image})`, backgroundPosition: "center" }}>
                         <div className={styles.demoMask}></div>
                     </div>
                 )
+
+                else if (responsive && idx < 3) return(
+                    <div key={idx} id={idx + 1} onClick={() => handleView(project.title, idx)} className={styles.demo} style={{ backgroundImage: `url(${image})`, backgroundPosition: "center" }}>
+                        <div className={styles.demoMask}></div>
+                    </div>
+                )
+
                 else return(
                     null
                 )
+
             }) : null
             }
 

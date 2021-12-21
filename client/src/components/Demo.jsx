@@ -3,12 +3,12 @@ import styles from './demo.style.module.css'
 
 const Demo = props => {
 
-    const { project, images } = props
+    const { project, images, responsive } = props
 
     return (
         <div className={styles.main} >
             <div style={{ display: "flex", flexDirection: "row", justifyContent:"space-evenly" }}>
-                <DemoModal project={project} images={images}/>
+                <DemoModal project={project} images={images} responsive={responsive} />
             </div>
             <p>Click on images to expand and see more details. Please refer to Github link on front of card to browse code base or download a demo.</p>
         </div>

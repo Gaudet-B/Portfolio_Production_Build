@@ -24,8 +24,8 @@ const Contact = () => {
     const resizeWindow = () => {
         setWindowHeight(window.innerHeight)
         setWindowWidth(window.innerWidth)
-        console.log(windowHeight)
-        console.log(windowWidth)
+        // console.log(windowHeight)
+        // console.log(windowWidth)
     }
 
     // function that displays loading spinner 

@@ -28,8 +28,8 @@ const Landing = () => {
     const resizeWindow = () => {
         setWindowHeight(window.innerHeight)
         setWindowWidth(window.innerWidth)
-        console.log(windowHeight)
-        console.log(windowWidth)
+        // console.log(windowHeight)
+        // console.log(windowWidth)
     }
 
     // counts the number of lines the typewriter has typed - prevents the animation from looping
@@ -206,7 +206,6 @@ const Landing = () => {
         if (typeof dataText[i] == 'undefined') {
             return
         }
-        console.log(counter);
         // check that we haven't hit the final (FOURTH) word in the array
         if (i < 5 && counter < 5) {
             // the counter keeps the typewriter from repeating once finished with the array of words so the text remains on-screen
@@ -228,7 +227,6 @@ const Landing = () => {
         (windowWidth > 800) ? document.querySelector("html").setAttribute("style", "overflow-x: hidden; overflow-y: hidden;") : document.querySelector("html").setAttribute("style", "overflow-x: hidden; overflow-y: auto;")
 
         if (!loaded) {
-            console.log(`LOADED 1 -> ${loaded}`)
             // start the animation
             StartTextAnimation(0)
             // --> CALL FUNCTION TO DISPLAY BUTTONS: <--

@@ -255,7 +255,7 @@ a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788)
     font-weight: bold;
     font-size: 14pt;
     cursor: pointer;
-    
+    margin: auto;
     color: rgba(255,255,255,.3);
     background: linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgb(0, 214, 25) 45%, rgb(0, 214, 25) 55%, rgba(26,26,26,0.5) 100%);
     -webkit-background-size: 90px 100px;
@@ -278,7 +278,35 @@ a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788)
     animation: none;
 }
 
-.column {
-    display: flex;
-    flex-direction: column;
+.responsiveLink {
+    font-weight: bold;
+    font-size: 11pt;
+    cursor: pointer;
+    color: rgba(255,255,255,.3);
+    background: linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgb(0, 214, 25) 45%, rgb(0, 214, 25) 55%, rgba(26,26,26,0.5) 100%);
+    -webkit-background-size: 18px 100px;
+    -moz-background-size: 18px 100px;
+    background-size: 18px 100px;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    background-repeat: no-repeat;
+    animation: shine 10s infinite ease-in-out;
+    animation-delay: 5s;
+}
+.responsiveLink strong {
+    font-size: 16pt;
+}
+.responsiveLink:hover {
+    transition: 1s ease-in;
+    color: whitesmoke;
+    font-size: 14.5pt;
+    animation: none;
+}
+
+.backTitle {
+    color: rgba(0, 143, 17, .9);
+    font-size: 2.25rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }

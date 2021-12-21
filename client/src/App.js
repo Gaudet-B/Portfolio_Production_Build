@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Landing from './views/Landing'
 import Projects from './views/Projects'
+import ViewProject from './views/ViewProject'
 import Resume from './views/Resume'
 import Contact from './views/Contact'
 import Admin from './views/Admin'
@@ -22,6 +23,10 @@ function App() {
 
             <Route exact path="/projects">
               <Projects />
+            </Route>
+            
+            <Route exact path="/projects/view/:proj/:img">
+              <ViewProject />
             </Route>
 
             <Route exact path="/contact">
