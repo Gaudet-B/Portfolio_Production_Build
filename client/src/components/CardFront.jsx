@@ -30,7 +30,7 @@ const CardFront = props => {
     
     } else {
         return (
-            <div id="mask" style={{ padding: "5px", height: "inherit", display: "flex", flexDirection: "column", justifyContent: "space-evenly" }}>
+            <div style={{ padding: "5px", height: "inherit", display: "flex", flexDirection: "column", justifyContent: "space-evenly" }}>
                 <img src={source} alt="placeholder" />
                 <div>
                     <p style={{ fontSize: "2rem", fontWeight: "bold", margin: "18px 0px 14px 0px" }}>{project.title}</p>

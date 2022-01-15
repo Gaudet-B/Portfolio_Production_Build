@@ -84,7 +84,7 @@ const Projects = () => {
                     {/* windowWidth={Math.max(windowWidth, 1200)}/> */}
                     <h2 className={(windowWidth > 1200) ? styles.h2 : styles.responsiveH2} style={(windowWidth < 1201 && windowWidth > 800) ? { margin: "0px 0px 0px 50px" } : {}}>P R O J E C T S</h2>
                     <div style={{ width: "fit-content", margin: "auto" }}>
-                        {/* arrays of projects and images are passed to the child component */}
+                        {/* arrays of projects and images are passed to the child components */}
                         {(windowWidth > 800) ?
                         <CustomCarousel projects={projects} images={images} windowWidth={windowWidth} />
                         :

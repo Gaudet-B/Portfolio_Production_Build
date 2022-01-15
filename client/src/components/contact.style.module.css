@@ -108,3 +108,13 @@
     font-family: 'Anonymous Pro';
     background: linear-gradient(8deg, rgba(26,26,26,0.2) 0%, rgba(25,25,25,1) 70%);
 }
+
+.title {
+    font-size: 48pt;
+    margin: 1em 0em;
+    animation: glow 7s ease infinite;
+}
+.titleResponsive {
+    font-size: 24pt;
+    margin: 2em 0em 1em 0em;
+}

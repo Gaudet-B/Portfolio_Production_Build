@@ -63,7 +63,7 @@ const Contact = () => {
             <div className={styles.bg} >
                 <div className={styles.contactBackground}>
                     <Header left="PROJECTS" right="RESUME" windowWidth={windowWidth}/>
-                    <h2>Contact Brian</h2>
+                    <p className={(windowWidth > 800) ? styles.title : styles.titleResponsive} >Contact Brian</p>
                     <Form windowWidth={windowWidth} />
                 </div>
             </div>

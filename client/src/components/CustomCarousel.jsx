@@ -24,17 +24,31 @@ const CustomCarousel = props => {
 
     // function to rotate the carousel
     const spin = e => {
-        let spinner = document.getElementById("spinner");
-        let id = e.target.id
-        if (id == "spanLeft") {
-            setLeftAngle(leftAngle + 90)
-            setRightAngle(rightAngle + 90)
-            spinner.setAttribute("style", `-webkit-transform: rotateY(${leftAngle}deg); -moz-transform: rotateY(${leftAngle}deg); transform: rotateY(${leftAngle}deg);`)
-        } else {
-            setRightAngle(rightAngle - 90)
-            setLeftAngle(leftAngle - 90)
-            spinner.setAttribute("style", `-webkit-transform: rotateY(${rightAngle}deg); -moz-transform: rotateY(${rightAngle}deg); transform: rotateY(${rightAngle}deg);`)
-        }
+        zoom()
+        setTimeout(() => {
+            
+            let spinner = document.getElementById("spinner");
+            let id = e.target.id
+            if (id == "spanLeft") {
+                setLeftAngle(leftAngle + 90)
+                setRightAngle(rightAngle + 90)
+                spinner.setAttribute("style", `-webkit-transform: rotateY(${leftAngle}deg); -moz-transform: rotateY(${leftAngle}deg); transform: rotateY(${leftAngle}deg);`)
+            } else {
+                setRightAngle(rightAngle - 90)
+                setLeftAngle(leftAngle - 90)
+                spinner.setAttribute("style", `-webkit-transform: rotateY(${rightAngle}deg); -moz-transform: rotateY(${rightAngle}deg); transform: rotateY(${rightAngle}deg);`)
+            }
+
+        }, 1500);
+    }
+
+    // function to zoom before rotating carousel
+    const zoom = () => {
+        let carousel = document.getElementById("carousel")
+        carousel.style.transform = "scale(1)"
+        setTimeout(() => {
+            carousel.style.transform = "scale(2.1)"
+        }, 2800);
     }
 
     // function that flips the cards - it is passed down to both Front and Back components where the triggering links live
@@ -88,7 +102,7 @@ const CustomCarousel = props => {
 
     return (
         <div className={styles.container} style={(windowWidth < 1201 && windowWidth > 800) ? { transform: "scale(0.7) translateX(-15em) translateY(-18em)" } : {}} >
-            <div id="carousel" className={styles.carousel} >
+            <div id="carousel" className={styles.carousel} style={{ transform: "scale(2.1)" }} >
 
                 <figure id="spinner" className={styles.spinner} >
                     <div className={cardDivOne} >

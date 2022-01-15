@@ -8,6 +8,15 @@
     55%, 100% { background-position: right;}
 }
 
+@keyframes flicker {
+    0%, 33%, 43%, 83%, 99% {color: rgba(24, 7, 7, 0.7);}
+    /* 0%, 3%, 31%, 41%, 49% {color: rgba(255,255,255,.3); -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(0, 214, 25, .8);} */
+    /* 0%, 3%, 33%, 41%, 51%, 100% {opacity: 1} */
+    1%, 32%, 34%, 42%, 44%, 82%, 84%, 98%, 100% {color: rgba(255,255,255,.3);}
+    /* 1%, 4%, 32%, 42%, 50%, 100% {color:rgba(255,255,255,.3); -webkit-text-stroke-width: 0px; -webkit-text-stroke-color: transparent;} */
+    /* 1%, 4%, 32%, 40%, 50% {opacity: 0} */
+}
+
 /* flips card left-to-right */
 @keyframes front-flip {
     0% {
@@ -81,6 +90,7 @@
     perspective: 1500px; 
     padding-top: 5%; 
     margin-bottom: 3rem; 
+    transition: 0.5s ease-in;
 }
 
 .spinner { 
@@ -88,7 +98,7 @@
     height: 700px; 
     /* this creates the 3D "rotation" space */
     transform-origin: 50% 50% -500px; 
-    transition: 1.25s ease-out; 
+    transition: 0.8s ease-out; 
 }
 
 .card { 
@@ -257,16 +267,24 @@ a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788)
     cursor: pointer;
     margin: auto;
     color: rgba(255,255,255,.3);
-    background: linear-gradient(180deg, rgba(26,26,26,0.5) 0%, rgb(0, 214, 25) 45%, rgb(0, 214, 25) 55%, rgba(26,26,26,0.5) 100%);
-    -webkit-background-size: 90px 100px;
-    -moz-background-size: 90px 100px;
-    background-size: 90px 100px;
+    /* background: none; */
+    background: linear-gradient(90deg, rgba(255,255,255,.3) 0%, rgb(123, 255, 139) 45%, rgb(61, 252, 84) 50%, rgb(123, 255, 139) 55%, rgba(255,255,255,.3) 100%);
+    -webkit-background-size: 100% 100px;
+    -moz-background-size: 100% 100px;
+    background-size: 100% 100px;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
     background-repeat: no-repeat;
-    animation: shine 10s infinite ease-in-out;
-    animation-delay: 5s;
+    background-position: center;
+
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: rgba(255,255,255,.3);
+    /* -webkit-text-stroke-color: rgb(0, 214, 25, .8); */
+
+    animation: flicker 15s linear infinite;
+    /* animation: shine 10s infinite ease-in-out; */
+    animation-delay: 2s;
 }
 .flipLink strong {
     font-size: 16pt;

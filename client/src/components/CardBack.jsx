@@ -18,7 +18,7 @@ const CardBack = props => {
     } else {
         return (
             
-            <div id="mask" style={{ height: "inherit", padding: "5px", display: "flex", flexDirection: "column", justifyContent: "space-between"  }}>
+            <div style={{ height: "inherit", padding: "5px", display: "flex", flexDirection: "column", justifyContent: "space-between"  }}>
                 
                 <p className={styles.backTitle} >{project.title}</p>
                 <p><strong>My Role(s):</strong> {project.myRole}</p>

@@ -53,7 +53,7 @@ const Form = props => {
     }
 
     return (
-        <div style={(windowWidth > 800) ? { paddingTop: "5em" } : { paddingTop: "2em", paddingBottom: "3em", marginBottom: "1em" }}>
+        <div style={(windowWidth > 800) ? { paddingTop: "2em" } : { paddingTop: "2em", paddingBottom: "3em" }}>
             <form id="contactForm" onSubmit={handleSubmit} className={(windowWidth > 800) ? styles.mainForm : styles.responsiveMain}>
                 {/* NAME */}
                 <div className={(windowWidth > 800) ? styles.formComponent : styles.responsiveComponent}>
