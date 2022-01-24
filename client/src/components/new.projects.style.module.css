@@ -1,48 +1,19 @@
-/* ======> {{ CONTACT COMPONENT }} <====== */
-
-/* ---> Fonts <--- */
-
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-
-/* Animations: */
-
-/* subtle glow effect for headers */
-@keyframes glow {
-    0% {color: rgba(255,255,255,.75); text-shadow: 1px 1px 1px rgba(255,255,255,.75);}
-    50% {color: whitesmoke; text-shadow: 2px 1px 1px rgba(245, 245, 245, 0.788);}
-    100% {color: rgba(255,255,255,.75); text-shadow: 1px 1px 1px rgba(255,255,255,.75);}
-}
-
-/* removes dark 'mask' from components on hover or reveals components on load */
 @keyframes un-mask {
     from {opacity: 0;}
     to {opacity: 1;}
 }
 
-/* loading spinner - outside */
 @keyframes spinner {
     0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
     90% {transform: translate3d(-50%, -50%, 0) rotate(365deg);}
     100% {transform: translate3d(-50%, -50%, 0) rotate(360deg);}
 }
 
-/* loading spinner - inside */
 @keyframes reverse-spinner {
     0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
     100% {transform: translate3d(-50%, -50%, 0) rotate(-360deg);}
 }
 
-
-/* { loading... } */
-.loadingBackground {
-    background-image: url("../assets/3d-background.png");
-    height: 100vh;
-    width: 100vw;
-    -webkit-backgound-size: cover;
-    -moz-backgound-size: cover;
-    background-size: cover;
-    text-align: center;
-}
 .loadingMask {
     height: 100vh;
     width: 100vw;
@@ -86,35 +57,38 @@
     left: 48%;
 }
 
-/* background image */
 .bg {
-    display: flex;
     animation: un-mask 3s ease;
     background-image: url("../assets/3d-background.png");
-    min-height: 100vh;
-    height: 100%;
+    width: fit-content;
+    /* max-width: 100vw; */
+    /* width: 100vw; */
     -webkit-backgound-size: cover;
     -moz-backgound-size: cover;
     background-size: cover;
     text-align: center;
 }
 
-/* size and font */
-.contactBackground {
+.projectsBackground {
     /* padding-top: 4em; */
-    width: fit-content;
-    width: 100vw;
+    /* min-height: 100vh; */
+    /* max-height: fit-content; */
+    /* width: 100%; */
     color: rgba(255,255,255,.75);
     font-family: 'Anonymous Pro';
-    background: linear-gradient(8deg, rgba(26,26,26,0.2) 0%, rgba(25,25,25,1) 70%);
+    background: linear-gradient(0deg, rgba(26,26,26,0.5) 0%, rgba(25,25,25,1) 60%);
 }
 
-.title {
-    font-size: 48pt;
-    margin: 1em 0em;
-    animation: glow 7s ease infinite;
+.newContainer {
+    -ms-overflow-style: none;
+    scrollbar-width: 0px;
+    max-height: 100vh;
+    overflow: auto;
 }
-.titleResponsive {
-    font-size: 24pt;
-    margin: 2em 0em 1em 0em;
+
+.newContainer::-webkit-scrollbar {
+    display: none;
 }
+
+/* NAVIGATION */
+

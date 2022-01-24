@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import styles from '../components/landing.style.module.css'
 
 
@@ -11,6 +12,14 @@ const Landing = () => {
     const getWindowWidth = () => {
         return window.innerWidth
     }
+
+    // ===============================================================
+    const history = useHistory()
+
+    const handleClick = () => {
+        history.push("/projectpages")
+    }
+    // ===============================================================
 
     // function that returns either a value from session or a default that is passed in
     const getSessionStorageOrDefault = (key, defaultValue) => {
@@ -358,6 +367,7 @@ const Landing = () => {
 
                         {/* Copyright & Est. Text */}
                         <div id="copyright" className=""></div>
+                        <a href="/projectpages" style={{ width: "100px", height: "10px", margin: "auto", cursor: "pointer" }}>CLICK ME</a>
                     </div>
                     :
                     // Resume Button

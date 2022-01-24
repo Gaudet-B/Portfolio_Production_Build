@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '../components/carousel.style.module.css'
+import styles from '../components/custom.carousel.style.module.css'
 import CardBack from './CardBack'
 import CardFront from './CardFront'
 

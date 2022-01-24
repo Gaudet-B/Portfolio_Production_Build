@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import Header from '../components/Header'
+import Navigation from '../components/Navigation'
 
 import styles from '../components/projects.style.module.css'
 
@@ -65,8 +66,8 @@ const Resume = () => {
     }, [])
 
     // combines classes for large and small screens
-    const classArr = ["bg-dark", "p-5", styles.mainContent]
-    const responsiveArr = ["bg-dark", "py-5", styles.mainContent]
+    const classArr = ["bg-dark", "px-5", styles.mainContent]
+    const responsiveArr = ["bg-dark", styles.mainContent]
     const mainClass = classNames(classArr)
     const responsiveClass = classNames(responsiveArr)
 
@@ -88,7 +89,8 @@ const Resume = () => {
 
             <div className={(windowWidth > 800) ? mainClass : responsiveClass}>
 
-                <Header left="CONTACT" right="HOME" windowWidth={windowWidth} />
+                {/* <Header left="CONTACT" right="HOME" windowWidth={windowWidth} /> */}
+                <Navigation left="CONTACT" right="HOME" windowWidth={windowWidth} />
 
                 <div className={(windowWidth > 800) ? "bg-dark text-light p-5 d-flex flex-column justify-content-center" : "bg-dark text-light mt-3 d-flex flex-column justify-content-center"}>
 

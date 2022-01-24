@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Landing from './views/Landing'
 import Projects from './views/Projects'
+import ProjectPages from './views/ProjectPages'
 import ViewProject from './views/ViewProject'
 import Resume from './views/Resume'
 import Contact from './views/Contact'
@@ -43,6 +44,10 @@ function App() {
 
             <Route exact path="/projects/:id">
               <Edit />
+            </Route>
+
+            <Route exact path="/projectpages">
+              <ProjectPages />
             </Route>
 
           </Switch>

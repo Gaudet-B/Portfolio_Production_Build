@@ -2,6 +2,12 @@
 
 /* Animations: */
 
+/* flip card link shines to subtly grab user attention */
+@keyframes shine {
+    0%, 45% { background-position: left;}
+    55%, 100% { background-position: right;}
+}
+
 @keyframes flicker {
     0%, 33%, 43%, 83%, 99% {color: rgba(24, 7, 7, 0.7);}
     /* 0%, 3%, 31%, 41%, 49% {color: rgba(255,255,255,.3); -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: rgb(0, 214, 25, .8);} */
@@ -9,6 +15,44 @@
     1%, 32%, 34%, 42%, 44%, 82%, 84%, 98%, 100% {color: rgba(255,255,255,.3);}
     /* 1%, 4%, 32%, 42%, 50%, 100% {color:rgba(255,255,255,.3); -webkit-text-stroke-width: 0px; -webkit-text-stroke-color: transparent;} */
     /* 1%, 4%, 32%, 40%, 50% {opacity: 0} */
+}
+
+/* flips card left-to-right */
+@keyframes front-flip {
+    0% {
+        transform-origin: center;
+        transform: rotateY(0deg);
+        filter: blur(0.1px);
+    }
+    50% {
+        transform-origin: center;
+        transform: rotateY(90deg);
+        filter: blur(5px);
+    }
+    100% {
+        transform-origin: center;
+        transform: rotateY(180deg);
+        filter: blur(0px);
+    }
+}
+
+/* flips card-right-to-left */
+@keyframes back-flip {
+    0% {
+        transform-origin: center;
+        transform: rotateY(0deg);
+        filter: blur(0.1px);
+    }
+    50% {
+        transform-origin: center;
+        transform: rotateY(-90deg);
+        filter: blur(5px);
+    }
+    100% {
+        transform-origin: center;
+        transform: rotateY(-180deg);
+        filter: blur(0px);
+    }
 }
 
 /* removes dark 'mask' from components on hover or reveals components on load */
@@ -42,57 +86,74 @@
 /* Styles: */
 
 .carousel {
-    width: 90vw;
-    /* width: 1130px; */
-    perspective: 2000px; 
-    /* padding-top: 5%;  */
-    /* margin-bottom: 3rem;  */
+    width: 1130px;
+    perspective: 1500px; 
+    padding-top: 5%; 
+    margin-bottom: 3rem; 
     transition: 0.5s ease-in;
 }
 
 .spinner { 
     transform-style: preserve-3d; 
-    height: 1700px; 
+    height: 700px; 
     /* this creates the 3D "rotation" space */
-    transform-origin: 50% 0% -550px; 
+    transform-origin: 50% 50% -500px; 
     transition: 0.8s ease-out; 
 }
 
 .card { 
-    /* margin: 0px !important */
-    margin: auto;
     transform-style: preserve-3d;
-    /* width: 100%;  */
-    /* width: 40%;  */
-    /* min-width: 550px; */
-    /* max-width: 550px; */
-    width: 90vw;
-    height: 1700px;
-    /* position: relative; */
-    /* align-self: center; */
-    /* border: 4px double whitesmoke; */
-    /* border-radius: 6% / 5%; */
+    width: 40%; 
+    min-width: 550px;
+    max-width: 550px; 
+    height: 700px;
+    position: relative;
+    align-self: center;
+    border: 4px double whitesmoke;
+    border-radius: 6% / 5%;
     background-color: #262626;
 }
 
 .cardDiv {
     transform-style: preserve-3d;
-    /* perspective: 1500px; */
-    /* width: 40%;  */
-    /* min-width: 600px; */
-    /* max-width: 600px;  */
-    /* width: 100vw; */
+    perspective: 1500px;
+    width: 40%; 
+    min-width: 600px;
+    max-width: 600px; 
     height: fit-content;
     position: absolute;
-    /* margin-left: 20%; */
-    transform-origin: 50% 0% -550px;
+    margin-left: 20%;
+    transform-origin: 50% 50% -500px;
 }
 
 /* Postiion cards around y-axis */
-.card0Div { transform: rotateY(0deg); }
-.card1Div { transform: rotateY(-90deg); }
-.card2Div { transform: rotateY(-180deg); }
-.card3Div { transform: rotateY(-270deg); }
+.cardOneDiv { transform: rotateY(0deg); }
+.cardTwoDiv { transform: rotateY(-90deg); }
+.cardThreeDiv { transform: rotateY(-180deg); }
+.cardFourDiv { transform: rotateY(-270deg); }
+
+.cardFront {
+    width: 100%;
+    position: absolute;
+}
+
+.cardBack {
+    height: 100%;
+    position: relative;
+    border: 4px double whitesmoke;
+    border-radius: 6% / 5%;
+    transform: translate3d(0, 0, -10px) rotateY(180deg);
+    background-color: #262626;
+}
+
+.flipper { 
+    transform-style: preserve-3d; 
+    height: fit-content; 
+    width: fit-content; 
+    /* this creates the 3D "rotation" space */
+    transform-origin: center; 
+    transition: 2s ease-out; 
+}
 
 /* these are the 3D "sides" of the cards: */
 .left {
@@ -137,14 +198,14 @@
 .span:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 6.1rem; cursor: pointer; }
 
 .spanLeft {
-    /* margin-left: -40px; */
+    margin-left: -40px;
     float: left;
 }
 
 .spanRight {
-    /* margin-right: -25px; */
+    margin-right: -25px;
     float: right;
-    /* margin-left: 20px; */
+    margin-left: 20px;
 }
 
 .card img {
@@ -187,10 +248,10 @@ a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788)
     height: 100%;
 }
 
-/* .container {
+.container {
     width: fit-content;
     padding: 12px 40px;
-} */
+}
 
 /* classes that handle card flipping */
 .flip {

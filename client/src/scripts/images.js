@@ -26,12 +26,21 @@ const mythImages = [myth1]
 
 const getImages = () => {
     let object = {
-        draft: draftImages,
-        pizza: pizzaImages,
-        portfolio: portfolioImages,
-        myth: mythImages
+        0: draftImages,
+        1: pizzaImages,
+        2: portfolioImages,
+        3: mythImages
     }
     return object
 }
+// const getImages = () => {
+//     let object = {
+//         draft: draftImages,
+//         pizza: pizzaImages,
+//         portfolio: portfolioImages,
+//         myth: mythImages
+//     }
+//     return object
+// }
 
 export default getImages
