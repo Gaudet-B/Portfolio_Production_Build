@@ -31,6 +31,9 @@ const ProjectPages = () => {
     // gets images from assets directory
     const [images, setImages] = useState(getImages())
 
+    //
+    const [ fillerStyle, setFillerStyle ] = useState(styles.filler)
+
     // function that displays loading spinner 
     const loadData = async () => {
         await new Promise((res) => setTimeout(res, 3000))
@@ -86,11 +89,15 @@ const ProjectPages = () => {
                         {/* arrays of projects and images are passed to the child components */}
                     {(windowWidth > 800) ?
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                        <div style={{ height: "100vh", width: "50px", backgroundColor: "rgba(0, 143, 17, .8)" }} ></div>
+                        <div className={styles.border} >
+                            <div className={fillerStyle} ></div>
+                        </div>
                             <div className={styles.newContainer}>
-                                <Carousel projects={projects} images={images} windowWidth={windowWidth} />
+                                <Carousel projects={projects} images={images} windowWidth={windowWidth} setFillerStyle={setFillerStyle} />
                             </div>
-                        <div style={{ height: "100vh", width: "50px", backgroundColor: "rgba(0, 143, 17, .8)" }} ></div>
+                        <div className={styles.border} >
+                            <div className={fillerStyle} ></div>
+                        </div>
                     </div>
                     :
                     <ProjectCards projects={projects} images={images} />

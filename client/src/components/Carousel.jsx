@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from '../components/carousel.style.module.css'
+import projectStyles from '../components/new.projects.style.module.css'
 
 import ProjectPage from '../components/ProjectPage'
 
@@ -20,16 +21,17 @@ const Carousel = props => {
     const [cardFourAngle, setCardFourAngle] = useState(180)
 
     // pull projects array and images array from props
-    const { projects, images, windowWidth } = props
+    const { projects, images, windowWidth, setFillerStyle } = props
 
     // function to rotate the carousel
     const spin = e => {
+        setFillerStyle(projectStyles.filler + " " + projectStyles.flicker)
         zoom()
         setTimeout(() => {
             
             let spinner = document.getElementById("spinner");
             let id = e.target.id
-            if (id == "spanLeft") {
+            if (id == "left") {
                 setLeftAngle(leftAngle + 90)
                 setRightAngle(rightAngle + 90)
                 spinner.setAttribute("style", `-webkit-transform: rotateY(${leftAngle}deg); -moz-transform: rotateY(${leftAngle}deg); transform: rotateY(${leftAngle}deg);`)
@@ -38,8 +40,10 @@ const Carousel = props => {
                 setLeftAngle(leftAngle - 90)
                 spinner.setAttribute("style", `-webkit-transform: rotateY(${rightAngle}deg); -moz-transform: rotateY(${rightAngle}deg); transform: rotateY(${rightAngle}deg);`)
             }
+            
+        }, 1000)
 
-        }, 1500);
+        setTimeout(() => setFillerStyle(projectStyles.filler), 4000)
     }
 
     // function to zoom before rotating carousel
@@ -48,7 +52,7 @@ const Carousel = props => {
         carousel.style.transform = "scale(0.5)"
         setTimeout(() => {
             carousel.style.transform = "scale(1.0)"
-        }, 2800);
+        }, 2500);
     }
 
     var leftArrow = classNames([styles.span, styles.spanLeft])
@@ -60,11 +64,16 @@ const Carousel = props => {
 
                 <div id="spinner" className={styles.spinner} >
 
-                    {projects.map((project, idx) => {
+                    {/* {projects.map((project, idx) => {
                         if (idx < 4) return(
-                            <ProjectPage index={idx} project={project} images={images[idx]} responsive={false} />
+                            <ProjectPage index={idx} project={project} images={images[idx]} responsive={false} spin={spin} />
                         )
-                    })}
+                    })} */}
+
+                    <ProjectPage index={0} project={projects[0]} images={images[0]} reponsive={false} spin={spin} />
+                    <ProjectPage index={1} project={projects[3]} images={images[3]} reponsive={false} spin={spin} />
+                    <ProjectPage index={2} project={projects[2]} images={images[2]} reponsive={false} spin={spin} />
+                    <ProjectPage index={3} project={projects[1]} images={images[1]} reponsive={false} spin={spin} />
 
                 </div>
             </div>
