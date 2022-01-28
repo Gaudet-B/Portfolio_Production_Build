@@ -197,16 +197,16 @@
     border-radius: 5% / 8%;
 }
 
-body {
+/* body {
     background-color: #262626;
-}
+} */
 
-a {
+/* a {
     color: rgba(0, 143, 17, .9);
     font-family: helvetica;
     font-size: 14pt;
-}
-a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 14.5pt; cursor: pointer; }
+} */
+/* a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 14.5pt; cursor: pointer; } */
 
 .card {
     display: flex;

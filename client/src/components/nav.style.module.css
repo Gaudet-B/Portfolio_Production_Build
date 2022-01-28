@@ -1,0 +1,24 @@
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+.navLink {
+    /* font-family: 'Anonymous Pro', monospace; */
+    font-family: helvetica;
+    margin: 0px 2px;
+    padding: 10px 12px 0px 12px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: whitesmoke;
+    border-radius: 5px 5px 0px 0px;
+}
+.navLink:hover {
+    color: whitesmoke;
+}
+
+.active {
+    color: rgba(0, 143, 17);
+    background-color: #262626;
+}
+.active:hover {
+    color: rgba(0, 143, 17);
+}

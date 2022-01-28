@@ -215,7 +215,8 @@
 }
 
 body {
-    background-color: #262626;
+    /* background-color: #252525; */
+    background-color: rgba(25,25,25,1);
 }
 
 a {
@@ -223,7 +224,7 @@ a {
     font-family: helvetica;
     font-size: 14pt;
 }
-a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 14.5pt; cursor: pointer; }
+/* a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 14.5pt; cursor: pointer; } */
 
 .card {
     display: flex;

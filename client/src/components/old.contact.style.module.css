@@ -109,19 +109,10 @@
     background: linear-gradient(8deg, rgba(26,26,26,0.2) 0%, rgba(25,25,25,1) 70%);
 }
 
-.contactContainer {
-    background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.1) 100%);
-    /* background-color: rgb(38, 38, 38); */
-    padding-top: 2em;
-    margin: 0 3rem 3rem 3rem;
-}
-
 .title {
-    font-size: 36pt;
-    /* margin: 1em 0em; */
-    margin: 0;
-    /* animation: glow 7s ease infinite; */
-    text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.3);
+    font-size: 48pt;
+    margin: 1em 0em;
+    animation: glow 7s ease infinite;
 }
 .titleResponsive {
     font-size: 24pt;

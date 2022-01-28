@@ -4,37 +4,47 @@ import logo from '../assets/icons/BG_logo_icon_short_light.png'
 import downArrow from '../assets/down-arrow-icon-white.png'
 import upArrow from '../assets/up-arrow-icon-white.png'
 
+import styles from './nav.style.module.css'
+import { useEffect } from 'react'
+
 const Navigation = props => {
 
     const { left, right, windowWidth } = props
+    
+    const [ page, setPage ] = useState("")
 
     // const [ show, setShow ] = useState(false)
 
     // const handleShow = () => setShow(!show)
 
-    // const handleLogout = () => {
-    //     sessionStorage.removeItem("id")
-    //     setLoggedIn(false)
-    //     setShow(!show)
-    // }
+    const setActivePage = page => {
+        let link
+        if (page === "projectpages") {
+            link = document.getElementById("link-projects")
+            // document.getElementById("link-projects").style.color = "rgb(0,143,17)"
+        } else if (page === "resume") {
+            link = document.getElementById("link-resume")
+            // document.getElementById("link-resume").style.color = "rgba(0,143,17)"
+        } else if (page === "contact") {
+            link = document.getElementById("link-contact")
+            // document.getElementById("link-contact").style.color = "rgb(0,143,17)"
+        }
+        // link.style.color = "rgb(0,143,17)"
+        // link.style.backgroundColor = "#262626"
+        link.classList.add(styles.active)
+    }
 
-    // link variables
-    var leftLink, rightLink
-    // exception handling for "home" path
-    if (left == "HOME") {
-        leftLink = "/"
-    } else {
-        leftLink = left.toLowerCase()
-    }
-    // exception handling for "home" path
-    if (right == "HOME") {
-        rightLink = "/"
-    } else {
-        rightLink = right.toLowerCase()
-    }
+    useEffect(() => {
+        let url = window.location.href
+        let splitUrl = url.split("/")
+        let currentPage = splitUrl.pop()
+        setPage(currentPage)
+        // setTimeout(() => setActivePage(currentPage), 500)
+        setActivePage(currentPage)
+    }, [])
 
     return (
-        <div style={{ height: "fit-content", display: "flex", flexDirection: "column", padding: "20px 55px 0pc 55px" }} >
+        <div style={{ height: "fit-content", display: "flex", flexDirection: "column", padding: "20px 55px 0pc 55px", backgroundColor: "rgba(25,25,25,1)" }} >
             {/* <a href={leftLink} id="left" style={{  }}> { left } </a>
             <a href={rightLink} id="right" style={{  }}> { right } </a> */}
             <div >
@@ -48,10 +58,10 @@ const Navigation = props => {
                 {/* {(show) ? */}
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "0px 20px" }}>
                     <a href="/" > <img src={logo} style={{ marginBottom: "12px" }} /></a>
-                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: "10px" }}>
-                        <a href="/projectpages" style={{ margin: "0px 12px", textDecoration: "none" }} >PROJECTS</a>
-                        <a href="/resume" style={{ margin: "0px 12px", textDecoration: "none" }} >RESUME</a>
-                        <a href="/contact" style={{ margin: "0px 12px", textDecoration: "none" }} >CONTACT</a>
+                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        <a id={"link-projects"} href="/projectpages" className={styles.navLink} >PROJECTS</a>
+                        <a id={"link-resume"} href="/resume" className={styles.navLink} >RESUME</a>
+                        <a id={"link-contact"} href="/contact" className={styles.navLink} >CONTACT</a>
                     </div>
                 </div>
                 {/* : null

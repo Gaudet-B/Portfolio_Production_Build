@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 
-import styles from '../components/projects.style.module.css'
+// import styles from '../components/projects.style.module.css'
+import styles from '../components/resume.style.module.css'
 
 import git from '../assets/GitHub.jpg'
 import linked from '../assets/LinkedIn.jpg'
@@ -66,8 +67,8 @@ const Resume = () => {
     }, [])
 
     // combines classes for large and small screens
-    const classArr = ["bg-dark", "px-5", styles.mainContent]
-    const responsiveArr = ["bg-dark", styles.mainContent]
+    const classArr = [styles.background, "px-5", styles.mainContent]
+    const responsiveArr = [styles.background, styles.mainContent]
     const mainClass = classNames(classArr)
     const responsiveClass = classNames(responsiveArr)
 
@@ -85,16 +86,16 @@ const Resume = () => {
 
     } else {
         return (
-            <div className="bg-dark">
+            <div className={styles.background}>
 
             <div className={(windowWidth > 800) ? mainClass : responsiveClass}>
 
                 {/* <Header left="CONTACT" right="HOME" windowWidth={windowWidth} /> */}
                 <Navigation left="CONTACT" right="HOME" windowWidth={windowWidth} />
 
-                <div className={(windowWidth > 800) ? "bg-dark text-light p-5 d-flex flex-column justify-content-center" : "bg-dark text-light mt-3 d-flex flex-column justify-content-center"}>
+                <div className={(windowWidth > 800) ? "rounded p-4 text-light d-flex flex-column justify-content-center" : "rounded text-light mt-3 d-flex flex-column justify-content-center"} style={{ backgroundColor: "#262626" }}>
 
-                    <div className={(windowWidth > 800) ? "border border-light rounded container mt-4 p-4" : "border border-light rounded container mt-4 p-2"}>
+                    <div className={(windowWidth > 800) ? "border border-light rounded container p-4" : "border border-light rounded container mt-4 p-2"}>
                     
                     <div className="d-flex flex-row justify-content-between">
                         

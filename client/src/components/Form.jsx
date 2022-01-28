@@ -53,7 +53,7 @@ const Form = props => {
     }
 
     return (
-        <div style={(windowWidth > 800) ? { paddingTop: "2em" } : { paddingTop: "2em", paddingBottom: "3em" }}>
+        <div style={(windowWidth > 800) ? { padding: "2em 0" } : { padding: "3em 0" }}>
             <form id="contactForm" onSubmit={handleSubmit} className={(windowWidth > 800) ? styles.mainForm : styles.responsiveMain}>
                 {/* NAME */}
                 <div className={(windowWidth > 800) ? styles.formComponent : styles.responsiveComponent}>
@@ -64,7 +64,7 @@ const Form = props => {
 
                 {/* EMAIL */}
                 <div className={(windowWidth > 800) ? styles.formComponent : styles.responsiveComponent}>
-                    <label htmlFor="email" className={(windowWidth > 800) ? styles.label : styles.responsiveLabel}>your email address</label>
+                    <label htmlFor="email" className={(windowWidth > 800) ? styles.label : styles.responsiveLabel}>your email</label>
                     <input name="email" onChange={handleFormChange} className={(windowWidth > 800) ? styles.textInput : styles.responsiveInput} type="email" />
                 </div>
                 {/* { (validState.email) ? <p className="text-danger"> { validState.email } </p> : null } */}

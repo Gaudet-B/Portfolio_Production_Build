@@ -55,11 +55,12 @@ const Carousel = props => {
         }, 2500);
     }
 
-    var leftArrow = classNames([styles.span, styles.spanLeft])
-    var rightArrow = classNames([styles.span, styles.spanRight])
+    // var leftArrow = classNames([styles.span, styles.spanLeft])
+    // var rightArrow = classNames([styles.span, styles.spanRight])
 
     return (
         <div className={styles.container} >
+
             <div id="carousel" className={styles.carousel} >
 
                 <div id="spinner" className={styles.spinner} >
@@ -78,8 +79,8 @@ const Carousel = props => {
                 </div>
             </div>
 
-            <div id="spanLeft" className={leftArrow}  onClick={spin}>&lt;</div>
-            <div id="spanRight" className={rightArrow}  onClick={spin} style={(windowWidth < 1201 && windowWidth > 800) ? { marginRight: "18px" } : {}} >&gt;</div>
+            {/* <div id="spanLeft" className={leftArrow}  onClick={spin}>&lt;</div>
+            <div id="spanRight" className={rightArrow}  onClick={spin} style={(windowWidth < 1201 && windowWidth > 800) ? { marginRight: "18px" } : {}} >&gt;</div> */}
         </div>
     )
 }

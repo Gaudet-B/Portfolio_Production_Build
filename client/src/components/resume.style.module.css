@@ -1,37 +1,24 @@
-/* ======> {{ CONTACT COMPONENT }} <====== */
-
-/* ---> Fonts <--- */
-
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-
-/* Animations: */
-
-/* subtle glow effect for headers */
 @keyframes glow {
     0% {color: rgba(255,255,255,.75); text-shadow: 1px 1px 1px rgba(255,255,255,.75);}
     50% {color: whitesmoke; text-shadow: 2px 1px 1px rgba(245, 245, 245, 0.788);}
     100% {color: rgba(255,255,255,.75); text-shadow: 1px 1px 1px rgba(255,255,255,.75);}
 }
 
-/* removes dark 'mask' from components on hover or reveals components on load */
 @keyframes un-mask {
     from {opacity: 0;}
     to {opacity: 1;}
 }
 
-/* loading spinner - outside */
 @keyframes spinner {
     0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
     90% {transform: translate3d(-50%, -50%, 0) rotate(365deg);}
     100% {transform: translate3d(-50%, -50%, 0) rotate(360deg);}
 }
 
-/* loading spinner - inside */
 @keyframes reverse-spinner {
     0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
     100% {transform: translate3d(-50%, -50%, 0) rotate(-360deg);}
 }
-
 
 /* { loading... } */
 .loadingBackground {
@@ -86,44 +73,12 @@
     left: 48%;
 }
 
-/* background image */
-.bg {
-    display: flex;
+/* Resume un-masking */
+.mainContent {
     animation: un-mask 3s ease;
-    background-image: url("../assets/3d-background.png");
-    min-height: 100vh;
-    height: 100%;
-    -webkit-backgound-size: cover;
-    -moz-backgound-size: cover;
-    background-size: cover;
-    text-align: center;
 }
 
-/* size and font */
-.contactBackground {
-    /* padding-top: 4em; */
-    width: fit-content;
-    width: 100vw;
-    color: rgba(255,255,255,.75);
-    font-family: 'Anonymous Pro';
-    background: linear-gradient(8deg, rgba(26,26,26,0.2) 0%, rgba(25,25,25,1) 70%);
-}
-
-.contactContainer {
-    background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.1) 100%);
-    /* background-color: rgb(38, 38, 38); */
-    padding-top: 2em;
-    margin: 0 3rem 3rem 3rem;
-}
-
-.title {
-    font-size: 36pt;
-    /* margin: 1em 0em; */
-    margin: 0;
-    /* animation: glow 7s ease infinite; */
-    text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.3);
-}
-.titleResponsive {
-    font-size: 24pt;
-    margin: 2em 0em 1em 0em;
+/*  */
+.background {
+    background-color: rgba(25,25,25,1);
 }
