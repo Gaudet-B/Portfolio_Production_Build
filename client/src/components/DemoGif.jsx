@@ -2,11 +2,15 @@ import React from 'react'
 
 const DemoGif = props => {
 
-    const { source } = props
+    const { card, width, source, closeDemo } = props
 
     return (
+    // <div style={{ height: "800px", width: `${width}%`, backgroundImage: `url(${source})`, backgroundPosition: "center", backgroundSize: "cover" }}>
     <div>
-        <img src={source} alt="placeholder" style={{ maxHeight: "800px" }} />
+        {/* <div style={{ height: "inherit", width: "inherit" }}></div> */}
+        {/* <p onClick={closeDemo} style={{ cursor: "pointer", fontSize: "13pt", marginTop: "12px" }}>click to close demo</p> */}
+        <img id={"image-" + card} src={source} alt="placeholder" style={{ maxHeight: "900px" }} />
+        <p onClick={closeDemo} style={{ cursor: "pointer", fontSize: "13pt", marginTop: "12px" }}>click to close demo</p>
     </div>
     )
 }

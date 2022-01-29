@@ -344,7 +344,7 @@ const Landing = () => {
 
                     {/* Projects Button */}
                     <div id="" className={styles.button}>
-                        <a id="projects" href="/projects" className="" >
+                        <a id="projects" href="/projectpages" className="" >
                             {(windowWidth > 800) ? <div className={styles.mask}></div> : null}
                         </a>
                         <div id="projects-label" className=""></div>
@@ -367,7 +367,6 @@ const Landing = () => {
 
                         {/* Copyright & Est. Text */}
                         <div id="copyright" className=""></div>
-                        <a href="/projectpages" style={{ width: "100px", height: "10px", margin: "auto", cursor: "pointer" }}>CLICK ME</a>
                     </div>
                     :
                     // Resume Button

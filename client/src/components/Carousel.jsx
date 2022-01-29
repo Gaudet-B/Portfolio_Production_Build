@@ -21,16 +21,25 @@ const Carousel = props => {
     const [cardFourAngle, setCardFourAngle] = useState(180)
 
     // pull projects array and images array from props
-    const { projects, images, windowWidth, setFillerStyle } = props
+    const { projects, images, windowHeight, windowWidth, setFillerStyle } = props
 
     // function to rotate the carousel
     const spin = e => {
+        let id
+        // console.log(e.target.tagName)
+        if (e.target.tagName === "P") {
+            id = e.target.parentNode.parentNode.id
+        } else if (e.target.tagName === "DIV") {
+            id = e.target.parentNode.id
+        }
+        // console.log(id)
+        // document.getElementById("")
         setFillerStyle(projectStyles.filler + " " + projectStyles.flicker)
         zoom()
         setTimeout(() => {
             
             let spinner = document.getElementById("spinner");
-            let id = e.target.id
+            // let id = e.target.id
             if (id == "left") {
                 setLeftAngle(leftAngle + 90)
                 setRightAngle(rightAngle + 90)
@@ -49,7 +58,7 @@ const Carousel = props => {
     // function to zoom before rotating carousel
     const zoom = () => {
         let carousel = document.getElementById("carousel")
-        carousel.style.transform = "scale(0.5)"
+        carousel.style.transform = "scale(0.6)"
         setTimeout(() => {
             carousel.style.transform = "scale(1.0)"
         }, 2500);
@@ -61,7 +70,7 @@ const Carousel = props => {
     return (
         <div className={styles.container} >
 
-            <div id="carousel" className={styles.carousel} >
+            <div id="carousel" className={styles.carousel} style={{ height: `${windowHeight}px` }} >
 
                 <div id="spinner" className={styles.spinner} >
 

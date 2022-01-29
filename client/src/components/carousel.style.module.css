@@ -12,12 +12,8 @@
 }
 
 /* removes dark 'mask' from components on hover or reveals components on load */
-@keyframes un-mask {
+/* @keyframes un-mask {
     0% {
-        background-color: #262626;
-        opacity: 1;
-    }
-    50% {
         background-color: #262626;
         opacity: 1;
     }
@@ -26,10 +22,25 @@
         opacity: 1;
     }
     100% {
-        background-color: transparent;
-        opacity: 1;
+        background-color: #262626;
+        opacity: 0;
     }
 }
+
+@keyframes mask {
+    0% {
+        background-color: #262626;
+        opacity: 0;
+    }
+    90% {
+        background-color: #262626;
+        opacity: 1;
+    }
+    100% {
+        background-color: #262626;
+        opacity: 1;
+    }
+} */
 
 /* subtle glow effect for headers */
 @keyframes glow {
@@ -44,6 +55,20 @@
     to {height: 750px;} 
 }
 
+@keyframes contract {
+    from {height: 750px;}
+    to {height: 25px;}
+}
+
+@keyframes portrait {
+    from {height: 100px; width: 100px;}
+    to {height: 400px; width: 200px;}
+}
+
+@keyframes landscape {
+    from {height: 100px; width: 100px;}
+    to {height: 500px; width: 750px;}
+}
 
 /* Styles: */
 
@@ -55,33 +80,37 @@
     /* padding-top: 5%;  */
     /* margin-bottom: 3rem;  */
     transition: 0.5s ease-in;
+    /* height: inherit; */
 }
 
 .spinner { 
     transform-style: preserve-3d; 
-    height: 1700px; 
+    /* height: 1700px;  */
     /* this creates the 3D "rotation" space */
     transform-origin: 50% 0% -550px; 
     transition: 0.8s ease-out; 
+    height: inherit;
 }
 
-.card { 
+/* .card {  */
     /* margin: 0px !important */
-    margin: auto;
-    transform-style: preserve-3d;
+    /* margin: auto; */
+    /* transform-style: preserve-3d; */
     /* width: 100%;  */
     /* width: 40%;  */
     /* min-width: 550px; */
     /* max-width: 550px; */
-    width: 90vw;
-    max-width: 1140px;
-    height: 1700px;
+    /* width: 90vw; */
+    /* max-width: 1140px; */
+    /* height: 2100px; */
+    /* height: 100%; */
+    /* height: inherit; */
     /* position: relative; */
     /* align-self: center; */
     /* border: 4px double whitesmoke; */
     /* border-radius: 6% / 5%; */
-    background-color: #262626;
-}
+    /* background-color: #262626; */
+/* } */
 
 .cardDiv {
     transform-style: preserve-3d;
@@ -90,7 +119,8 @@
     /* min-width: 600px; */
     /* max-width: 600px;  */
     /* width: 100vw; */
-    height: fit-content;
+    /* height: fit-content; */
+    height: inherit;
     position: absolute;
     /* margin-left: 20%; */
     transform-origin: 50% 0% -550px;
@@ -103,7 +133,7 @@
 .card3Div { transform: rotateY(-270deg); }
 
 /* these are the 3D "sides" of the cards: */
-.left {
+/* .left {
     position: absolute;
     margin-left: -2px;
     height: 95%;
@@ -127,10 +157,10 @@
     opacity: .7;
     transform-origin: center;
     transform: translate3d(0, 0, -5px) translate(542px) rotateY(-100deg);
-}
+} */
 
 /* left and right directional buttons -> *NOTE* the font syle of parent element will affect the style of these buttons! *NOTE* */
-.span { 
+/* .span { 
     color: rgba(255,255,255,.75);
     margin: 5%;
     display: inline-block; 
@@ -145,15 +175,12 @@
 .span:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 6.1rem; cursor: pointer; }
 
 .spanLeft {
-    /* margin-left: -40px; */
     float: left;
 }
 
 .spanRight {
-    /* margin-right: -25px; */
     float: right;
-    /* margin-left: 20px; */
-}
+} */
 
 /* .card img {
     width: 99%;
@@ -165,10 +192,18 @@
     background-color: #262626;
 } */
 
-a {
-    color: rgba(0, 143, 17, .9);
+p {
+    margin: 0
+}
+
+.githubLink {
+    /* color: rgba(0, 143, 17); */
+    color: rgb(7, 204, 30);
+    /* color: rgba(123, 255, 139); */
     font-family: helvetica;
-    font-size: 14pt;
+    font-size: 16pt;
+    border-radius: 50%;
+    margin: 1rem auto 2rem auto;
 }
 /* a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 14.5pt; cursor: pointer; } */
 
@@ -180,6 +215,10 @@ a {
     /* height: 700px; */
     position: relative;
     align-self: center;
+    width: 90vw;
+    max-width: 1140px;
+    margin: auto;
+    transform-style: preserve-3d;
     /* border: 4px double whitesmoke; */
     /* border-radius: 6% / 5%; */
     /* background-color: #262626; */
@@ -189,6 +228,7 @@ a {
     flex-direction: column;
     text-align: center;
     color: whitesmoke;
+    /* height: inherit; */
 }
 
 /* .card {
@@ -202,21 +242,30 @@ a {
     width: 100%;
     position: absolute;
     padding: 5px;
-    height: inherit;
+    /* height: inherit; */
+    /* min-height: fit+-content; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: #262626;
+    /* background-color: #262626; */
+    background: linear-gradient(to bottom, #262626 0%, #262626 80%, transparent 100%);
+    /*  */
+    -ms-overflow-style: none;
+    scrollbar-width: 0px;
+    /* max-height: 100vh; */
+    overflow: auto;
+    max-height: inherit;
 }
 
 .cardBack {
-    height: 100%;
+    height: 2700px !important;
     position: relative;
     /* border: 4px solid #262626; */
     /* border-radius: 6% / 5%; */
     transform: translate3d(0, 0, -10px);
     /* transform: translate3d(0, 0, -10px) rotateY(180deg); */
-    background-color: #262626;
+    /* background-color: #262626; */
+    background: linear-gradient(to bottom, #262626 0%, #262626 80%, transparent 100%);
 }
 
 /* .cardFront {
@@ -242,11 +291,15 @@ a {
 
 .demo {
     margin: 10px;
-    height: 200px;
-    width: 200px;
     border: 1px solid black;
     background-size: cover;
     cursor: pointer;
+    transition: 1s linear ease-out;
+}
+.demoInactive {
+    height: 100px;
+    width: 100px;
+    transition: 1s linear ease-out;
 }
 
 .demoMask {
@@ -260,17 +313,39 @@ a {
     background-color: transparent;
 }
 
+.activeImgLandscape {
+    animation: landscape 1s ease-out;
+    height: 500px;
+    width: 750px;
+}
+.activeImgPortrait {
+    animation: portrait 1s ease-out;
+    height: 400px;
+    width: 150px;
+}
+
 .demoContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     min-height: 25px;
+    /* margin: 2rem 0; */
 }
 
 .expand {
     /* transition: 1.5s; */
-    animation: expand 1.5s ease-out;
+    animation: expand 1s ease-out;
 }
+.contract {
+    animation: contract 1s ease-in;
+}
+
+/* .demoOpen {
+    animation: un-mask .5s ease-in;
+}
+.demoClose {
+    animation: mask .5s ease-in;
+} */
 
 /* classes that handle card flipping */
 .flip {
@@ -347,3 +422,43 @@ a {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+.projectLink {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    height: 70px;
+    min-width: 170px;
+    color: black;
+    box-shadow: 0px 10px 5px -5px rgba(25,25,25,1);
+}
+/* .projectLink:hover {
+    box-shadow: 0px 0px 20px -5px whitesmoke;
+} */
+
+.left {
+    width: 0;
+    height: 0;
+    border-top: 35px solid transparent;
+    border-bottom: 35px solid transparent;
+    border-right: 35px solid whitesmoke;
+    color: black;
+}
+/* .left:hover {
+    color: whitesmoke;
+    background-color: rgba(25, 25, 25, 1);
+} */
+
+.right {
+    width: 0;
+    height: 0;
+    border-top: 35px solid transparent;
+    border-bottom: 35px solid transparent;
+    border-left: 35px solid whitesmoke;
+    color: black;
+}
+/* .right:hover {
+    color: whitesmoke;
+    border-left: 35px solid rgba(25, 25, 25, 1);
+} */
+

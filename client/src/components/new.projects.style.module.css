@@ -85,7 +85,7 @@
     -ms-overflow-style: none;
     scrollbar-width: 0px;
     max-height: 110vh;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .newContainer::-webkit-scrollbar {

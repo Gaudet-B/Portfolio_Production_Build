@@ -93,7 +93,7 @@ const ProjectPages = () => {
                             <div className={fillerStyle} ></div>
                         </div>
                             <div className={styles.newContainer}>
-                                <Carousel projects={projects} images={images} windowWidth={windowWidth} setFillerStyle={setFillerStyle} />
+                                <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} />
                             </div>
                         <div className={styles.border} >
                             <div className={fillerStyle} ></div>
