@@ -125,30 +125,48 @@ const ProjectPage = props => {
     }
 
     const handleFocus = e => {
+        console.log(e.target.id)
+        console.log(typeof(e.target.id))
+
         let img = e.target.parentNode
-        let topArr = img.parentNode.parentNode.firstElementChild.childNodes
-        let botArr = img.parentNode.parentNode.lastElementChild.childNodes
-        console.log(botArr, topArr)
-        for (let i = 0; i < topArr.length; i++) {
-            // console.log(topArr[i].classList)
-            topArr[i].classList.add(styles.demoInactive)
-            topArr[i].firstElementChild.classList.add(styles.demoMask)
-            topArr[i].classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
+
+        if (e.target.id != "") {
+            e.target.classList.add(styles.demoInactive)
+            e.target.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
+            // e.target.firstElementChild.classList.add(styles.demoMask)
+            setTimeout(() => e.target.firstElementChild.classList.add(styles.demoMask), 500)
+            e.target.firstElementChild.id = ""
+            return
         }
-        for (let i = 0; i < botArr.length; i++) {
-            // console.log(botArr[i].classList)
-            botArr[i].classList.add(styles.demoInactive)
-            botArr[i].firstElementChild.classList.add(styles.demoMask)
-            botArr[i].classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
-        }
-        img.classList.remove(styles.demoInactive)
-        img.firstElementChild.classList.remove(styles.demoMask)
-        if (project.title === "P!ZZA") {
-            img.classList.add(styles.activeImgPortrait)
+
+        let mask = document.getElementById("activeMask")
+        console.log(mask)
+        if (mask != null) {
+            let image = mask.parentNode
+            image.classList.add(styles.demoInactive)
+            image.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
+            setTimeout(() => mask.classList.add(styles.demoMask), 500);
+            mask.id = ""
+            setTimeout(() => {
+                img.classList.remove(styles.demoInactive)
+                img.firstElementChild.classList.remove(styles.demoMask)
+                if (project.title === "P!ZZA") {
+                    img.classList.add(styles.activeImgPortrait)
+                } else {
+                    img.classList.add(styles.activeImgLandscape)
+                }
+                e.target.setAttribute("id", "activeMask")
+            }, 1200);
         } else {
-            img.classList.add(styles.activeImgLandscape)
+            img.classList.remove(styles.demoInactive)
+            img.firstElementChild.classList.remove(styles.demoMask)
+            if (project.title === "P!ZZA") {
+                img.classList.add(styles.activeImgPortrait)
+            } else {
+                img.classList.add(styles.activeImgLandscape)
+            }
+            e.target.setAttribute("id", "activeMask")
         }
-        // ===> INSERT LOGIC TO EXPAND IMAGE SIZE - WILL NEED TO SOMEHOW ISOLATE DIV (grid maybe?)
         return
     }
 

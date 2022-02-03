@@ -70,6 +70,11 @@
     to {height: 500px; width: 750px;}
 }
 
+@keyframes inactive {
+    from {height: 500px; width: 750px;}
+    to {height: 100px; width: 100px}
+}
+
 /* Styles: */
 
 .carousel {
@@ -295,11 +300,12 @@ p {
     background-size: cover;
     cursor: pointer;
     transition: 1s linear ease-out;
-}
-.demoInactive {
     height: 100px;
     width: 100px;
-    transition: 1s linear ease-out;
+}
+.demoInactive {
+    animation: inactive 1s ease-in;
+    /* transition: 1s linear ease-out; */
 }
 
 .demoMask {
