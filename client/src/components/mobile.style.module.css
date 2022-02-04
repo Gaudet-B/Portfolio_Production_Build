@@ -1,0 +1,188 @@
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+@keyframes un-mask {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes expand {
+    from {height: 25px;}
+    to {height: 750px;} 
+}
+
+@keyframes contract {
+    from {height: 750px;}
+    to {height: 25px;}
+}
+
+@keyframes portrait {
+    from {height: 150px; width: 150px;}
+    to {height: 550px; width: 338px;}
+}
+
+@keyframes landscape {
+    from {height: 150px; width: 150px;}
+    to {height: 500px; width: 750px;}
+}
+
+@keyframes inactiveL {
+    from {height: 500px; width: 750px;}
+    to {height: 150px; width: 150px}
+}
+
+@keyframes inactiveP {
+    from {height: 550px; width: 338px;}
+    to {height: 150px; width: 150px}
+}
+
+/* .bg {
+    animation: un-mask 3s ease;
+    background-image: url("../assets/3d-background.png");
+    margin: auto;
+    width: fit-content;
+    max-width: 100vw;
+    width: 100vw;
+    -webkit-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-size: cover;
+    text-align: center;
+} */
+
+.projectsContainer {
+    /* global for this component */
+    font-family: 'Anonymous Pro', monospace;
+    color: whitesmoke;
+    text-align: center;
+    /*  */
+
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.projectHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: inherit;
+    
+    background-color: #262626;
+}
+
+.projectGallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: inherit;
+    
+    background-color: rgba(26, 26, 26);
+}
+
+.projectDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: inherit;
+    
+    background-color: #262626;
+}
+
+.projectDemo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: inherit;
+    
+    background-color: rgba(26, 26, 26);
+}
+
+.projectFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: inherit;
+    
+    background-color: #262626;
+}
+
+.demo {
+    margin: 10px;
+    border: 1px solid black;
+    background-size: cover;
+    cursor: pointer;
+    transition: .5s linear ease-out;
+    height: 150px;
+    width: 150px;
+}
+
+.demoMask {
+    height: inherit;
+    width: inherit;
+    background-color: rgb(26, 26, 26, .6);
+    background-size: cover;
+}
+.demoMask:hover {
+    transition: .7s ease-in;
+    background-color: transparent;
+}
+
+.activeImgLandscape {
+    animation: landscape .7s ease-out;
+    height: 500px;
+    width: 750px;
+}
+.activeImgPortrait {
+    animation: portrait .7s ease-out;
+    height: 575px;
+    width: 338px;
+}
+
+.inactiveL {
+    animation: inactiveL .5s ease-in;
+    /* transition: 1s linear ease-out; */
+}
+.inactiveP {
+    animation: inactiveP .5s ease-in;
+    /* transition: 1s linear ease-out; */
+}
+
+.demoContainer {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; */
+    min-height: 25px;
+    /* margin: 2rem 0; */
+}
+
+.expand {
+    /* transition: 1.5s; */
+    animation: expand 1s ease-out;
+}
+.contract {
+    animation: contract 1s ease-in;
+}
+
+.header {
+    font-size: 24pt;
+    font-weight: bold;
+    letter-spacing: .25rem;
+    color: rgba(255,255,255,.3);
+    margin-bottom: 1rem;
+}
+
+.instruction {
+    font-family: helvetica;
+    font-size: 13pt;
+    margin-bottom: 2rem;
+}
+
+.githubLink {
+    /* color: rgba(0, 143, 17); */
+    color: rgb(7, 204, 30);
+    /* color: rgba(123, 255, 139); */
+    font-family: helvetica;
+    font-size: 16pt;
+    border-radius: 50%;
+    margin: 1rem auto 2rem auto;
+}

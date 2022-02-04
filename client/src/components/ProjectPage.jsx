@@ -125,14 +125,27 @@ const ProjectPage = props => {
     }
 
     const handleFocus = e => {
-        console.log(e.target.id)
-        console.log(typeof(e.target.id))
+
+        let activeStyle, inactiveStyle
+        if (project.title === "P!ZZA") {
+            activeStyle = styles.activeImgPortrait
+            inactiveStyle = styles.inactiveP
+        } else {
+            activeStyle = styles.activeImgLandscape
+            inactiveStyle = styles.inactiveL
+        }
+        // console.log(e.target.id)
+        // console.log(typeof(e.target.id))
+
+        // console.log(activeStyle)
+        // console.log(inactiveStyle)
 
         let img = e.target.parentNode
 
         if (e.target.id != "") {
-            e.target.classList.add(styles.demoInactive)
-            e.target.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
+            e.target.classList.add(inactiveStyle)
+            e.target.classList.remove(activeStyle)
+            // e.target.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
             // e.target.firstElementChild.classList.add(styles.demoMask)
             setTimeout(() => e.target.firstElementChild.classList.add(styles.demoMask), 500)
             e.target.firstElementChild.id = ""
@@ -143,28 +156,31 @@ const ProjectPage = props => {
         console.log(mask)
         if (mask != null) {
             let image = mask.parentNode
-            image.classList.add(styles.demoInactive)
-            image.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
+            image.classList.add(inactiveStyle)
+            image.classList.remove(activeStyle)
+            // image.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
             setTimeout(() => mask.classList.add(styles.demoMask), 500);
             mask.id = ""
             setTimeout(() => {
-                img.classList.remove(styles.demoInactive)
+                img.classList.remove(inactiveStyle)
                 img.firstElementChild.classList.remove(styles.demoMask)
-                if (project.title === "P!ZZA") {
-                    img.classList.add(styles.activeImgPortrait)
-                } else {
-                    img.classList.add(styles.activeImgLandscape)
-                }
+                img.classList.add(activeStyle)
+                // if (project.title === "P!ZZA") {
+                //     img.classList.add(styles.activeImgPortrait)
+                // } else {
+                //     img.classList.add(styles.activeImgLandscape)
+                // }
                 e.target.setAttribute("id", "activeMask")
-            }, 1200);
+            }, 100);
         } else {
-            img.classList.remove(styles.demoInactive)
+            img.classList.remove(inactiveStyle)
             img.firstElementChild.classList.remove(styles.demoMask)
-            if (project.title === "P!ZZA") {
-                img.classList.add(styles.activeImgPortrait)
-            } else {
-                img.classList.add(styles.activeImgLandscape)
-            }
+            img.classList.add(activeStyle)
+            // if (project.title === "P!ZZA") {
+            //     img.classList.add(styles.activeImgPortrait)
+            // } else {
+            //     img.classList.add(styles.activeImgLandscape)
+            // }
             e.target.setAttribute("id", "activeMask")
         }
         return
@@ -206,11 +222,12 @@ const ProjectPage = props => {
                     <div style={{ margin: "4rem 0rem" }}>
                         <p style={{ fontSize: "3.25rem", fontWeight: "bold", margin: "18px 0px 14px 0px", letterSpacing: ".4rem" }}>{project.title}</p>
                         {/* <p style={{ fontSize: "16pt", fontWeight: "bold", letterSpacing: ".18em", color: "rgba(255,255,255,.75)", marginTop: "0px" }}>{project.myRole}</p> */}
-                        <p style={{ fontSize: "1.5rem", fontWeight: "bold", marginBottom: "30px", color: "rgba(0, 143, 17, .9)", margin: "2rem 0rem" }}><strong style={{ fontSize: "18pt", color: "rgb(0, 214, 25)" }}>&#123;</strong> {project.languages} <strong style={{ fontSize: "18pt", color: "rgb(0, 214, 25)" }}>&#125;</strong></p>
+                        <p style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "30px", color: "rgba(0, 143, 17, .7)", margin: "2rem 0rem" }}> {project.languages} </p>
                         <p style={{ fontSize: "1.25rem", margin: "0px 5px 20px 5px", maxWidth: "40%", margin: "auto" }}>{project.summary}</p>
                     </div>
                     <div style={{ width: "100%", background: "linear-gradient(to left, #262626 0%, #262626 2%, rgb(26, 26, 26) 8%, rgb(26, 26, 26) 92%, #262626 98%, #262626 100%)", padding: "35px 0px", display: "flex", flexDirection: "column" }}>
-                    
+                    <p className={styles.header}>Gallery</p>
+                    <p className={styles.instruction}>click or tap on images to expand</p>
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "auto" }}>
                         {images.map((img, idx) => {
                             if (idx < 3) {
@@ -240,8 +257,8 @@ const ProjectPage = props => {
                         
                         {/* <p className={styles.backTitle} >{project.title}</p> */}
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", minWidth: "300px", maxWidth: "600px", margin: "1em auto" }}>
-                            <p style={{ fontSize: "14pt", textDecoration: "underline" }}>My Role(s):</p>
-                            <p>{project.myRole}</p>
+                            <p style={{ fontSize: "14pt", textDecoration: "underline", marginRight: "2rem" }}>My Role(s):</p>
+                            <p style={{ fontSize: "14pt" }}>{project.myRole}</p>
                         </div>
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", minWidth: "300px", maxWidth: "600px", margin: "1em auto" }} >
                             <p style={{ fontSize: "14pt", textDecoration: "underline" }} >Technologies Used:</p>
@@ -288,12 +305,14 @@ const ProjectPage = props => {
                             
                             <div id={"demo" + "-" + card} className={styles.demoContainer}>
 
+                            <p className={styles.header}>Demo</p>
+
                             {(project.title === "briangaudet.com" || project.title === "Myth Game") ? 
                             <div>
-                                <p style={{ cursor: "pointer", fontSize: "13pt" }}>demo currently not available</p>
-                                <DemoImg index={0} source={source} handleFocus={() => null} />
+                                <p className={styles.instruction}>demo currently not available</p>
+                                {/* <DemoImg index={0} source={source} handleFocus={() => null} /> */}
                             </div>
-                            : (!show) ? <p onClick={openDemo} style={{ cursor: "pointer", fontSize: "13pt" }}>click to view demo</p> :
+                            : (!show) ? <p onClick={openDemo} className={styles.instruction} style={{ cursor: "pointer" }}>click to view demo</p> :
                                 (!video) ? <DemoGif card={card} width={80} source={source} closeDemo={closeDemo} />
                                 : (project.title === "P!ZZA") ?
                                 <DemoGif card={card} width={30} source={pizzaGif} closeDemo={closeDemo} />

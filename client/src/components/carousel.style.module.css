@@ -61,18 +61,23 @@
 }
 
 @keyframes portrait {
-    from {height: 100px; width: 100px;}
-    to {height: 400px; width: 200px;}
+    from {height: 150px; width: 150px;}
+    to {height: 550px; width: 338px;}
 }
 
 @keyframes landscape {
-    from {height: 100px; width: 100px;}
+    from {height: 150px; width: 150px;}
     to {height: 500px; width: 750px;}
 }
 
-@keyframes inactive {
+@keyframes inactiveL {
     from {height: 500px; width: 750px;}
-    to {height: 100px; width: 100px}
+    to {height: 150px; width: 150px}
+}
+
+@keyframes inactiveP {
+    from {height: 550px; width: 338px;}
+    to {height: 150px; width: 150px}
 }
 
 /* Styles: */
@@ -80,6 +85,7 @@
 .carousel {
     width: 90vw;
     max-width: 1140px;
+    min-width: 1130px;
     /* width: 1130px; */
     perspective: 2000px; 
     /* padding-top: 5%;  */
@@ -222,6 +228,7 @@ p {
     align-self: center;
     width: 90vw;
     max-width: 1140px;
+    min-width: 1130px;
     margin: auto;
     transform-style: preserve-3d;
     /* border: 4px double whitesmoke; */
@@ -299,13 +306,9 @@ p {
     border: 1px solid black;
     background-size: cover;
     cursor: pointer;
-    transition: 1s linear ease-out;
-    height: 100px;
-    width: 100px;
-}
-.demoInactive {
-    animation: inactive 1s ease-in;
-    /* transition: 1s linear ease-out; */
+    transition: .5s linear ease-out;
+    height: 150px;
+    width: 150px;
 }
 
 .demoMask {
@@ -315,25 +318,34 @@ p {
     background-size: cover;
 }
 .demoMask:hover {
-    transition: .5s ease-in;
+    transition: .7s ease-in;
     background-color: transparent;
 }
 
 .activeImgLandscape {
-    animation: landscape 1s ease-out;
+    animation: landscape .7s ease-out;
     height: 500px;
     width: 750px;
 }
 .activeImgPortrait {
-    animation: portrait 1s ease-out;
-    height: 400px;
-    width: 150px;
+    animation: portrait .7s ease-out;
+    height: 575px;
+    width: 338px;
+}
+
+.inactiveL {
+    animation: inactiveL .5s ease-in;
+    /* transition: 1s linear ease-out; */
+}
+.inactiveP {
+    animation: inactiveP .5s ease-in;
+    /* transition: 1s linear ease-out; */
 }
 
 .demoContainer {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
     min-height: 25px;
     /* margin: 2rem 0; */
 }
@@ -344,6 +356,20 @@ p {
 }
 .contract {
     animation: contract 1s ease-in;
+}
+
+.header {
+    font-size: 24pt;
+    font-weight: bold;
+    letter-spacing: .25rem;
+    color: rgba(255,255,255,.3);
+    margin-bottom: 1rem;
+}
+
+.instruction {
+    font-family: helvetica;
+    font-size: 13pt;
+    margin-bottom: 2rem;
 }
 
 /* .demoOpen {

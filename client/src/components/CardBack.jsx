@@ -55,7 +55,7 @@ const CardBack = props => {
                 </div>
                 
                 <div style={{ height: "0px", border: "1px solid rgba(0, 143, 17, .9)", borderRadius: "30%", backgroundColor: "rgba(0, 143, 17, .9)", width: "65%", margin: "auto" }}></div>
-                <Demo project={project} images={images} responsive={responsive} />
+                {/* <Demo project={project} images={images} responsive={responsive} /> */}
                 <p className={styles.flipLink} onClick={() => flipCard(flip)}><strong> || </strong> flip back to the front of card <strong> || </strong></p>
 
             </div>

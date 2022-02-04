@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './carousel.style.module.css'
 
 const DemoGif = props => {
 
@@ -10,7 +10,7 @@ const DemoGif = props => {
         {/* <div style={{ height: "inherit", width: "inherit" }}></div> */}
         {/* <p onClick={closeDemo} style={{ cursor: "pointer", fontSize: "13pt", marginTop: "12px" }}>click to close demo</p> */}
         <img id={"image-" + card} src={source} alt="placeholder" style={{ maxHeight: "900px" }} />
-        <p onClick={closeDemo} style={{ cursor: "pointer", fontSize: "13pt", marginTop: "12px" }}>click to close demo</p>
+        <p onClick={closeDemo} className={styles.instruction} style={{ cursor: "pointer", marginTop: "12px" }}>click to close demo</p>
     </div>
     )
 }

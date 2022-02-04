@@ -1,6 +1,27 @@
 
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 
+@keyframes expand {
+    from {height: 0px}
+    to {height: 200px}
+}
+
+@keyframes contract {
+    from {height: 200px;}
+    to{height: 0px;}
+}
+
+@keyframes unmask {
+    from {background-size: cover;}
+    to {background-size: 0;}
+} 
+
+@keyframes slide {
+    0% {transform: translateY(-4rem) translateX(3rem)}
+    100% {transform: translateY(4rem) translateX(-3rem)}
+}
+/* transform: "translateY(4rem) translateX(-3rem)",  */
+
 .navLink {
     font-family: helvetica;
     margin: 0px 2px;
@@ -14,9 +35,58 @@
     color: whitesmoke;
 }
 
+.smallNav {
+    font-family: helvetica;
+    /* margin: 0px 2px; */
+    /* padding: 10px 12px 0px 12px; */
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: whitesmoke;
+    margin: .3rem 0;
+    /* border-radius: 5px 5px 0px 0px; */
+}
+
 .active {
     color: rgb(0, 173, 17);
 }
 .active:hover {
     color: rgba(0, 173, 17);
+}
+
+.navMenu {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    background-color: transparent;
+    text-align: end;
+    width: fit-content;
+    height: fit-content;
+    /* padding: 1rem 0; */
+
+    /* transform: translateY(-8rem) translateX(3rem); */
+    /* transform: translateY(4rem) translateX(-3rem); */
+
+    /* transition: 1s linear; */
+    position: absolute;
+    /* background-color: #262626; */
+    background-color: transparent;
+    /* background-size: cover; */
+    /* animation: unmask 2s linear ease-out; */
+    /* animation: slide 1s linnear ease-out; */
+    transition: .7s ease-out transform;
+}
+
+
+.activeMenu {
+    height: fit-content;
+    transition: 2s linear;
+    animation: expand 2s linear ease-out;
+}
+
+.inactiveMenu {
+    height: fit-content;
+    transition: 2s linear;
+    animation: contract 2s linear ease-in;
 }

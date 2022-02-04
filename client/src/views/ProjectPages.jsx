@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 import Carousel from '../components/Carousel'
-import ProjectCards from '../components/ProjectCards'
+import MobilePages from '../components/MobilePages'
 import Navigation from '../components/Navigation'
 
 import styles from '../components/new.projects.style.module.css'
 import getImages from '../scripts/images.js'
+import Loading from '../components/Loading';
 
 const ProjectPages = () => {
 
@@ -67,17 +68,21 @@ const ProjectPages = () => {
     }, [])
 
     // spinner
-    if (loading) {
+    if (windowWidth < 800) {
+        return (
+            <MobilePages projects={projects} images={images} windowWidth={windowWidth}/>
+        )
+    } else if (loading) {
         return (
             <div className={styles.loadingBackground} >
-                <div className={styles.loadingMask}>
-                    <div className={styles.spinner}></div>
-                    <div className={styles.logoSpinner}></div>
-                    <div className={styles.logo}></div>
-                </div>
+                <Loading />
             </div>
         )
 
+    // } else if (windowWidth < 800) {
+    //     return (
+    //         <MobilePages projects={projects} images={images} windowWidth={windowWidth}/>
+    //     )
     } else {
 
         return (
@@ -100,7 +105,10 @@ const ProjectPages = () => {
                         </div>
                     </div>
                     :
-                    <ProjectCards projects={projects} images={images} />
+                    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                        {/* <ProjectCards projects={projects} images={images} /> */}
+                        <MobilePages projects={projects} images={images} />
+                    </div>
                     }
                 </div>
             </div> 
