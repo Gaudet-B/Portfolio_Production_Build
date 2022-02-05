@@ -97,7 +97,7 @@ const ProjectPages = () => {
                         <div className={styles.border} style={{ marginRight: "2px" }} >
                             <div className={fillerStyle} ></div>
                         </div>
-                            <div className={styles.newContainer}>
+                            <div id="pjContainer" className={styles.newContainer}>
                                 <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} />
                             </div>
                         <div className={styles.border} style={{ marginRight: "2px" }} >

@@ -127,14 +127,15 @@ const Edit = () => {
     const handleUpdate = e => {
         e.preventDefault()
         // let's multer know that multipart form data is coming
-        const config = { headers: {'content-type': 'multipart/form-data'}}
+        // const config = { headers: {'content-type': 'multipart/form-data'}}
         let data = new FormData()
         // goes through the current formState and adds key/value pairs to data
         for (const key in formState) {
             data.append(`${key}`, `${formState[key]}`)
         }
 
-        instance.put(`/projects/update/${id}`, data, config)
+        // instance.put(`/projects/update/${id}`, data, config)
+        instance.put(`/projects/update/${id}`, formState)
             .then(res => {
                 console.log(`RESPONSE: ${res}`)
                 // setFormState({})

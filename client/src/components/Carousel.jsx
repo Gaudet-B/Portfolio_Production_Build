@@ -25,6 +25,8 @@ const Carousel = props => {
 
     // function to rotate the carousel
     const spin = e => {
+        let container = document.getElementById("pjContainer")
+        container.scrollTo({top: 0, behavior: "smooth"})
         let id
         // console.log(e.target.tagName)
         if (e.target.tagName === "P") {
@@ -50,7 +52,7 @@ const Carousel = props => {
                 spinner.setAttribute("style", `-webkit-transform: rotateY(${rightAngle}deg); -moz-transform: rotateY(${rightAngle}deg); transform: rotateY(${rightAngle}deg);`)
             }
             
-        }, 1000)
+        }, 500)
 
         setTimeout(() => setFillerStyle(projectStyles.filler), 4000)
     }
@@ -61,7 +63,7 @@ const Carousel = props => {
         carousel.style.transform = "scale(0.6)"
         setTimeout(() => {
             carousel.style.transform = "scale(1.0)"
-        }, 2500);
+        }, 1500);
     }
 
     // var leftArrow = classNames([styles.span, styles.spanLeft])

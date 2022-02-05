@@ -15,6 +15,8 @@ import pizzaDemoThree from '../assets/pizza/pizza-demo-three.gif'
 
 import draftVideo from '../assets/draft/draft-demo-gif.gif'
 
+import chatVideo from '../assets/chata/chata-demo-0.gif'
+
 import arrow from '../assets/down-arrow-icon-white.png'
 
 import styles from './mobile.style.module.css'
@@ -34,7 +36,7 @@ const MobilePage = props => {
     const selectVideo = project => {
         if (project === "MyDraft Partner") return draftVideo
         else if (project === "P!ZZA") return pizzaDemoOne
-        else if (project === "Myth Game") return false
+        else if (project === "chata") return chatVideo
         else if (project === "briangaudet.com") return false
     }
     
@@ -42,23 +44,23 @@ const MobilePage = props => {
     const selectPhoto = project => {
         if (project === "MyDraft Partner") return draftHero
         else if (project === "P!ZZA") return pizzaHero
-        else if (project === "Myth Game") return mythHero
+        else if (project === "chata") return mythHero
         else if (project === "briangaudet.com") return portfolioHero
     }
     // const [ source, setSource ] = useState(selectPhoto(project.title))
     // const [ video, setVideo ] = useState(selectVideo(project.title))
 
     const getPrevProject = (project) => {
-        if (project === "MyDraft Partner") return "Myth Game"
+        if (project === "MyDraft Partner") return "chata"
         else if (project === "P!ZZA") return "MyDraft Partner"
-        else if (project === "Myth Game") return "briangaudet.com"
+        else if (project === "chata") return "briangaudet.com"
         else if (project === "briangaudet.com") return "P!ZZA"
     }
     const getNextProject = (project) => {
         if (project === "MyDraft Partner") return "P!ZZA"
         else if (project === "P!ZZA") return "briangaudet.com"
-        else if (project === "Myth Game") return "MyDraft Partner"
-        else if (project === "briangaudet.com") return "Myth Game"
+        else if (project === "chata") return "MyDraft Partner"
+        else if (project === "briangaudet.com") return "chata"
     }
 
     // 
@@ -260,7 +262,8 @@ const MobilePage = props => {
                     <p className={styles.header}>Demo</p>
                     {/* <p className={styles.instruction}>demo unavailable on mobile</p> */}
 
-                    {(project.title === "briangaudet.com" || project.title === "Myth Game") ? 
+                    {/* {(project.title === "briangaudet.com" || project.title === "Myth Game") ?  */}
+                    {(project.title === "briangaudet.com") ? 
                     <div>
                         <p className={styles.instruction}>demo currently not available</p>
                         {/* <DemoImg index={0} source={source} handleFocus={() => null} /> */}

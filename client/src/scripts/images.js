@@ -13,23 +13,31 @@ import pizza5 from '../assets/pizza/shopping_cart_1.PNG'
 import pizza6 from '../assets/pizza/checkout_1.PNG'
 import pizza7 from '../assets/pizza/payment_1.PNG'
 
-import myth1 from '../assets/myth/myth_1.PNG'
+// import myth1 from '../assets/myth/myth_1.PNG'
 
 import portfolio1 from '../assets/portfolio/portfolio_1.PNG'
 import portfolio2 from '../assets/portfolio/content_management_1.PNG'
+
+import chat1 from '../assets/chata/register_1.PNG'
+import chat2 from '../assets/chata/login_1.PNG'
+import chat3 from '../assets/chata/main_1.PNG'
+// import chat4 from '../assets/chata/convo_1.PNG'
+import chat5 from '../assets/chata/convo_2.PNG'
+import chat6 from '../assets/chata/convo_3.PNG'
+import chat7 from '../assets/chata/logout.PNG'
 
 
 const draftImages = [draft1, draft3, draft4, draft5, draft6, draft7]
 const pizzaImages = [pizza1, pizza2, pizza3, pizza4, pizza5, pizza6, pizza7]
 const portfolioImages = [portfolio1, portfolio2]
-const mythImages = [myth1]
+const chatImages = [chat1, chat2, chat3, chat5, chat6, chat7]
 
 const getImages = () => {
     let object = {
         0: draftImages,
         1: pizzaImages,
         2: portfolioImages,
-        3: mythImages
+        3: chatImages
     }
     return object
 }

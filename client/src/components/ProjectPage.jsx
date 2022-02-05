@@ -11,9 +11,11 @@ import mythHero from '../assets/myth/myth_hero.png'
 import portfolioHero from '../assets/portfolio/portfolio_hero.png'
 
 import draftVideo from '../assets/draft/draft-demo-gif.gif'
-import pizzaVideo from '../assets/pizza/pizza-video-main.webm'
+import chataVideo from '../assets/chata/chata-demo-0.gif'
+// import pizzaVideo from '../assets/pizza/pizza-video-main.webm'
 // import mythVideo from ''
 // import portfolioVideo from ''
+
 import pizzaDemoOne from '../assets/pizza/pizza-demo-one.gif'
 import pizzaDemoTwo from '../assets/pizza/pizza-demo-two.gif'
 import pizzaDemoThree from '../assets/pizza/pizza-demo-three.gif'
@@ -36,7 +38,7 @@ const ProjectPage = props => {
     const selectVideo = project => {
         if (project === "MyDraft Partner") return draftVideo
         else if (project === "P!ZZA") return pizzaDemoOne
-        else if (project === "Myth Game") return false
+        else if (project === "chata") return chataVideo
         else if (project === "briangaudet.com") return false
     }
 
@@ -47,7 +49,7 @@ const ProjectPage = props => {
     const selectPhoto = project => {
         if (project === "MyDraft Partner") return draftHero
         else if (project === "P!ZZA") return pizzaHero
-        else if (project === "Myth Game") return mythHero
+        else if (project === "chata") return mythHero
         else if (project === "briangaudet.com") return portfolioHero
     }
     // stores the image in local state
@@ -74,16 +76,16 @@ const ProjectPage = props => {
     }
 
     const getPrevProject = (project) => {
-        if (project === "MyDraft Partner") return "Myth Game"
+        if (project === "MyDraft Partner") return "chata"
         else if (project === "P!ZZA") return "MyDraft Partner"
-        else if (project === "Myth Game") return "briangaudet.com"
+        else if (project === "chata") return "briangaudet.com"
         else if (project === "briangaudet.com") return "P!ZZA"
     }
     const getNextProject = (project) => {
         if (project === "MyDraft Partner") return "P!ZZA"
         else if (project === "P!ZZA") return "briangaudet.com"
-        else if (project === "Myth Game") return "MyDraft Partner"
-        else if (project === "briangaudet.com") return "Myth Game"
+        else if (project === "chata") return "MyDraft Partner"
+        else if (project === "briangaudet.com") return "chata"
     }
 
     // 
@@ -201,6 +203,7 @@ const ProjectPage = props => {
     }
 
     const handleSpin = e => {
+        // handleFocus()
         if (open) {
             // if (project.title === "MyDraft Partner" || project.title === "P!ZZA") {
                 closeDemo()
@@ -224,7 +227,14 @@ const ProjectPage = props => {
                     <div style={{ margin: "4rem 0rem" }}>
                         <p style={{ fontSize: "3.25rem", fontWeight: "bold", margin: "18px 0px 14px 0px", letterSpacing: ".4rem" }}>{project.title}</p>
                         {/* <p style={{ fontSize: "16pt", fontWeight: "bold", letterSpacing: ".18em", color: "rgba(255,255,255,.75)", marginTop: "0px" }}>{project.myRole}</p> */}
+                        {(project.title === "chata") ? 
+                        <div>
+                            <p style={{ fontSize: "1.75rem", fontWeight: "bold", color: "rgba(0, 143, 17, .7)", margin: "1rem 0" }}> {project.languages} </p>
+                            <p style={{ fontSize: "1.75rem", fontWeight: "bold", color: "rgba(0, 143, 17, .7)", margin: "1rem 0 2rem 0" }}>Front End:  React.js</p>
+                        </div>
+                        :
                         <p style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "30px", color: "rgba(0, 143, 17, .7)", margin: "2rem 0rem" }}> {project.languages} </p>
+                        }
                         <p style={{ fontSize: "1.25rem", margin: "0px 5px 20px 5px", maxWidth: "40%", margin: "auto" }}>{project.summary}</p>
                     </div>
                     <div style={{ width: "100%", background: "linear-gradient(to left, #262626 0%, #262626 2%, rgb(26, 26, 26) 8%, rgb(26, 26, 26) 92%, #262626 98%, #262626 100%)", padding: "35px 0px", display: "flex", flexDirection: "column" }}>
@@ -309,7 +319,8 @@ const ProjectPage = props => {
 
                             <p className={styles.header}>Demo</p>
 
-                            {(project.title === "briangaudet.com" || project.title === "Myth Game") ? 
+                            {/* {(project.title === "briangaudet.com" || project.title === "chata") ?  */}
+                            {(project.title === "briangaudet.com") ? 
                             <div>
                                 <p className={styles.instruction}>demo currently not available</p>
                                 {/* <DemoImg index={0} source={source} handleFocus={() => null} /> */}
