@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
-import Header from '../components/Header'
+
+// import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import Form from '../components/Form'
+import MobileForm from '../components/MobileForm'
+
 import styles from '../components/contact.style.module.css'
 
 
@@ -65,10 +68,12 @@ const Contact = () => {
                 <div className={styles.contactBackground}>
                     {/* <Header left="PROJECTS" right="RESUME" windowWidth={windowWidth}/> */}
                     <Navigation left="PROJECTS" right="RESUME" windowWidth={windowWidth}/>
+                    {(windowWidth < 600) ? <MobileForm /> : 
                     <div className={styles.contactContainer} >
                         <p className={(windowWidth > 800) ? styles.title : styles.titleResponsive} >Contact Brian</p>
                         <Form windowWidth={windowWidth} />
                     </div>
+                    }
                 </div>
             </div>
         )

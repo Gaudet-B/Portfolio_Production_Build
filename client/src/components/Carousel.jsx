@@ -68,7 +68,7 @@ const Carousel = props => {
     // var rightArrow = classNames([styles.span, styles.spanRight])
 
     return (
-        <div className={styles.container} >
+        <div className="" >
 
             <div id="carousel" className={styles.carousel} style={{ height: `${windowHeight}px` }} >
 

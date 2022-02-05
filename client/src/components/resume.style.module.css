@@ -82,3 +82,15 @@
 .background {
     background-color: rgba(25,25,25,1);
 }
+
+.resumeContainer {
+    -ms-overflow-style: none !important;
+    scrollbar-width: 0px !important;
+    /* scrollbar-base-color: #262626; */
+    max-height: 90vh;
+    overflow: scroll;
+    /* transform: translateY(10vh); */
+}
+.resumeContainer::-webkit-scrollbar {
+    display: none;
+}

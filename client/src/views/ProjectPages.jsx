@@ -93,14 +93,14 @@ const ProjectPages = () => {
                     {/* <div style={{ width: "fit-content", margin: "auto" }}> */}
                         {/* arrays of projects and images are passed to the child components */}
                     {(windowWidth > 800) ?
-                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                        <div className={styles.border} >
+                    <div style={{ width: "auto", display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "5px" }}>
+                        <div className={styles.border} style={{ marginRight: "2px" }} >
                             <div className={fillerStyle} ></div>
                         </div>
                             <div className={styles.newContainer}>
                                 <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} />
                             </div>
-                        <div className={styles.border} >
+                        <div className={styles.border} style={{ marginRight: "2px" }} >
                             <div className={fillerStyle} ></div>
                         </div>
                     </div>

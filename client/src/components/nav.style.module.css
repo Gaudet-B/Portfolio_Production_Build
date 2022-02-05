@@ -37,13 +37,16 @@
 
 .smallNav {
     font-family: helvetica;
+    text-shadow: 2px 2px 1px black;
     /* margin: 0px 2px; */
     /* padding: 10px 12px 0px 12px; */
     text-decoration: none;
     font-size: 1.4rem;
     color: whitesmoke;
-    margin: .3rem 0;
+    /* margin: .3rem 0; */
     /* border-radius: 5px 5px 0px 0px; */
+
+    z-index: 5;
 }
 
 .active {
@@ -54,11 +57,12 @@
 }
 
 .navMenu {
+    border-radius: 0px 0px 8px 8px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    position: absolute;
+    position: relative;
     background-color: transparent;
     text-align: end;
     width: fit-content;
@@ -69,7 +73,7 @@
     /* transform: translateY(4rem) translateX(-3rem); */
 
     /* transition: 1s linear; */
-    position: absolute;
+    /* position: absolute; */
     /* background-color: #262626; */
     background-color: transparent;
     /* background-size: cover; */

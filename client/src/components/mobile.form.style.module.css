@@ -1,0 +1,111 @@
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+
+.contactTitle {
+    width: inherit;
+    font-size: 26pt;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    color: whitesmoke;
+    background-color: #262626;
+    padding: 2rem 0;
+}
+
+.contactMain {
+    width: inherit;
+    /* max-width: fit-content; */
+    /* height: fit-content; */
+    /* margin: auto; */
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    /* border: 5px double whitesmoke; */
+    /* border-radius: 14% / 7%; */
+    /* background-color: rgb(20, 20, 20, 0.4); */
+    background-color: rgb(25, 25, 25, .5);
+    /* background-color: transparent; */
+}
+
+.formComponent {
+    width: inherit;
+    padding: 1rem 2rem;
+    /* width: 100%; */
+    /* width: 60vw; */
+    /* margin: 25px auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.label {
+    /* margin-top: 5px; */
+    margin: 1rem 0;
+    width: 38%;
+    font-size: 1.3rem;
+    color: whitesmoke;
+}
+
+.textInput {
+    /* margin: 0px 12px; */
+    padding: 8px;
+    /* width: 60%; */
+    /* max-width: 400px; */
+    /* min-height: 30px; */
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: whitesmoke;
+    box-shadow: 0px 0px 8px -2px rgba(245, 245, 245, .9);
+    /* background-color: #262626; */
+    background-color: transparent;
+    border: none;
+}
+
+.option {
+    min-height: 30px;
+    font-family: 'Anonymous Pro', monospace;
+    background-color: rgb(25, 25, 25, 1);
+}
+
+.buttonContainer {
+    /* width: 60vw; */
+    /* margin-top: 1em; */
+    margin: 1em 0;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.formButton {
+    transition: 1s ease-out;
+    height: 40px;
+    width: 110px;
+    /* background-color: rgba(168, 168, 168, 0.7); */
+    background-color: whitesmoke;
+    border: 2px solid transparent;
+    border-radius: 5% / 10%;
+    box-shadow: 0 25px 12px -15px rgba(245, 245, 245, 0.24);
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    /* color: whitesmoke; */
+    color: black;
+    /* text-shadow: 2px 2px 2px rgb(20, 20, 20, 0.9); */
+    /* animation: float 20s linear infinite; */
+}
+.formButton:hover {
+    /* background-color: whitesmoke; */
+    /* color: black; */
+    cursor: pointer;
+    animation: flash .5s linear;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    /* border: 4px double whitesmoke; */
+    /* text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); */
+    /* box-shadow: 0 25px 12px -10px rgba(245, 245, 245, 0.788); */
+    /* transform: scale(1.1); */
+}

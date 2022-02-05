@@ -18,6 +18,8 @@ import pizzaDemoOne from '../assets/pizza/pizza-demo-one.gif'
 import pizzaDemoTwo from '../assets/pizza/pizza-demo-two.gif'
 import pizzaDemoThree from '../assets/pizza/pizza-demo-three.gif'
 
+import arrow from '../assets/icons/chevron-icon-light.png'
+
 import styles from '../components/carousel.style.module.css'
 
 
@@ -336,7 +338,9 @@ const ProjectPage = props => {
                         {/* <p className={styles.flipLink} onClick={() => flipCard(flip)}><strong> || </strong> flip back to the front of card <strong> || </strong></p> */}
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "80%", margin: " 2em auto" }}>
                             <div id="left" onClick={handleSpin} style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", marginLeft: "50px", cursor: "pointer" }}>
-                                <div className={styles.left}></div>
+                                <div className={styles.left}>
+                                    <img src={arrow} alt="left chevron" height={"62"} width={"45"} />
+                                </div>
                                 <div className={styles.projectLink} style={{ borderRadius: "0px 10px 10px 0px" }}>
                                     <p style={{ marginTop: "5px" }}>previous</p>
                                     <p style={{ marginBottom: "10px" }}>project</p>
@@ -349,7 +353,9 @@ const ProjectPage = props => {
                                     <p style={{ marginBottom: "10px" }}>project</p>
                                     <p style={{ fontWeight: "bold" }}>&#123; {nextProject} &#125;</p>
                                 </div>
-                                <div className={styles.right}></div>
+                                <div className={styles.right}>
+                                    <img src={arrow} alt="right chevron" height={"62"} width={"45"} />
+                                </div>
                             </div>
 
                         </div>
