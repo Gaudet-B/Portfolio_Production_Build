@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Landing from './views/Landing'
-import Projects from './views/Projects'
+// import Projects from './views/Projects'
 import ProjectPages from './views/ProjectPages'
-import ViewProject from './views/ViewProject'
+// import ViewProject from './views/ViewProject'
 import Resume from './views/Resume'
 import Contact from './views/Contact'
 import Admin from './views/Admin'
@@ -13,7 +13,7 @@ import Edit from './views/Edit'
 function App() {
 
     return ( 
-      <div className="App" >
+      <div className="App" style={{ backgroundColor: "rgba(26,26,26,1)"}} >
 
         <BrowserRouter>
           <Switch>
@@ -22,13 +22,13 @@ function App() {
               <Landing />
             </Route>
 
-            <Route exact path="/projects">
+            {/* <Route exact path="/projects">
               <Projects />
-            </Route>
+            </Route> */}
             
-            <Route exact path="/projects/view/:proj/:img">
+            {/* <Route exact path="/projects/view/:proj/:img">
               <ViewProject />
-            </Route>
+            </Route> */}
 
             <Route exact path="/contact">
               <Contact />

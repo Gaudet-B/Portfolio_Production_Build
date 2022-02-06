@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import Demo from '../components/Demo'
+// import Demo from '../components/Demo'
 import DemoGif from '../components/DemoGif'
 import DemoImg from '../components/DemoImg'
 import Video from '../components/Video'
@@ -102,6 +102,7 @@ const ProjectPage = props => {
 
     // 
     const openDemo = () => {
+        closeGallery()
         let demo = document.getElementById(`demo-${card}`)
         demo.classList.remove(styles.contract)
         demo.classList.add(styles.expand)
@@ -120,6 +121,7 @@ const ProjectPage = props => {
     const closeDemo = () => {
         let demo = document.getElementById(`demo-${card}`)
         let image = document.getElementById(`image-${card}`)
+        if (image === null) return
         demo.classList.remove(styles.expand)
         image.classList.remove(styles.expand)
         demo.classList.add(styles.contract)
@@ -129,6 +131,8 @@ const ProjectPage = props => {
     }
 
     const handleFocus = e => {
+
+        closeDemo()
 
         let activeStyle, inactiveStyle
         if (project.title === "P!ZZA") {
@@ -157,13 +161,13 @@ const ProjectPage = props => {
         }
 
         let mask = document.getElementById("activeMask")
-        console.log(mask)
+        // console.log(mask)
         if (mask != null) {
             let image = mask.parentNode
             image.classList.add(inactiveStyle)
             image.classList.remove(activeStyle)
             // image.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
-            setTimeout(() => mask.classList.add(styles.demoMask), 500);
+            setTimeout(() => mask.classList.add(styles.demoMask), 500)
             mask.id = ""
             setTimeout(() => {
                 img.classList.remove(inactiveStyle)
@@ -190,20 +194,39 @@ const ProjectPage = props => {
         return
     }
 
-    const handleHover = e => {
-        console.log(e.target)
-        // e.target.firstElementChild.styles.color = "whitesmoke"
-        // e.target.firstElementChild.styles.backgroundColor = "rgba(25,25,25,1)"
-        // e.target.lastElementChild.styles.color = "whitesmoke"
-        // e.target.lastElementChild.styles.backgroundColor = "rgba(25,25,25,1)"
-    }
+    const closeGallery = () => {
 
-    const handleOut = e => {
+        let activeStyle, inactiveStyle
+        if (project.title === "P!ZZA") {
+            activeStyle = styles.activeImgPortrait
+            inactiveStyle = styles.inactiveP
+        } else {
+            activeStyle = styles.activeImgLandscape
+            inactiveStyle = styles.inactiveL
+        }
+        
+        let gallery1 = document.getElementById(`${project.title}-gallery-row-1`).childNodes
+        let gallery2 = document.getElementById(`${project.title}-gallery-row-2`).childNodes
 
+        let mask = document.getElementById("activeMask")
+        if (mask != null) {
+            mask.id = ""
+            setTimeout(() => mask.classList.add(styles.demoMask), 500)
+        }
+
+        for (let i = 0; i < gallery1.length; i++) {
+            gallery1[i].classList.add(inactiveStyle)
+            gallery1[i].classList.remove(activeStyle)
+        }
+
+        for (let i = 0; i < gallery2.length; i++) {
+            gallery2[i].classList.add(inactiveStyle)
+            gallery2[i].classList.remove(activeStyle)
+        }
     }
 
     const handleSpin = e => {
-        // handleFocus()
+        closeGallery()
         if (open) {
             // if (project.title === "MyDraft Partner" || project.title === "P!ZZA") {
                 closeDemo()
@@ -240,22 +263,22 @@ const ProjectPage = props => {
                     <div style={{ width: "100%", background: "linear-gradient(to left, #262626 0%, #262626 2%, rgb(26, 26, 26) 8%, rgb(26, 26, 26) 92%, #262626 98%, #262626 100%)", padding: "35px 0px", display: "flex", flexDirection: "column" }}>
                     <p className={styles.header}>Gallery</p>
                     <p className={styles.instruction}>click or tap on images to expand</p>
-                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "auto" }}>
+                    <div id={`${project.title}-gallery-row-1`} style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "auto" }}>
                         {images.map((img, idx) => {
                             if (idx < 3) {
                             return(
-                                <DemoImg key={idx} index={idx} source={img} handleFocus={handleFocus} />
+                                <DemoImg key={idx} index={idx} source={img} handleFocus={handleFocus} project={project.title} />
                                 // <div key={idx} id={"img" + "-" + (idx + 1)} onClick={handleFocus} className={styles.demo} style={{ backgroundImage: `url(${img})`, backgroundPosition: "center" }}>
                                 //     <div className={styles.demoMask}></div>
                                 // </div>
                             )}
                         })}
                     </div>
-                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "auto" }}>
+                    <div id={`${project.title}-gallery-row-2`} style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", margin: "auto" }}>
                         {images.map((img, idx) => {
                             if (idx > 2) {
                             return(
-                                <DemoImg key={idx} index={idx} source={img} handleFocus={handleFocus} />
+                                <DemoImg key={idx} index={idx} source={img} handleFocus={handleFocus} project={project.title} />
                                 // <div key={idx} id={"img" + "-" + (idx + 1)} onClick={handleFocus} className={styles.demo} style={{ backgroundImage: `url(${img})`, backgroundPosition: "center" }}>
                                 //     <div className={styles.demoMask}></div>
                                 // </div>
