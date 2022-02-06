@@ -78,6 +78,16 @@ body {
     margin: 0px;
 }
 
+html {
+    -ms-overflow-style: none !important;
+    scrollbar-width: 0px !important;
+    max-height: 90vh;
+    overflow: scroll;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
 /* these next two are for the typewriter */
 h1 {
     font-size: 5em;

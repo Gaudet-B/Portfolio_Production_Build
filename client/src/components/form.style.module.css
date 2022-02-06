@@ -34,6 +34,7 @@
     min-width: fit-content;
     /* width: 60vw; */
     width: 100%;
+    /* max-width: 900px; */
     /* max-width: 600px; */
     height: fit-content;
     margin: auto;
@@ -64,6 +65,7 @@
 .formComponent {
     /* width: 100%; */
     width: 60vw;
+    max-width: 700px;
     margin: 25px auto;
     display: flex;
     flex-direction: row;
@@ -93,8 +95,8 @@
 .textInput {
     margin: 0px 12px;
     padding: 8px;
-    width: 60%;
-    max-width: 400px;
+    min-width: 60%;
+    max-width: 500px;
     min-height: 30px;
     font-family: 'Anonymous Pro', monospace;
     font-size: 1.1rem;
@@ -125,6 +127,7 @@
 
 .buttonContainer {
     width: 60vw;
+    max-width: 700px;
     /* margin-top: 1em; */
     margin: 1em auto;
     display: flex;

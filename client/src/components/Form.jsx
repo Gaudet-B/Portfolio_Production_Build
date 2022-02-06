@@ -54,32 +54,32 @@ const Form = props => {
 
     return (
         <div style={(windowWidth > 800) ? { padding: "2em 0" } : { padding: "3em 0" }}>
-            <form id="contactForm" onSubmit={handleSubmit} className={(windowWidth > 800) ? styles.mainForm : styles.responsiveMain}>
+            <form id="contactForm" onSubmit={handleSubmit} className={styles.mainForm}>
                 {/* NAME */}
-                <div className={(windowWidth > 800) ? styles.formComponent : styles.responsiveComponent}>
-                    <label htmlFor="name" className={(windowWidth > 800) ? styles.label : styles.responsiveLabel}>your name</label>
-                    <input name="name" onChange={handleFormChange} className={(windowWidth > 800) ? styles.textInput : styles.responsiveInput} type="text" />
+                <div className={styles.formComponent}>
+                    <label htmlFor="name" className={styles.label}>your name</label>
+                    <input name="name" onChange={handleFormChange} className={styles.textInput} type="text" />
                 </div>
                 {/* { (validState.name) ? <p className="text-danger"> { validState.name } </p> : null } */}
 
                 {/* EMAIL */}
-                <div className={(windowWidth > 800) ? styles.formComponent : styles.responsiveComponent}>
-                    <label htmlFor="email" className={(windowWidth > 800) ? styles.label : styles.responsiveLabel}>your email</label>
-                    <input name="email" onChange={handleFormChange} className={(windowWidth > 800) ? styles.textInput : styles.responsiveInput} type="email" />
+                <div className={styles.formComponent}>
+                    <label htmlFor="email" className={styles.label}>your email</label>
+                    <input name="email" onChange={handleFormChange} className={styles.textInput} type="email" />
                 </div>
                 {/* { (validState.email) ? <p className="text-danger"> { validState.email } </p> : null } */}
 
                 {/* MESSAGE */}
-                <div className={(windowWidth > 800) ? styles.formComponent : styles.responsiveComponent}>
-                    <label htmlFor="message" className={(windowWidth > 800) ? styles.label : styles.responsiveLabel}>message</label>
-                    <textarea name="message" onChange={handleFormChange} className={(windowWidth > 800) ? styles.textInput : styles.responsiveInput} rows="12" />
+                <div className={styles.formComponent}>
+                    <label htmlFor="message" className={styles.label}>message</label>
+                    <textarea name="message" onChange={handleFormChange} className={styles.textInput} rows="12" />
                 </div>
                 {/* { (validState.message) ? <p className="text-danger"> { validState.message } </p> : null } */}
 
                 {/* REASON */}
-                <div className={(windowWidth > 800) ? styles.formComponent : styles.responsiveComponent}>
-                    <label htmlFor="reason" className={(windowWidth > 800) ? styles.label : styles.responsiveLabel}>reason for request</label>
-                    <select name="reason" onChange={handleFormChange} className={(windowWidth > 800) ? styles.textInput : styles.responsiveInput}>
+                <div className={styles.formComponent}>
+                    <label htmlFor="reason" className={styles.label}>reason for request</label>
+                    <select name="reason" onChange={handleFormChange} className={styles.textInput}>
                         <option className={styles.option} value='Just saying "hello."'>Just saying "hello."</option>
                         <option className={styles.option} value="Business inquiry.">Business inquiry.</option>
                         <option className={styles.option} value="Employment opportunity.">Employment opportunity.</option>

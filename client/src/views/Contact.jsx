@@ -68,9 +68,9 @@ const Contact = () => {
                 <div className={styles.contactBackground}>
                     {/* <Header left="PROJECTS" right="RESUME" windowWidth={windowWidth}/> */}
                     <Navigation left="PROJECTS" right="RESUME" windowWidth={windowWidth}/>
-                    {(windowWidth < 600) ? <MobileForm /> : 
+                    {(windowWidth < 800) ? <MobileForm /> : 
                     <div className={styles.contactContainer} >
-                        <p className={(windowWidth > 800) ? styles.title : styles.titleResponsive} >Contact Brian</p>
+                        <p className={styles.title} >Contact Brian</p>
                         <Form windowWidth={windowWidth} />
                     </div>
                     }
