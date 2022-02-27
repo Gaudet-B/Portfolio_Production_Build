@@ -16,13 +16,16 @@ import chataVideo from '../assets/chata/chata-demo-0.gif'
 // import mythVideo from ''
 // import portfolioVideo from ''
 
+import chataDemoOne from '../assets/chata/chata-demo-one.gif'
+import chataDemoTwo from '../assets/chata/chata-demo-two.gif'
+
 import pizzaDemoOne from '../assets/pizza/pizza-demo-one.gif'
 import pizzaDemoTwo from '../assets/pizza/pizza-demo-two.gif'
 import pizzaDemoThree from '../assets/pizza/pizza-demo-three.gif'
 
 import arrow from '../assets/icons/chevron-icon-light.png'
 
-import styles from '../components/carousel.style.module.css'
+import styles from '../styles/carousel.style.module.css'
 
 
 const ProjectPage = props => {
@@ -38,12 +41,15 @@ const ProjectPage = props => {
     const selectVideo = project => {
         if (project === "MyDraft Partner") return draftVideo
         else if (project === "P!ZZA") return pizzaDemoOne
-        else if (project === "chata") return chataVideo
+        else if (project === "chata") return chataDemoOne
         else if (project === "briangaudet.com") return false
     }
-
+    // stores the gif in local state
     const [ video, setVideo ] = useState(selectVideo(project.title))
+
+    // state variables for demo .gif
     const [ pizzaGif, setPizzaGif ] = useState(pizzaDemoOne)
+    const [ chataGif, setChataGif ] = useState(chataDemoOne)
 
     // returns the proper hero image based on which project is being displayed
     const selectPhoto = project => {
@@ -93,11 +99,15 @@ const ProjectPage = props => {
     const nextProject = getNextProject(project.title)
 
     // 
-    const swapGifs = () => {
+    const swapPizza = () => {
         // while (project.title === "P!ZZA") {
             setTimeout(() => setPizzaGif(pizzaDemoTwo), 6100)
             setTimeout(() => setPizzaGif(pizzaDemoThree), 13100)
         // } return
+    }
+
+    const swapChata = () => {
+        setTimeout(() => setChataGif(chataDemoTwo), 6100)
     }
 
     // 
@@ -108,7 +118,9 @@ const ProjectPage = props => {
         demo.classList.add(styles.expand)
         setTimeout(() => {
             if (project.title === "P!ZZA") {
-                swapGifs()
+                swapPizza()
+            } else if (project.title === "chata") {
+                swapChata()
             }
             setShow(true)
             let image = document.getElementById(`image-${card}`)
@@ -128,6 +140,17 @@ const ProjectPage = props => {
         image.classList.add(styles.contract)
         setTimeout(() => setShow(false), 900)
         setOpen(false)
+    }
+    
+    const restartDemo = () => {
+        // let image = document.getElementById(`image-${card}`)
+        if (project.title === "chata") {
+            setChataGif(chataDemoOne)
+            swapChata()
+        } else if (project.title === "P!ZZA") {
+            setPizzaGif(pizzaDemoOne)
+            swapPizza()
+        }
     }
 
     const handleFocus = e => {
@@ -351,7 +374,7 @@ const ProjectPage = props => {
                             : (!show) ? <p onClick={openDemo} className={styles.instruction} style={{ cursor: "pointer" }}>click to view demo</p> :
                                 (!video) ? <DemoGif card={card} width={80} source={source} closeDemo={closeDemo} />
                                 : (project.title === "P!ZZA") ?
-                                <DemoGif card={card} width={30} source={pizzaGif} closeDemo={closeDemo} />
+                                <DemoGif card={card} width={30} source={pizzaGif} closeDemo={closeDemo} restartDemo={restartDemo} />
                                 // <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }} >
                                 //     <DemoGif source={pizzaGif} closeDemo={closeDemo} />
                                 //     <DemoGif source={pizzaDemoOne} />
@@ -359,9 +382,11 @@ const ProjectPage = props => {
                                 //     <img src={pizzaDemoOne} alt="placeholder" style={{ maxHeight: "960px", maxWidth: "1006px" }} />
                                 //     <img src={pizzaDemoTwo} alt="placeholder" style={{ maxHeight: "960px", maxWidth: "1006px" }} />
                                 // </div>
+                                : (project.title === "chata") ?
+                                <DemoGif card={card} width={80} source={chataGif} closeDemo={closeDemo} restartDemo={restartDemo} />
                                 :
                                 // <Video video={video} />
-                                <DemoGif card={card} width={80} source={video} closeDemo={closeDemo} />
+                                <DemoGif card={card} width={80} source={video} closeDemo={closeDemo} restartDemo={restartDemo} />
                                 
                             }
 
@@ -371,18 +396,18 @@ const ProjectPage = props => {
                         {/* <Demo project={project} images={images} responsive={responsive} /> */}
                         {/* <p className={styles.flipLink} onClick={() => flipCard(flip)}><strong> || </strong> flip back to the front of card <strong> || </strong></p> */}
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "80%", margin: " 2em auto" }}>
-                            <div id="left" onClick={handleSpin} style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", marginLeft: "50px", cursor: "pointer" }}>
+                            <div id="left" style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", marginLeft: "50px" }}>
                                 <div className={styles.left}>
-                                    <img src={arrow} alt="left chevron" height={"62"} width={"45"} />
+                                    <img src={arrow} alt={"left chevron"} height={"62"} width={"45"} />
                                 </div>
-                                <div className={styles.projectLink} style={{ borderRadius: "0px 10px 10px 0px" }}>
+                                <div onClick={handleSpin} className={styles.projectLink} style={{ borderRadius: "0px 10px 10px 0px", cursor: "pointer" }}>
                                     <p style={{ marginTop: "5px" }}>previous</p>
                                     <p style={{ marginBottom: "10px" }}>project</p>
                                     <p style={{ fontWeight: "bold" }}>&#123; {prevProject} &#125;</p>
                                 </div>
                             </div>
-                            <div id="right" onClick={handleSpin} style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", marginRight: "50px", cursor: "pointer"}}>
-                                <div className={styles.projectLink} style={{ borderRadius: "10px 0px 0px 10px" }}>
+                            <div id="right" style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", marginRight: "50px" }}>
+                                <div onClick={handleSpin} className={styles.projectLink} style={{ borderRadius: "10px 0px 0px 10px", cursor: "pointer" }}>
                                     <p style={{ marginTop: "5px" }}>next</p>
                                     <p style={{ marginBottom: "10px" }}>project</p>
                                     <p style={{ fontWeight: "bold" }}>&#123; {nextProject} &#125;</p>

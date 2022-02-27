@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '../components/form.style.module.css'
+import styles from '../styles/form.style.module.css'
 import axios from 'axios'
 
 
@@ -53,7 +53,8 @@ const Form = props => {
     }
 
     return (
-        <div style={(windowWidth > 800) ? { padding: "2em 0" } : { padding: "3em 0" }}>
+        <div>
+        {/* <div style={(windowWidth > 800) ? { padding: "2em 0" } : { padding: "3em 0" }}> */}
             <form id="contactForm" onSubmit={handleSubmit} className={styles.mainForm}>
                 {/* NAME */}
                 <div className={styles.formComponent}>

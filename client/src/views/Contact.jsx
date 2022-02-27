@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation'
 import Form from '../components/Form'
 import MobileForm from '../components/MobileForm'
 
-import styles from '../components/contact.style.module.css'
+import styles from '../styles/contact.style.module.css'
 
 
 const Contact = () => {

@@ -5,7 +5,7 @@ import Carousel from '../components/Carousel'
 import MobilePages from '../components/MobilePages'
 import Navigation from '../components/Navigation'
 
-import styles from '../components/new.projects.style.module.css'
+import styles from '../styles/new.projects.style.module.css'
 import getImages from '../scripts/images.js'
 import Loading from '../components/Loading';
 

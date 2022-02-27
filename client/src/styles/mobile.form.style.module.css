@@ -13,8 +13,9 @@
 }
 
 .contactMain {
-    width: inherit;
-    width: fit-content;
+    /* width: inherit; */
+    /* width: fit-content; */
+    width: 100vw;
     /* height: fit-content; */
     margin: auto;
     padding: 2rem 0;
@@ -23,7 +24,7 @@
     /* border: 5px double whitesmoke; */
     /* border-radius: 14% / 7%; */
     /* background-color: rgb(20, 20, 20, 0.4); */
-    background-color: rgb(25, 25, 25, .5);
+    background-color: rgb(25, 25, 25, .6);
     /* background-color: transparent; */
 }
 
@@ -31,7 +32,7 @@
     width: fit-content;
     /* max-width: 500px; */
     padding: 1rem 0;
-    /* margin: auto; */
+    margin: auto;
     /* width: 100%; */
     /* width: 60vw; */
     /* margin: 25px auto; */
@@ -61,10 +62,11 @@
     font-size: 1.1rem;
     font-weight: bold;
     color: whitesmoke;
-    box-shadow: 0px 0px 8px -2px rgba(245, 245, 245, .9);
+    /* box-shadow: 0px 0px 8px -2px rgba(245, 245, 245, .9); */
     /* background-color: #262626; */
     background-color: transparent;
-    border: none;
+    /* border: none; */
+    border: 1px solid rgba(245, 245, 245, 0.5);
 }
 
 .option {

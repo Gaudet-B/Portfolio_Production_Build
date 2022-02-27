@@ -5,7 +5,7 @@ import burger from '../assets/burger-menu-vector.png'
 import downArrow from '../assets/down-arrow-icon-white.png'
 import upArrow from '../assets/up-arrow-icon-white.png'
 
-import styles from './nav.style.module.css'
+import styles from '../styles/nav.style.module.css'
 import { useEffect } from 'react'
 
 const Navigation = props => {

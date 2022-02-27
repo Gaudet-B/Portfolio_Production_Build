@@ -19,7 +19,7 @@ import chatVideo from '../assets/chata/chata-demo-0.gif'
 
 import arrow from '../assets/down-arrow-icon-white.png'
 
-import styles from './mobile.style.module.css'
+import styles from '../styles/mobile.style.module.css'
 // import { useEffect } from 'react';
 
 

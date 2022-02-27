@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import styles from '../components/landing.style.module.css'
+import styles from '../styles/landing.style.module.css'
 
 
 const Landing = () => {
@@ -280,8 +280,12 @@ const Landing = () => {
             {(windowWidth <= 800) ? 
             null
             :
-            <div>
-            <div id="bg-horizontal"></div>
+            <div style={{ width: "inherit", position: "absolute", height: "0vh" }}>
+            {(windowHeight > 750) ? 
+            <div id="bg-horizontal" style={{ marginTop: "50vh" }}></div>
+            :
+            <div id="bg-horizontal" style={{ marginTop: "380px" }}></div>
+            }
             <div id="bg-vertical-0">
                 <div id="bg-vertical-0-light-block">
                     <div id="bg-vertical-0-lights"></div>
@@ -320,7 +324,9 @@ const Landing = () => {
             </div>
             }
 
-            <div className={(windowWidth > 800) ? styles.body : styles.responsiveBody}>
+            <div className={(windowWidth > 800) ? styles.body : styles.responsiveBody} style={(windowHeight < 500) ? {backgroundColor: "rgba(25,25,25,.8)"} : null}>
+            
+            <div className={(windowWidth > 800) ? styles.mainContainer : styles.mainResponsive} style={(windowHeight > 800) ? {margin: "30vh auto 0 auto"} : null }>
 
             {/* if this is the first visit, display typewriter animation to user */}
                 {(!loaded) ?
@@ -406,6 +412,7 @@ const Landing = () => {
                     </div>
                     }
                 </div>
+            </div>
             </div>
         </div>
     )

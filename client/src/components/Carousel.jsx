@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import styles from '../components/carousel.style.module.css'
-import projectStyles from '../components/new.projects.style.module.css'
+import styles from '../styles/carousel.style.module.css'
+import projectStyles from '../styles/new.projects.style.module.css'
 
 import ProjectPage from '../components/ProjectPage'
 

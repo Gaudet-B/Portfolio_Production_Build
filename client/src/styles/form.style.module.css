@@ -8,6 +8,11 @@
     71% {background-color: whitesmoke;}
 }
 
+@keyframes flicker {
+    0%, 40%, 61%, 63%, 65% {opacity: 0;}
+    50%, 60%, 62%, 90%, 100% {opacity: 1;}
+}
+
 @keyframes float {
     0% {
         transform: 
@@ -48,6 +53,7 @@
     /* border-radius: 10% / 10%; */
     /* background-color: rgb(20, 20, 20, 0.4); */
     /* background-color: rgb(25, 25, 25, 1); */
+    animation: flicker 5s linear;
 }
 .responsiveMain {
     max-width: fit-content;

@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 // import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 
-// import styles from '../components/projects.style.module.css'
-import styles from '../components/resume.style.module.css'
+// import styles from '../styles/projects.style.module.css'
+import styles from '../styles/resume.style.module.css'
 
 import git from '../assets/GitHub.jpg'
 import linked from '../assets/LinkedIn.jpg'
@@ -93,7 +93,7 @@ const Resume = () => {
                 {/* <Header left="CONTACT" right="HOME" windowWidth={windowWidth} /> */}
                 <Navigation left="CONTACT" right="HOME" windowWidth={windowWidth} />
 
-                <div className={(windowWidth > 800) ? "rounded text-light d-flex flex-column justify-content-center" : "rounded text-light d-flex flex-column justify-content-center"} style={{ backgroundColor: "#262626", maxWidth: "1200px", margin: "auto" }}>
+                <div className={(windowWidth > 800) ? "rounded text-light d-flex flex-column justify-content-center mt-3" : "rounded text-light d-flex flex-column justify-content-center"} style={{ backgroundColor: "#262626", maxWidth: "1200px", margin: "auto" }}>
 
                     <div className={(windowWidth > 800) ? "border border-light rounded p-4" + " " + styles.resumeContainer : "border border-light rounded container p-2" + " " + styles.resumeContainer} >
                     

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '../components/mobile.form.style.module.css'
+import styles from '../styles/mobile.form.style.module.css'
 import axios from 'axios'
 
 const MobileForm = props => {

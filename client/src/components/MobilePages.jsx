@@ -4,7 +4,7 @@ import Loading from './Loading'
 import MobilePage from './MobilePage'
 import Navigation from './Navigation'
 
-import styles from './mobile.style.module.css'
+import styles from '../styles/mobile.style.module.css'
 
 const MobilePages = props => {
     
