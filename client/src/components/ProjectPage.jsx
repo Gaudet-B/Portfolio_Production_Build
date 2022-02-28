@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 
-// import Demo from '../components/Demo'
 import DemoGif from '../components/DemoGif'
 import DemoImg from '../components/DemoImg'
-import Video from '../components/Video'
 
 import draftHero from '../assets/draft/draft_hero.png'
 import pizzaHero from '../assets/pizza/pizza_hero.png'
@@ -11,10 +9,6 @@ import mythHero from '../assets/myth/myth_hero.png'
 import portfolioHero from '../assets/portfolio/portfolio_hero.png'
 
 import draftVideo from '../assets/draft/draft-demo-gif.gif'
-import chataVideo from '../assets/chata/chata-demo-0.gif'
-// import pizzaVideo from '../assets/pizza/pizza-video-main.webm'
-// import mythVideo from ''
-// import portfolioVideo from ''
 
 import chataDemoOne from '../assets/chata/chata-demo-one.gif'
 import chataDemoTwo from '../assets/chata/chata-demo-two.gif'
@@ -61,7 +55,7 @@ const ProjectPage = props => {
     // stores the image in local state
     const source = selectPhoto(project.title)
 
-    
+    // fuction that determines which project, and thus what styles are needed
     const getCard = (num) => {
         if (num === 0) {
             setCard("one")
@@ -81,6 +75,7 @@ const ProjectPage = props => {
         }
     }
 
+    // fuctions that determine the below variables (for link text)
     const getPrevProject = (project) => {
         if (project === "MyDraft Partner") return "chata"
         else if (project === "P!ZZA") return "MyDraft Partner"
@@ -94,42 +89,49 @@ const ProjectPage = props => {
         else if (project === "briangaudet.com") return "chata"
     }
 
-    // 
+    // varibles that determine the text of the project navigation links (bottom of page)
     const prevProject = getPrevProject(project.title)
     const nextProject = getNextProject(project.title)
 
-    // 
+    // function that loads pt.2 and pt.3 of the p!zza demo .gif
     const swapPizza = () => {
-        // while (project.title === "P!ZZA") {
-            setTimeout(() => setPizzaGif(pizzaDemoTwo), 6100)
-            setTimeout(() => setPizzaGif(pizzaDemoThree), 13100)
-        // } return
+        setTimeout(() => setPizzaGif(pizzaDemoTwo), 6100)
+        setTimeout(() => setPizzaGif(pizzaDemoThree), 13100)
     }
-
+    
+    // function that loads pt.2 of the chata demo .gif
     const swapChata = () => {
         setTimeout(() => setChataGif(chataDemoTwo), 6100)
     }
 
-    // 
+    // function that opens demo section, applies proper styling and handles .gif images
     const openDemo = () => {
+        // close gallery if open
         closeGallery()
+
         let demo = document.getElementById(`demo-${card}`)
         demo.classList.remove(styles.contract)
         demo.classList.add(styles.expand)
+
         setTimeout(() => {
+            // swap .gif images if necessary
             if (project.title === "P!ZZA") {
                 swapPizza()
             } else if (project.title === "chata") {
                 swapChata()
             }
             setShow(true)
+
             let image = document.getElementById(`image-${card}`)
             image.classList.remove(styles.contract)
             image.classList.add(styles.expand)
+
         }, 100)
+        
         setOpen(true)
     }
 
+    // fuction that closes the demo .gif
     const closeDemo = () => {
         let demo = document.getElementById(`demo-${card}`)
         let image = document.getElementById(`image-${card}`)
@@ -142,8 +144,8 @@ const ProjectPage = props => {
         setOpen(false)
     }
     
+    // function that restarts demo .gif if the user decides (usually because it ended)
     const restartDemo = () => {
-        // let image = document.getElementById(`image-${card}`)
         if (project.title === "chata") {
             setChataGif(chataDemoOne)
             swapChata()
@@ -153,6 +155,7 @@ const ProjectPage = props => {
         }
     }
 
+    // fuction that focuses on one image in gallery, "unfocusing" any others if necessary
     const handleFocus = e => {
 
         closeDemo()
@@ -165,58 +168,40 @@ const ProjectPage = props => {
             activeStyle = styles.activeImgLandscape
             inactiveStyle = styles.inactiveL
         }
-        // console.log(e.target.id)
-        // console.log(typeof(e.target.id))
-
-        // console.log(activeStyle)
-        // console.log(inactiveStyle)
 
         let img = e.target.parentNode
 
         if (e.target.id != "") {
             e.target.classList.add(inactiveStyle)
             e.target.classList.remove(activeStyle)
-            // e.target.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
-            // e.target.firstElementChild.classList.add(styles.demoMask)
             setTimeout(() => e.target.firstElementChild.classList.add(styles.demoMask), 500)
             e.target.firstElementChild.id = ""
             return
         }
 
         let mask = document.getElementById("activeMask")
-        // console.log(mask)
         if (mask != null) {
             let image = mask.parentNode
             image.classList.add(inactiveStyle)
             image.classList.remove(activeStyle)
-            // image.classList.remove(styles.activeImgPortrait, styles.activeImgLandscape)
             setTimeout(() => mask.classList.add(styles.demoMask), 500)
             mask.id = ""
             setTimeout(() => {
                 img.classList.remove(inactiveStyle)
                 img.firstElementChild.classList.remove(styles.demoMask)
                 img.classList.add(activeStyle)
-                // if (project.title === "P!ZZA") {
-                //     img.classList.add(styles.activeImgPortrait)
-                // } else {
-                //     img.classList.add(styles.activeImgLandscape)
-                // }
                 e.target.setAttribute("id", "activeMask")
             }, 100);
         } else {
             img.classList.remove(inactiveStyle)
             img.firstElementChild.classList.remove(styles.demoMask)
             img.classList.add(activeStyle)
-            // if (project.title === "P!ZZA") {
-            //     img.classList.add(styles.activeImgPortrait)
-            // } else {
-            //     img.classList.add(styles.activeImgLandscape)
-            // }
             e.target.setAttribute("id", "activeMask")
         }
         return
     }
 
+    // fuction that closes gallery (when demo is opened or carousel spins)
     const closeGallery = () => {
 
         let activeStyle, inactiveStyle
@@ -248,14 +233,18 @@ const ProjectPage = props => {
         }
     }
 
+    // function that handles spinning the projects carousel (the 'spin' function is passed down)
     const handleSpin = e => {
         closeGallery()
         if (open) {
-            // if (project.title === "MyDraft Partner" || project.title === "P!ZZA") {
-                closeDemo()
-            // }
+            closeDemo()
         }
         setTimeout(() => spin(e), 500)
+    }
+
+    // fuction that opens a new window for the p!zza interactive demo
+    const handlePizza = () => {
+        window.open("/p!zza")
     }
 
     useEffect(() => {
@@ -271,8 +260,9 @@ const ProjectPage = props => {
                 <div className={styles.cardFront} style={{  }}>
                     
                     <div style={{ margin: "4rem 0rem" }}>
+
                         <p style={{ fontSize: "3.25rem", fontWeight: "bold", margin: "18px 0px 14px 0px", letterSpacing: ".4rem" }}>{project.title}</p>
-                        {/* <p style={{ fontSize: "16pt", fontWeight: "bold", letterSpacing: ".18em", color: "rgba(255,255,255,.75)", marginTop: "0px" }}>{project.myRole}</p> */}
+                        
                         {(project.title === "chata") ? 
                         <div>
                             <p style={{ fontSize: "1.75rem", fontWeight: "bold", color: "rgba(0, 143, 17, .7)", margin: "1rem 0" }}> {project.languages} </p>
@@ -282,7 +272,15 @@ const ProjectPage = props => {
                         <p style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "30px", color: "rgba(0, 143, 17, .7)", margin: "2rem 0rem" }}> {project.languages} </p>
                         }
                         <p style={{ fontSize: "1.25rem", margin: "0px 5px 20px 5px", maxWidth: "40%", margin: "auto" }}>{project.summary}</p>
+                        
+
                     </div>
+                    
+                    {(project.title === "P!ZZA") ? 
+                    <p onClick={handlePizza} style={{ fontWeight: "bold", padding: "8px 0", background: "linear-gradient(to right, transparent 0%, rgba(0, 173, 17, .1) 5%, rgba(0, 173, 17, 1) 40%, rgba(0, 173, 17, 1) 60%, rgba(0, 173, 17, .1) 95%, transparent 100%)", width: "90%", margin: "0 auto 3rem auto", borderRadius: "10px", fontSize:"16-pt", cursor: "pointer" }}>this project has an interactive demo!</p>
+                    : null
+                    }
+                    
                     <div style={{ width: "100%", background: "linear-gradient(to left, #262626 0%, #262626 2%, rgb(26, 26, 26) 8%, rgb(26, 26, 26) 92%, #262626 98%, #262626 100%)", padding: "35px 0px", display: "flex", flexDirection: "column" }}>
                     <p className={styles.header}>Gallery</p>
                     <p className={styles.instruction}>click or tap on images to expand</p>
@@ -291,9 +289,6 @@ const ProjectPage = props => {
                             if (idx < 3) {
                             return(
                                 <DemoImg key={idx} index={idx} source={img} handleFocus={handleFocus} project={project.title} />
-                                // <div key={idx} id={"img" + "-" + (idx + 1)} onClick={handleFocus} className={styles.demo} style={{ backgroundImage: `url(${img})`, backgroundPosition: "center" }}>
-                                //     <div className={styles.demoMask}></div>
-                                // </div>
                             )}
                         })}
                     </div>
@@ -302,9 +297,6 @@ const ProjectPage = props => {
                             if (idx > 2) {
                             return(
                                 <DemoImg key={idx} index={idx} source={img} handleFocus={handleFocus} project={project.title} />
-                                // <div key={idx} id={"img" + "-" + (idx + 1)} onClick={handleFocus} className={styles.demo} style={{ backgroundImage: `url(${img})`, backgroundPosition: "center" }}>
-                                //     <div className={styles.demoMask}></div>
-                                // </div>
                             )}
                         })}
                     </div>
@@ -313,7 +305,6 @@ const ProjectPage = props => {
                     
                     <div style={{ height: "inherit", minHeight: "fit-content", padding: "2em 0", display: "flex", flexDirection: "column", backgroundColor: "#262626"  }}>
                         
-                        {/* <p className={styles.backTitle} >{project.title}</p> */}
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", minWidth: "300px", maxWidth: "600px", margin: "1em auto" }}>
                             <p style={{ fontSize: "14pt", textDecoration: "underline", marginRight: "2rem" }}>My Role(s):</p>
                             <p style={{ fontSize: "14pt" }}>{project.myRole}</p>
@@ -365,27 +356,17 @@ const ProjectPage = props => {
 
                             <p className={styles.header}>Demo</p>
 
-                            {/* {(project.title === "briangaudet.com" || project.title === "chata") ?  */}
                             {(project.title === "briangaudet.com") ? 
                             <div>
                                 <p className={styles.instruction}>demo currently not available</p>
-                                {/* <DemoImg index={0} source={source} handleFocus={() => null} /> */}
                             </div>
                             : (!show) ? <p onClick={openDemo} className={styles.instruction} style={{ cursor: "pointer" }}>click to view demo</p> :
                                 (!video) ? <DemoGif card={card} width={80} source={source} closeDemo={closeDemo} />
                                 : (project.title === "P!ZZA") ?
                                 <DemoGif card={card} width={30} source={pizzaGif} closeDemo={closeDemo} restartDemo={restartDemo} />
-                                // <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }} >
-                                //     <DemoGif source={pizzaGif} closeDemo={closeDemo} />
-                                //     <DemoGif source={pizzaDemoOne} />
-                                //     <DemoGif source={pizzaDemoTwo} />
-                                //     <img src={pizzaDemoOne} alt="placeholder" style={{ maxHeight: "960px", maxWidth: "1006px" }} />
-                                //     <img src={pizzaDemoTwo} alt="placeholder" style={{ maxHeight: "960px", maxWidth: "1006px" }} />
-                                // </div>
                                 : (project.title === "chata") ?
                                 <DemoGif card={card} width={80} source={chataGif} closeDemo={closeDemo} restartDemo={restartDemo} />
                                 :
-                                // <Video video={video} />
                                 <DemoGif card={card} width={80} source={video} closeDemo={closeDemo} restartDemo={restartDemo} />
                                 
                             }
@@ -393,8 +374,6 @@ const ProjectPage = props => {
                             </div>
                         </div>
                         
-                        {/* <Demo project={project} images={images} responsive={responsive} /> */}
-                        {/* <p className={styles.flipLink} onClick={() => flipCard(flip)}><strong> || </strong> flip back to the front of card <strong> || </strong></p> */}
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width: "80%", margin: " 2em auto" }}>
                             <div id="left" style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", marginLeft: "50px" }}>
                                 <div className={styles.left}>

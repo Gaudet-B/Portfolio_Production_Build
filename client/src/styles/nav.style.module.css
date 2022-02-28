@@ -16,11 +16,10 @@
     to {background-size: 0;}
 } 
 
-@keyframes slide {
+/* @keyframes slide {
     0% {transform: translateY(-4rem) translateX(3rem)}
     100% {transform: translateY(4rem) translateX(-3rem)}
-}
-/* transform: "translateY(4rem) translateX(-3rem)",  */
+} */
 
 .navLink {
     font-family: helvetica;
@@ -38,13 +37,9 @@
 .smallNav {
     font-family: helvetica;
     text-shadow: 2px 2px 1px black;
-    /* margin: 0px 2px; */
-    /* padding: 10px 12px 0px 12px; */
     text-decoration: none;
     font-size: 1.4rem;
     color: whitesmoke;
-    /* margin: .3rem 0; */
-    /* border-radius: 5px 5px 0px 0px; */
 
     z-index: 5;
 }
@@ -67,18 +62,7 @@
     text-align: end;
     width: fit-content;
     height: fit-content;
-    /* padding: 1rem 0; */
-
-    /* transform: translateY(-8rem) translateX(3rem); */
-    /* transform: translateY(4rem) translateX(-3rem); */
-
-    /* transition: 1s linear; */
-    /* position: absolute; */
-    /* background-color: #262626; */
     background-color: transparent;
-    /* background-size: cover; */
-    /* animation: unmask 2s linear ease-out; */
-    /* animation: slide 1s linnear ease-out; */
     transition: .7s ease-out transform;
 }
 

@@ -11,37 +11,6 @@
     /* 1%, 4%, 32%, 40%, 50% {opacity: 0} */
 }
 
-/* removes dark 'mask' from components on hover or reveals components on load */
-/* @keyframes un-mask {
-    0% {
-        background-color: #262626;
-        opacity: 1;
-    }
-    90% {
-        background-color: #262626;
-        opacity: 1;
-    }
-    100% {
-        background-color: #262626;
-        opacity: 0;
-    }
-}
-
-@keyframes mask {
-    0% {
-        background-color: #262626;
-        opacity: 0;
-    }
-    90% {
-        background-color: #262626;
-        opacity: 1;
-    }
-    100% {
-        background-color: #262626;
-        opacity: 1;
-    }
-} */
-
 /* subtle glow effect for headers */
 @keyframes glow {
     0% {color: rgba(255,255,255,.75); }
@@ -49,7 +18,7 @@
     100% {color: rgba(255,255,255,.75); }
 }
 
-/*  */
+/* image gallery animations */
 @keyframes expand {
     from {height: 25px;}
     to {height: 750px;} 
@@ -96,44 +65,16 @@
 
 .spinner { 
     transform-style: preserve-3d; 
-    /* height: 1700px;  */
     /* this creates the 3D "rotation" space */
     transform-origin: 50% 0% -550px; 
     transition: 0.8s ease-out; 
     height: inherit;
 }
 
-/* .card {  */
-    /* margin: 0px !important */
-    /* margin: auto; */
-    /* transform-style: preserve-3d; */
-    /* width: 100%;  */
-    /* width: 40%;  */
-    /* min-width: 550px; */
-    /* max-width: 550px; */
-    /* width: 90vw; */
-    /* max-width: 1140px; */
-    /* height: 2100px; */
-    /* height: 100%; */
-    /* height: inherit; */
-    /* position: relative; */
-    /* align-self: center; */
-    /* border: 4px double whitesmoke; */
-    /* border-radius: 6% / 5%; */
-    /* background-color: #262626; */
-/* } */
-
 .cardDiv {
     transform-style: preserve-3d;
-    /* perspective: 1500px; */
-    /* width: 40%;  */
-    /* min-width: 600px; */
-    /* max-width: 600px;  */
-    /* width: 100vw; */
-    /* height: fit-content; */
     height: inherit;
     position: absolute;
-    /* margin-left: 20%; */
     transform-origin: 50% 0% -550px;
 }
 
@@ -199,10 +140,6 @@
     border-radius: 5% / 8%;
 } */
 
-/* body {
-    background-color: #262626;
-} */
-
 p {
     margin: 0
 }
@@ -219,11 +156,6 @@ p {
 /* a:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 14.5pt; cursor: pointer; } */
 
 .card { 
-    /* transform-style: preserve-3d; */
-    /* width: 40%;  */
-    /* min-width: 550px; */
-    /* max-width: 550px;  */
-    /* height: 700px; */
     position: relative;
     align-self: center;
     width: 90vw;
@@ -231,16 +163,11 @@ p {
     min-width: 1130px;
     margin: auto;
     transform-style: preserve-3d;
-    /* border: 4px double whitesmoke; */
-    /* border-radius: 6% / 5%; */
-    /* background-color: #262626; */
-    
     /* ========= */
     display: flex;
     flex-direction: column;
     text-align: center;
     color: whitesmoke;
-    /* height: inherit; */
 }
 
 /* .card {
@@ -254,17 +181,13 @@ p {
     width: 100%;
     position: absolute;
     padding: 5px;
-    /* height: inherit; */
-    /* min-height: fit+-content; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* background-color: #262626; */
     background: linear-gradient(to bottom, #262626 0%, #262626 80%, transparent 100%);
     /*  */
     -ms-overflow-style: none;
     scrollbar-width: 0px;
-    /* max-height: 100vh; */
     overflow: auto;
     max-height: inherit;
 }
@@ -335,23 +258,16 @@ p {
 
 .inactiveL {
     animation: inactiveL .5s ease-in;
-    /* transition: 1s linear ease-out; */
 }
 .inactiveP {
     animation: inactiveP .5s ease-in;
-    /* transition: 1s linear ease-out; */
 }
 
 .demoContainer {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-evenly; */
     min-height: 25px;
-    /* margin: 2rem 0; */
 }
 
 .expand {
-    /* transition: 1.5s; */
     animation: expand 1s ease-out;
 }
 .contract {
@@ -380,20 +296,19 @@ p {
 } */
 
 /* classes that handle card flipping */
-.flip {
+/* .flip {
     animation: front-flip .8s ease-in;
 }
 .reverse {
     animation: back-flip .8s ease-in;
-}
+} */
 
-.flipLink {
+/* .flipLink {
     font-weight: bold;
     font-size: 14pt;
     cursor: pointer;
     margin: auto;
     color: rgba(255,255,255,.3);
-    /* background: none; */
     background: linear-gradient(90deg, rgba(255,255,255,.3) 0%, rgb(123, 255, 139) 45%, rgb(61, 252, 84) 50%, rgb(123, 255, 139) 55%, rgba(255,255,255,.3) 100%);
     -webkit-background-size: 100% 100px;
     -moz-background-size: 100% 100px;
@@ -406,10 +321,9 @@ p {
 
     -webkit-text-stroke-width: 0.1px;
     -webkit-text-stroke-color: rgba(255,255,255,.3);
-    /* -webkit-text-stroke-color: rgb(0, 214, 25, .8); */
 
+    animation: shine 10s infinite ease-in-out;
     animation: flicker 15s linear infinite;
-    /* animation: shine 10s infinite ease-in-out; */
     animation-delay: 2s;
 }
 .flipLink strong {
@@ -420,7 +334,7 @@ p {
     color: whitesmoke;
     font-size: 14.5pt;
     animation: none;
-}
+} */
 
 .responsiveLink {
     font-weight: bold;
@@ -458,48 +372,18 @@ p {
 .projectLink {
     display: flex;
     flex-direction: column;
-    /* background-color: whitesmoke; */
     height: 70px;
     min-width: 170px;
-    /* color: black; */
     color: whitesmoke;
-    /* box-shadow: 0px 10px 5px -5px rgba(25,25,25,1); */
 }
-/* .projectLink:hover {
-    box-shadow: 0px 0px 20px -5px whitesmoke;
-} */
 
 .left {
-    /* width: fit-content; */
-    /* height: fit-content; */
-    /* width: 0;
-    height: 0;
-    border-top: 35px solid transparent;
-    border-bottom: 35px solid transparent;
-    border-right: 35px solid whitesmoke;
-    color: black; */
     transform: rotateZ(0deg);
     margin: 10px 20px 0 0;
 }
-/* .left:hover {
-    color: whitesmoke;
-    background-color: rgba(25, 25, 25, 1);
-} */
 
 .right {
-    /* width: fit-content; */
-    /* height: fit-content; */
-    /* width: 0;
-    height: 0;
-    border-top: 35px solid transparent;
-    border-bottom: 35px solid transparent;
-    border-left: 35px solid whitesmoke;
-    color: black; */
     transform: rotateZ(180deg);
     margin:0 0 2px 20px;
 }
-/* .right:hover {
-    color: whitesmoke;
-    border-left: 35px solid rgba(25, 25, 25, 1);
-} */
 

@@ -1,0 +1,178 @@
+import { useEffect, useState } from 'react'
+
+import deepDishThumb from './assets/deepDish-crust-thumb.png'
+import nyStyleThumb from './assets/nyStyle-crust-thumb.png'
+import sicilianThumb from './assets/sicilian-crust-thumb.png'
+import whiteSauceThumb from './assets/white-sauce-thumb.png'
+import pizzaSauceThumb from './assets/pizza-sauce-thumb.png'
+import marinaraSauceThumb from './assets/marinara-sauce-thumb.png'
+
+import styles from './pizza.style.module.css'
+
+
+const Review = props => {
+
+    // props set globally at App.js level
+    const {order} = props
+
+    // state hooks for displaying images
+    const [crustImg, setCrustImg] = useState()
+    const [sauceImg, setSauceImg] = useState()
+
+    useEffect(() => {
+        getCrustImg(order)
+        getSauceImg(order)
+    }, [])
+
+    // functions to retreive images based on the "order" from props
+    // crust
+    const getCrustImg = order => {
+        let crust = order.crust.name
+        if (crust === "NY Style") {
+            setCrustImg(nyStyleThumb)
+        } else if (crust === "Deep Dish") {
+            setCrustImg(deepDishThumb)
+        } else {
+            setCrustImg(sicilianThumb)
+        }
+    }
+    // sauce
+    const getSauceImg = order => {
+        let sauce = order.sauce.name
+        if (sauce === "Pizza Sauce") {
+            setSauceImg(pizzaSauceThumb)
+        } else if (sauce === "Marinara Sauce") {
+            setSauceImg(marinaraSauceThumb)
+        } else {
+            setSauceImg(whiteSauceThumb)
+        }
+    }
+
+    return (
+        <div className="d-flex flex-column text-center text-light rounded py-3 px-2" style={{ backgroundColor: "rgba(143, 3, 3, 0.774)" }} >
+            <div className={styles.modalImage} > </div>
+
+            {/* top: crust and sauce */}
+            <div className="d-flex flex-row justify-content-evenly my-2">
+
+                {/* crust */}
+                <div className="d-flex flex-column text-center border border-light rounded" style={{ width: "46%" }}>
+                    <p className="mb-0 mt-2" >Your</p>
+                    <h3 className="mt-0 mb-2 text-decoration-underline" >Crust:</h3>
+                    <img 
+                        src={crustImg} 
+                        alt="current crust"
+                        height={(order.crust.name === "Deep Dish") ? "80px" : "100px"}
+                        width="100px"
+                        className="rounded"
+                        style={{ margin: "auto" }}
+                    />
+                    <p>{order.crust.name}</p>
+                </div>
+
+                {/* sauce */}
+                <div className="d-flex flex-column text-center border border-light rounded" style={{ width: "46%" }}>
+                    <p className="mb-0 mt-2" >Your</p>
+                    <h3 className="mt-0 mb-2 text-decoration-underline" >Sauce:</h3>
+                    <img 
+                        src={sauceImg} 
+                        alt="current sauce"
+                        height="100px"
+                        width="100px"
+                        className="rounded"
+                        style={{ margin: "auto" }}
+                    />
+                    <p>{order.sauce.name}</p>
+                </div>
+            </div>
+
+            {/* bottom: toppings */}
+            <div className="d-flex flex-column border border-light rounded mx-2 mb-2 ps-1 pe-2">
+
+                <p className="mb-0 mt-2" >Your</p>
+                <h3 className="mt-0 mb-2 text-decoration-underline" >Toppings:</h3>
+
+                {/* cheese and meat */}
+                <div className="d-flex flex-row justify-content-evenly my-2 border-bottom border-light">
+                    {/* cheese */}
+                    <div className="d-flex flex-column text-start" style={{ width: "40%" }}>
+                        <p className="fw-bold text-center mb-0">Cheese:</p>
+                        <ul>
+                            {(order.toppings.cheese.length > 0) ?
+                                order.toppings.cheese.map((cheese, idx) => {
+                                    return(
+                                        <li key={idx}>{cheese}</li>
+                                    )
+                                })
+                                // if no cheeses selected
+                                :
+                                <li>N / A</li>
+                            
+                            }
+                        </ul>
+                    </div>
+                    {/* divider */}
+                    <div className="ms-3 border-start border-light my-2" style={{ height: "inherit", width: "1px" }}></div>
+                    {/* meat */}
+                    <div className="d-flex flex-column text-start" style={{ width: "40%" }}>
+                        <p className="fw-bold text-center mb-0">Meat:</p>
+                        <ul>
+                            {(order.toppings.meat.length > 0) ?
+                                order.toppings.meat.map((meat, idx) => {
+                                    return(
+                                        <li key={idx}>{meat}</li>
+                                    )
+                                })
+                                // if no meats selected
+                                :
+                                <li>N / A</li>
+                            
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                {/* other toppings */}
+                <div className="d-flex flex-column text-start mx-3">
+                    <p className="fw-bold mb-0">Other:</p>
+                    <ul className="d-flex flex-row justify-content-between" style={{ width: "80%", padding: "0px" }}>
+                        {/* column #1 */}
+                        <div className="d-flex flex-column text-start ms-4 me-2" >
+                            {(order.toppings.other.length > 1) ?
+                                // first half of other toppings array
+                                order.toppings.other.slice(0, Math.floor(order.toppings.other.length/2)).map((other, idx) => {
+                                    return(
+                                        <li key={idx}>{other}</li>
+                                    )
+                                })
+                                :
+                                // if only one column is required
+                                (order.toppings.other.length === 1) ?
+                                <li>{order.toppings.other[0]}</li>
+                                // if no other toppings selected
+                                :
+                                <li>N / A</li>
+                            }
+                        </div>
+                        {/* column #2 */}
+                        <div className="d-flex flex-column text-start ms-5" >
+                            {(order.toppings.other.length > 1) ?
+                                // second half of other toppings array
+                                order.toppings.other.slice(Math.floor(order.toppings.other.length/2)).map((other, idx) => {
+                                    return(
+                                        <li key={idx}>{other}</li>
+                                    )
+                                })
+                            :
+                            // null will not display to the user, but will maintain consisten style, regardless of array length
+                            <li style={{ listStyle: "none", color: "transparent" }}>null</li>
+                            }
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Review

@@ -8,12 +8,13 @@ import Resume from './views/Resume'
 import Contact from './views/Contact'
 import Admin from './views/Admin'
 import Edit from './views/Edit'
+import Pizza from './components/pizza/Pizza'
 
 
 function App() {
 
     return ( 
-      <div className="App" style={{ backgroundColor: "rgba(26,26,26,1)"}} >
+      <div id="App" className="App" style={{ backgroundColor: "rgba(26,26,26,1)"}} >
 
         <BrowserRouter>
           <Switch>
@@ -21,14 +22,6 @@ function App() {
             <Route exact path="/">
               <Landing />
             </Route>
-
-            {/* <Route exact path="/projects">
-              <Projects />
-            </Route> */}
-            
-            {/* <Route exact path="/projects/view/:proj/:img">
-              <ViewProject />
-            </Route> */}
 
             <Route exact path="/contact">
               <Contact />
@@ -48,6 +41,11 @@ function App() {
 
             <Route exact path="/projectpages">
               <ProjectPages />
+            </Route>
+
+            {/* dedicated route for p!zza interactive demo */}
+            <Route exact path="/p!zza">
+              <Pizza />
             </Route>
 
           </Switch>
