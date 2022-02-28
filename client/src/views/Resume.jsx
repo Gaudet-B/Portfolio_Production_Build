@@ -93,7 +93,7 @@ const Resume = () => {
                 {/* <Header left="CONTACT" right="HOME" windowWidth={windowWidth} /> */}
                 <Navigation left="CONTACT" right="HOME" windowWidth={windowWidth} />
 
-                <div className={(windowWidth > 800) ? "rounded text-light d-flex flex-column justify-content-center mt-3" : "rounded text-light d-flex flex-column justify-content-center"} style={{ backgroundColor: "#262626", maxWidth: "1200px", margin: "auto" }}>
+                <div className={"rounded text-light d-flex flex-column justify-content-center mt-3"} style={{ backgroundColor: "#262626", maxWidth: "1200px", margin: "auto" }}>
 
                     <div className={(windowWidth > 800) ? "border border-light rounded p-4" + " " + styles.resumeContainer : "border border-light rounded container p-2" + " " + styles.resumeContainer} >
                     

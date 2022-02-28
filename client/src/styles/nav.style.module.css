@@ -63,18 +63,19 @@
     width: fit-content;
     height: fit-content;
     background-color: transparent;
-    transition: .7s ease-out transform;
+    /* transition: .7s ease-out transform; */
+    transition: .7s ease transform;
 }
 
 
-.activeMenu {
+/* .activeMenu {
     height: fit-content;
     transition: 2s linear;
     animation: expand 2s linear ease-out;
-}
+} */
 
-.inactiveMenu {
+/* .inactiveMenu {
     height: fit-content;
     transition: 2s linear;
     animation: contract 2s linear ease-in;
-}
+} */

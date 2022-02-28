@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.75f4679c.chunk.css",
-    "main.js": "/static/js/main.3c8af6bf.chunk.js",
-    "main.js.map": "/static/js/main.3c8af6bf.chunk.js.map",
+    "main.css": "/static/css/main.783787de.chunk.css",
+    "main.js": "/static/js/main.158ffe9e.chunk.js",
+    "main.js.map": "/static/js/main.158ffe9e.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e69f07d7.js",
     "runtime-main.js.map": "/static/js/runtime-main.e69f07d7.js.map",
     "static/js/2.83451395.chunk.js": "/static/js/2.83451395.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.6b27892a.chunk.js": "/static/js/3.6b27892a.chunk.js",
     "static/js/3.6b27892a.chunk.js.map": "/static/js/3.6b27892a.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.75f4679c.chunk.css.map": "/static/css/main.75f4679c.chunk.css.map",
+    "static/css/main.783787de.chunk.css.map": "/static/css/main.783787de.chunk.css.map",
     "static/js/2.83451395.chunk.js.LICENSE.txt": "/static/js/2.83451395.chunk.js.LICENSE.txt",
     "static/media/contact.style.module.css": "/static/media/3d-background.dec1b34e.png",
     "static/media/landing.style.module.css": "/static/media/LinkedIn.95a9f7d2.jpg",
@@ -66,7 +66,7 @@
   "entrypoints": [
     "static/js/runtime-main.e69f07d7.js",
     "static/js/2.83451395.chunk.js",
-    "static/css/main.75f4679c.chunk.css",
-    "static/js/main.3c8af6bf.chunk.js"
+    "static/css/main.783787de.chunk.css",
+    "static/js/main.158ffe9e.chunk.js"
   ]
 }
