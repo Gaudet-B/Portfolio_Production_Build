@@ -40,11 +40,11 @@ const Contact = () => {
 
     // function that displays loading spinner 
     const loadData = async () => {
-        await new Promise((res) => setTimeout(res, 1500))
+        await new Promise((res) => setTimeout(res, 1000))
         setLoading(false)
         // 
         // openContainer()
-        setTimeout(() => openContainer(), 1500);
+        setTimeout(() => openContainer(), 250);
         // setTimeout(() => openContainer(), 2500);
         // setTimeout(() => setHeight("100vh"), 2000);
     }
