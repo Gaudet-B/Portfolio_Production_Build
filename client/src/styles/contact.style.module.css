@@ -39,6 +39,12 @@
     62%, 64%, 100% {border-color: rgba(245, 245, 245, 0.4);}
 }
 
+/*  */
+@keyframes open {
+    from {height: 90px;}
+    to{height: 90vh;}
+}
+
 
 
 /* { loading... } */
@@ -120,6 +126,9 @@
 }
 
 .contactContainer {
+    height: 90px;
+    /* min-height: 100px; */
+    /* animation: open 1s ease-in; */
     background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.5) 100%);
     /* background-color: rgb(38, 38, 38); */
     padding-top: 2em;
@@ -129,7 +138,20 @@
     /* margin: 0 auto 3rem auto; */
     border: 1px solid rgba(245, 245, 245, 0.4);
     border-radius: 5px;
-    animation: flash 5s linear;
+    /* animation: flash 5s linear; */
+    overflow: scroll;
+    /* max-height: 100px; */
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+    /* transition: 1s ease-in; */
+    /* max-height: 100vh; */
+}
+.contactContainer::-webkit-scrollbar {
+    display: none;
+}
+.contactContainer.open {
+    animation: open .3s ease-out;
+    height: 90vh;
 }
 
 .title {

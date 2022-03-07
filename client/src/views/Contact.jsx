@@ -23,6 +23,8 @@ const Contact = () => {
     const [windowWidth, setWindowWidth] = useState(getWindowWidth())
     // boolean for spinner
     const [loading, setLoading] = useState(true)
+    // 
+    // const [height, setHeight] = useState("100px")
 
     // function to be added to the onResize event listener
     const resizeWindow = () => {
@@ -32,10 +34,19 @@ const Contact = () => {
         // console.log(windowWidth)
     }
 
+    const openContainer = () => {
+        document.getElementById("container").classList.add(styles.open)
+    }
+
     // function that displays loading spinner 
     const loadData = async () => {
-        await new Promise((res) => setTimeout(res, 2000))
+        await new Promise((res) => setTimeout(res, 1500))
         setLoading(false)
+        // 
+        // openContainer()
+        setTimeout(() => openContainer(), 1500);
+        // setTimeout(() => openContainer(), 2500);
+        // setTimeout(() => setHeight("100vh"), 2000);
     }
 
     useEffect(() => {
@@ -69,7 +80,7 @@ const Contact = () => {
                     {/* <Header left="PROJECTS" right="RESUME" windowWidth={windowWidth}/> */}
                     <Navigation left="PROJECTS" right="RESUME" windowWidth={windowWidth}/>
                     {(windowWidth < 800) ? <MobileForm /> : 
-                    <div className={styles.contactContainer} >
+                    <div id="container" className={styles.contactContainer} >
                         <p className={styles.title} >Contact Brian</p>
                         <Form windowWidth={windowWidth} />
                     </div>

@@ -28,9 +28,9 @@ const Pizza = () => {
     }
     
     // global state props
-    const [isEmpty, setIsEmpty] = useState(true)
     const [order, setOrder] = useState({ price: 0.00 })
     const [shoppingCart, setShoppingCart] = useState(getLocalOrDefault("shoppingCart", []))
+    const [isEmpty, setIsEmpty] = useState(true)
     const [page, setPage] = useState()
     const [loading, setLoading] = useState(true)
     const [detailShow, setDetailShow] = useState(false)

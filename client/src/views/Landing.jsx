@@ -59,7 +59,7 @@ const Landing = () => {
         }, 2000)
         let projectLabel = document.getElementById("projects-label")
         setTimeout(() => projectLabel.setAttribute("class", styles.label), 2000)
-        setTimeout(() => projectLabel.innerHTML = "<p>Personal</p><p style='margin-bottom: 50px'>Projects</p>", 2000)
+        setTimeout(() => projectLabel.innerHTML = "<p style='margin-bottom: 50px'>Projects</p>", 2000)
 
         let contact = document.getElementById("contact")
         setTimeout(() => contact.setAttribute("class", styles.contact), 200)
@@ -85,7 +85,7 @@ const Landing = () => {
         }, 2000)
         let resumeLabel = document.getElementById("resumeLabel")
         setTimeout(() => resumeLabel.setAttribute("class", styles.label), 2000)
-        setTimeout(() => resumeLabel.innerHTML = "<p>Professional</p><p style='margin-bottom: 50px'>Resume</p>", 2000)
+        setTimeout(() => resumeLabel.innerHTML = "<p style='margin-bottom: 50px'>Resume</p>", 2000)
 
     }
 
@@ -270,7 +270,8 @@ const Landing = () => {
     }, [loaded])
 
     // styles for the typewriter lines
-    const typedLineClass = `${styles.typedLine} ${styles.line1}`
+    const typedLineClassOne = `${styles.typedLine} ${styles.line1}`
+    const typedLineClassTwo = `${styles.typedLine} ${styles.line2}`
     const typedLineClassInvis = `${styles.typedLine} ${styles.line1} ${styles.invis}`
     
     return (
@@ -331,18 +332,18 @@ const Landing = () => {
             {/* if this is the first visit, display typewriter animation to user */}
                 {(!loaded) ?
                         <div className={styles.typewriterDiv}>
-                            <h1 id="name" className={typedLineClass}></h1>
+                            <h1 id="name" className={typedLineClassOne}></h1>
                             <h3 id="line-two" className={typedLineClassInvis}></h3>
-                            <h3 id="line-three" className={typedLineClass}></h3>
-                            <h3 id="line-four" className={typedLineClass}></h3>
+                            <h3 id="line-three" className={typedLineClassTwo}></h3>
+                            <h3 id="line-four" className={typedLineClassTwo}></h3>
                         </div>
                     :
             // otherwise, text will appear without the animation
                         <div className={styles.typewriterDiv}>
-                            <h1 id="name" className={typedLineClass}>{ dataText[0] }</h1>
+                            <h1 id="name" className={typedLineClassOne}>{ dataText[0] }</h1>
                             <h3 id="line-two" className={typedLineClassInvis}>{ dataText[1] }</h3>
-                            <h3 id="line-three" className={typedLineClass}>{ dataText[2] }</h3>
-                            <h3 id="line-four" className={typedLineClass}>{ dataText[3] }<span aria-hidden="true"></span></h3>
+                            <h3 id="line-three" className={typedLineClassTwo}>{ dataText[2] }</h3>
+                            <h3 id="line-four" className={typedLineClassTwo}>{ dataText[3] }<span aria-hidden="true"></span></h3>
                         </div>
                 }
 
