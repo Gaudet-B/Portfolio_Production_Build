@@ -1,0 +1,267 @@
+/* background image */
+@keyframes openMenu {
+    from {height: 80px;}
+    to {height: 80vh;}
+
+    /* 0% {height: 80px;}
+    30% {height: 20vh;}
+    100% {height: 80vh;} */
+
+    /* 0% {height: 80px;}
+    20% {height: 30vh;}
+    24% {height: 24vh;}
+    30% {height: 22vh;}
+    32% {height: 30vh;}
+    36% {height: 24vh;}
+    40% {height: 22vh;}
+    42% {height: 30vh;}
+    48% {height: 20vh;}
+    60% {height: 80vh;} */
+}
+
+@keyframes flicker {
+    0%, 59%, 61%, 63%, 65% {opacity: 0;}
+    60%, 62%, 90%, 100% {opacity: 1;}
+}
+
+/* loading spinner - outside */
+@keyframes spinner {
+    0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
+    90% {transform: translate3d(-50%, -50%, 0) rotate(365deg);}
+    100% {transform: translate3d(-50%, -50%, 0) rotate(360deg);}
+}
+
+/* loading spinner - inside */
+@keyframes reverse-spinner {
+    0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
+    100% {transform: translate3d(-50%, -50%, 0) rotate(-360deg);}
+}
+
+/*  */
+@keyframes expand {
+    from {height: 5px; top: 50%}
+    to {height: 300px; top: 0}
+}
+/*  */
+@keyframes contract {
+    from {height: 300px; top: 0}
+    to {height: 5px; top: 50%}
+}
+
+/*  */
+@keyframes shadow {
+    from {}
+    to {box-shadow: 0px 0px 25px 15px whitesmoke;}
+}
+
+
+/* { loading... } */
+.loadingBackground {
+    background-image: url("../assets/3d-background.png");
+    height: 100vh;
+    width: 100vw;
+    -webkit-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-size: cover;
+    text-align: center;
+}
+.loadingMask {
+    height: 100vh;
+    width: 100vw;
+    color: rgba(255,255,255,.75);
+    font-family: 'Anonymous Pro';  
+    background: linear-gradient(8deg, rgba(26,26,26,0.2) 0%, rgba(25,25,25,1) 70%);
+}
+.spinner {
+    animation: spinner 2.5s ease infinite;
+    border: solid 5px transparent;
+    border-bottom-color: #cfd0d1;
+    border-left-color: #cfd0d1;
+    border-top-color: #cfd0d1;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.logoSpinner {
+    animation: reverse-spinner 3.5s linear infinite;
+    border: solid 4px transparent;
+    border-bottom-color: #cfd0d1;
+    border-right-color: #cfd0d1;
+    border-top-color: #cfd0d1;
+    border-radius: 50%;
+    height: 74px;
+    width: 74px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.smallSpinner {
+    animation: spinner 2.5s ease infinite;
+    border: solid 2px transparent;
+    border-bottom-color: #cfd0d1;
+    border-left-color: #cfd0d1;
+    border-top-color: #cfd0d1;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.smallLogoSpinner {
+    animation: reverse-spinner 3.5s linear infinite;
+    border: solid 1px transparent;
+    border-bottom-color: #cfd0d1;
+    border-right-color: #cfd0d1;
+    border-top-color: #cfd0d1;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+/* .logo {
+    animation: glow 7s ease infinite;
+    font-family: 'Anonymous Pro';
+    font-size: 3em;
+    color: whitesmoke;
+    position: absolute;
+    top: 47%;
+    left: 48%;
+} */
+
+/* background */
+.bg {
+    display: flex;
+    animation: un-mask 2s ease;
+    background-image: url("../assets/3d-background.png");
+    min-height: 100vh;
+    height: 100%;
+    -webkit-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-size: cover;
+    text-align: center;
+}
+
+/* size and font */
+.contactBackground {
+    max-width: 100vw;
+    color: rgba(255,255,255,.75);
+    font-family: 'Anonymous Pro';
+    background: linear-gradient(8deg, rgba(26,26,26,0.2) 0%, rgba(25,25,25,1) 70%);
+}
+
+.contactContainer {
+    height: 90px;
+    background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.5) 100%);
+    padding-top: 2em;
+    /* max-width: 1100px; */
+    max-width: 80vw;
+    margin: 1rem auto;
+    border: 1px solid rgba(245, 245, 245, 0.4);
+    /* border: 1px solid transparent; */
+    border-radius: 5px;
+    overflow: scroll;
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+}
+.contactContainer::-webkit-scrollbar {
+    display: none;
+}
+.contactContainer.open {
+    animation: openMenu .6s ease-in;
+    height: 80vh;
+    max-height: 800px;
+}
+
+.title {
+    font-size: 36pt;
+    margin: 0 0 32px 0;
+    text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.3);
+}
+.titleResponsive {
+    font-size: 24pt;
+    margin: 2em 0em 1em 0em;
+}
+
+.mainForm {
+    min-width: fit-content;
+    width: 100%;
+    min-height: 84%;
+    margin: auto;
+    padding: 2em 0 0 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.6) 0%, rgba(26, 26, 26, 0.8) 10%, rgba(26, 26, 26, 0.9) 30%, rgba(26, 26, 26, 0.9) 70%, rgba(26, 26, 26, 0.8) 90%, rgba(26, 26, 26, 0.6) 100%);
+    /* background: radial-gradient(circle at 50% -50%, rgb(25, 25, 25, 1) 0%, rgb(25, 25, 25, 1) 60%, transparent 100%); */
+    /* animation: flicker 5s linear; */
+    /* animation: flicker 3s linear; */
+}
+
+.projectCard {
+    transform: 
+        perspective(500px)
+        translate3d(0px, 0px, -100px)
+        scale(0.9, 0.9);
+    transition: 1.5s ease-out transform;
+    /* border: 2px solid transparent; */
+    border-radius: 5px;
+}
+.projectCard:hover {
+    transform: 
+        translate3d(0px, 0px, 50px);
+        /* scale(1.5, 1.5); */
+    /* border: 2px solid whitesmoke; */
+    animation: shadow 1s ease-out;
+    box-shadow: 0px 0px 25px 15px whitesmoke;
+}
+
+.cardMask {
+    position: absolute;
+    width: inherit;
+    /* height: inherit; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: transparent;
+    background-color: rgba(26, 26, 26, 0.8);
+
+    /*  */
+    top: 50%;
+    margin: auto 0;
+    height: 0px;
+    overflow: scroll;
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+    animation: contract .3s ease-out;
+}
+.cardMask::-webkit-scrollbar {
+    display: none;
+}
+.cardMaskActive {
+    border-radius: 5px;
+    animation: expand .3s ease-in;
+    height: 300px;
+    top: 0;
+}
+
+.projectLanguages {
+    font-size: 1.3rem;
+}
+
+.projectTitle {
+    /* padding-top: 1rem; */
+    /* margin-top: 1rem; */
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.projectLink {
+    font-size: 1.1rem;
+}

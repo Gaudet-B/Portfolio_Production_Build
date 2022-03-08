@@ -8,6 +8,8 @@ import Resume from './views/Resume'
 import Contact from './views/Contact'
 import Admin from './views/Admin'
 import Edit from './views/Edit'
+import ProjectMenu from './views/ProjectMenu'
+
 import Pizza from './components/pizza/Pizza'
 
 
@@ -37,6 +39,10 @@ function App() {
 
             <Route exact path="/projects/:id">
               <Edit />
+            </Route>
+
+            <Route exact path="/projectmenu">
+              <ProjectMenu />
             </Route>
 
             <Route exact path="/projectpages">

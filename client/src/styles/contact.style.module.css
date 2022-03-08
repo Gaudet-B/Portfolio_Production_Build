@@ -41,8 +41,9 @@
 
 /*  */
 @keyframes open {
-    from {height: 90px;}
-    to{height: 90vh;}
+    from {height: 80px;}
+    to{height: 80vh;}
+    /* to{height: fit-content;} */
 }
 
 
@@ -150,8 +151,10 @@
     display: none;
 }
 .contactContainer.open {
-    animation: open .3s ease-out;
-    height: 90vh;
+    animation: open .5s ease-out;
+    height: 80vh;
+    max-height: 785px;
+    /* height: fit-content; */
 }
 
 .title {
