@@ -10,7 +10,7 @@ import portfolio from '../assets/portfolio/portfolio_hero.png'
 
 const ProjectCard = props => {
 
-    const { project, index } = props
+    const { project, index, handleClick } = props
     
     const getSource = project => {
         if (project === "P!ZZA") return pizza
@@ -53,7 +53,7 @@ const ProjectCard = props => {
             <div className={styles.smallLogoSpinner}></div>
         </div>
         :
-        <div onMouseOver={handleOver} onMouseOut={handleOut} className={styles.projectCard} style={{ height: "300px", width: "400px", backgroundImage: `url(${source})`, backgroundSize: "cover" }}>
+        <div onMouseOver={handleOver} onMouseOut={handleOut} onClick={handleClick} className={styles.projectCard} style={{ height: "300px", width: "400px", backgroundImage: `url(${source})`, backgroundSize: "cover" }}>
             <div id={"mask-" + index} className={styles.cardMask}>
                 {(project.title === "chata") ? 
                 <div style={{ maxWidth: "80%", margin: "0 auto" }}>

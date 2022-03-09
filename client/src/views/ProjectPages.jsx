@@ -6,8 +6,11 @@ import MobilePages from '../components/MobilePages'
 import Navigation from '../components/Navigation'
 
 import styles from '../styles/new.projects.style.module.css'
+import menuStyles from '../styles/project.menu.style.module.css'
+
 import getImages from '../scripts/images.js'
 import Loading from '../components/Loading';
+import ProjectMenu from './ProjectMenu';
 
 const ProjectPages = () => {
 
@@ -22,6 +25,13 @@ const ProjectPages = () => {
     // height and width of window are stored in local state
     const [windowHeight, setWindowHeight] = useState(getWindowHeight())
     const [windowWidth, setWindowWidth] = useState(getWindowWidth())
+
+    // 
+    const [menu, setMenu] = useState(true)
+
+    // 
+    const [startingLeft, setStartingLeft] = useState(0)
+    const [startingRight, setStartingRight] = useState(0)
 
     // boolean for spinner
     const [loading, setLoading] = useState(true)
@@ -47,6 +57,58 @@ const ProjectPages = () => {
         setWindowWidth(window.innerWidth)
         // console.log(windowHeight)
         // console.log(windowWidth)
+    }
+
+    const getID = element => {
+        // console.log(element.id[5])
+        return element.id[5]
+    }
+
+    const getTarget = e => {
+        if (e.target.tagName === "p") return getID(e.target.parentNode)
+        else return getID(e.target)
+    }
+
+    const openContainer = () => {
+        document.getElementById("container").classList.add(menuStyles.open)
+    }
+    
+    const closeContainer = () => {
+        document.getElementById("container").classList.remove(menuStyles.open)
+        document.getElementById("container").classList.add(menuStyles.close)
+    }
+
+    const handleClick = e => {
+        // console.log(e.target)
+        closeContainer()
+        let target = parseInt(getTarget(e))
+        // console.log(target)
+        let left, right
+        if (target === 1) {
+            left = 0
+            right = -180
+        } else if (target === 2) {
+            left = 270
+            right = 90
+        } else if (target === 3) {
+            left = 180
+            right = 0
+        } else {
+            left = 90
+            right = -90
+        }
+        setStartingLeft(left)
+        setStartingRight(right)
+        setTimeout(() => {
+            setMenu(false)
+            document.getElementById("carouselContainer").classList.add(styles.open)
+    }, 600)
+        // setTimeout(() => document.getElementById("carouselContainer").classList.add(styles.open), 200);
+        // return (
+        //     setTimeout(() => {
+        //         setStartingLeft(left)
+        //     }, 500)
+        // )
     }
 
     useEffect(() => {
@@ -93,16 +155,22 @@ const ProjectPages = () => {
                     {/* <div style={{ width: "fit-content", margin: "auto" }}> */}
                         {/* arrays of projects and images are passed to the child components */}
                     {(windowWidth > 800) ?
-                    <div style={{ width: "auto", display: "flex", flexDirection: "row", justifyContent: "center", marginTop: "5px" }}>
+                    <div id="carouselContainer" className={styles.carouselContainer} style={{ width: "1140px", maxWidth: "100vw", margin: "auto" }}>
+                        {(menu) ?
+                        <ProjectMenu handleClick={handleClick} openContainer={openContainer} />
+                        :
+                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
                         <div className={styles.border} style={{ marginRight: "2px" }} >
                             <div className={fillerStyle} ></div>
                         </div>
                             <div id="pjContainer" className={styles.newContainer}>
-                                <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} />
+                                <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} startingLeft={startingLeft} startingRight={startingRight} />
                             </div>
                         <div className={styles.border} style={{ marginRight: "2px" }} >
                             <div className={fillerStyle} ></div>
                         </div>
+                        </div>
+                        }
                     </div>
                     :
                     <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>

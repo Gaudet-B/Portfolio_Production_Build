@@ -8,7 +8,9 @@ import axios from 'axios'
 import styles from '../styles/project.menu.style.module.css'
 
 
-const ProjectMenu = () => {
+const ProjectMenu = props => {
+
+    const { handleClick, openContainer } = props
 
     // functions that track height and width of the window for responsive components
     const getWindowHeight = () => {
@@ -32,10 +34,6 @@ const ProjectMenu = () => {
         setWindowWidth(window.innerWidth)
         // console.log(windowHeight)
         // console.log(windowWidth)
-    }
-
-    const openContainer = () => {
-        document.getElementById("container").classList.add(styles.open)
     }
 
     // function that displays loading spinner 
@@ -62,9 +60,9 @@ const ProjectMenu = () => {
             })
             .catch(err => console.log(err))
         // remove event listener when component unmounts
-        return () => {
-            window.removeEventListener("resize", resizeWindow)
-        }
+        // return () => {
+        //     window.removeEventListener("resize", resizeWindow)
+        // }
     }, [])
 
     // display spinner while component mounts
@@ -81,19 +79,19 @@ const ProjectMenu = () => {
 
     } else {
         return (
-            <div className={styles.bg} >
-            <div className={styles.contactBackground}>
-                {/* <Header left="PROJECTS" right="RESUME" windowWidth={windowWidth}/> */}
-                <Navigation left="PROJECTS" right="RESUME" windowWidth={windowWidth}/>
-                {/* {(windowWidth < 800) ? <MobileForm /> :  */}
-                <div id="container" className={styles.contactContainer} >
+            // <div className={styles.menuBg} >
+            // <div className={styles.menuBackground}>
+                // {/* <Header left="PROJECTS" right="RESUME" windowWidth={windowWidth}/> */}
+                // <Navigation left="PROJECTS" right="RESUME" windowWidth={windowWidth}/>
+                // {/* {(windowWidth < 800) ? <MobileForm /> :  */}
+                <div id="container" className={styles.menuContainer} >
                     <p className={styles.title} >Projects</p>
-                    <div className={styles.mainForm} style={{ paddingTop: "3rem" }} >
+                    <div className={styles.mainMenu} style={{ paddingTop: "3rem" }} >
                         
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", width: "fit-content", margin: "auto" }}>
                         {projects.map((project, idx) => {
                             if (idx % 2 === 0) return (
-                                <ProjectCard key={idx} index={idx} project={project}/>
+                                <ProjectCard handleClick={handleClick} key={idx} index={idx} project={project}/>
                             )
                         })}
                         </div>
@@ -101,7 +99,7 @@ const ProjectMenu = () => {
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", width: "fit-content", margin: "0 auto 2rem auto" }}>
                         {projects.map((project, idx) => {
                             if (idx % 2 != 0) return (
-                                <ProjectCard key={idx} index={idx} project={project}/>
+                                <ProjectCard handleClick={handleClick} key={idx} index={idx} project={project}/>
                             )
                         })}
                         </div>
@@ -109,9 +107,9 @@ const ProjectMenu = () => {
                         
                     </div>
                 </div>
-                {/* } */}
-            </div>
-        </div>
+                // {/* } */}
+            // </div>
+        // </div>
     )}
 }
 

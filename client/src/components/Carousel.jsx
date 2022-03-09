@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from '../styles/carousel.style.module.css'
 import projectStyles from '../styles/new.projects.style.module.css'
 
@@ -7,21 +7,21 @@ import ProjectPage from '../components/ProjectPage'
 
 const Carousel = props => {
 
+    // pull projects array and images array from props
+    const { projects, images, windowHeight, windowWidth, setFillerStyle, startingLeft, startingRight } = props
+
     // import classnames utility --> https://github.com/JedWatson/classnames //
     const classNames = require("classnames")
 
     // starting angles for carousel rotation
-    const [leftAngle, setLeftAngle] = useState(90)
-    const [rightAngle, setRightAngle] = useState(-90)
+    const [leftAngle, setLeftAngle] = useState()
+    const [rightAngle, setRightAngle] = useState()
 
     // starting angles for card flipping
-    const [cardOneAngle, setCardOneAngle] = useState(180)
-    const [cardTwoAngle, setCardTwoAngle] = useState(180)
-    const [cardThreeAngle, setCardThreeAngle] = useState(180)
-    const [cardFourAngle, setCardFourAngle] = useState(180)
-
-    // pull projects array and images array from props
-    const { projects, images, windowHeight, windowWidth, setFillerStyle } = props
+    // const [cardOneAngle, setCardOneAngle] = useState(180)
+    // const [cardTwoAngle, setCardTwoAngle] = useState(180)
+    // const [cardThreeAngle, setCardThreeAngle] = useState(180)
+    // const [cardFourAngle, setCardFourAngle] = useState(180)
 
     // function to rotate the carousel
     const spin = e => {
@@ -40,7 +40,7 @@ const Carousel = props => {
         zoom()
         setTimeout(() => {
             
-            let spinner = document.getElementById("spinner");
+            let spinner = document.getElementById("spinner")
             // let id = e.target.id
             if (id == "left") {
                 setLeftAngle(leftAngle + 90)
@@ -68,6 +68,16 @@ const Carousel = props => {
 
     // var leftArrow = classNames([styles.span, styles.spanLeft])
     // var rightArrow = classNames([styles.span, styles.spanRight])
+
+    useEffect(() => {
+        setLeftAngle(startingLeft)
+        setRightAngle(startingRight)
+        if (startingLeft != 90) {
+            setTimeout(() => {
+                document.getElementById("spinner").setAttribute("style", `-webkit-transform: rotateY(${startingLeft -90}deg); -moz-transform: rotateY(${startingLeft - 90}deg); transform: rotateY(${startingLeft - 90}deg);`)
+            }, 500)
+        }
+    }, [])
 
     return (
         <div className="" >

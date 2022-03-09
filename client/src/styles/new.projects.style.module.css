@@ -14,6 +14,64 @@
     100% {transform: translate3d(-50%, -50%, 0) rotate(-360deg);}
 }
 
+@keyframes openContainer {
+    from {max-height: 20px;}
+    to {max-height: 100%;}
+}
+
+@keyframes closeContainer {
+    from {max-height: 100%;}
+    to {max-height: 20px;}
+}
+
+@keyframes border-flicker {
+    0% {
+        opacity:0.1;
+        background-color: 0px 0px 78px 18px whitesmoke;
+        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
+        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
+        box-shadow: 0px 0px 10px 15px whitesmoke;
+    }
+    2% {
+        opacity:1;
+        background-color: 0px 0px 78px 18px whitesmoke;
+        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
+        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
+        box-shadow: 0px 0px 10px 15px whitesmoke;
+    }
+    4% {
+        opacity:0.1;
+        background-color: 0px 0px 78px 18px whitesmoke;
+        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
+        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
+        box-shadow: 0px 0px 10px 15px whitesmoke;
+    }
+    
+    8% {
+        opacity:1;
+        background-color: 0px 0px 78px 18px whitesmoke;
+        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
+        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
+        box-shadow: 0px 0px 10px 15px whitesmoke;
+    }
+    70% {
+        opacity:0.7;
+        background-color: 0px 0px 78px 18px whitesmoke;
+        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
+        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
+        box-shadow: 0px 0px 10px 15px whitesmoke;
+    }
+    100% {
+        opacity:1;
+        background-color: 0px 0px 78px 18px whitesmoke;
+        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
+        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
+        box-shadow: 0px 0px 10px 15px whitesmoke;
+    }
+}
+
+/*  */
+
 .loadingMask {
     height: 100vh;
     width: 100vw;
@@ -58,6 +116,7 @@
 }
 
 .bg {
+    /* display: flex; */
     animation: un-mask 3s ease;
     background-image: url("../assets/3d-background.png");
     margin: auto;
@@ -129,51 +188,23 @@
     animation-iteration-count: 2;
 }
 
-@keyframes border-flicker {
-    0% {
-        opacity:0.1;
-        background-color: 0px 0px 78px 18px whitesmoke;
-        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
-        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
-        box-shadow: 0px 0px 10px 15px whitesmoke;
-    }
-    2% {
-        opacity:1;
-        background-color: 0px 0px 78px 18px whitesmoke;
-        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
-        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
-        box-shadow: 0px 0px 10px 15px whitesmoke;
-    }
-    4% {
-        opacity:0.1;
-        background-color: 0px 0px 78px 18px whitesmoke;
-        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
-        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
-        box-shadow: 0px 0px 10px 15px whitesmoke;
-    }
-    
-    8% {
-        opacity:1;
-        background-color: 0px 0px 78px 18px whitesmoke;
-        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
-        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
-        box-shadow: 0px 0px 10px 15px whitesmoke;
-    }
-    70% {
-        opacity:0.7;
-        background-color: 0px 0px 78px 18px whitesmoke;
-        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
-        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
-        box-shadow: 0px 0px 10px 15px whitesmoke;
-    }
-    100% {
-        opacity:1;
-        background-color: 0px 0px 78px 18px whitesmoke;
-        -webkit-box-shadow: 0px 0px 10px 15px whitesmoke;
-        -moz-box-shadow: 0px 0px 10px 15px whitesmoke;
-        box-shadow: 0px 0px 10px 15px whitesmoke;
-    }
+.carouselContainer {
+    overflow: scroll;
+    scrollbar-width: 0px;
+    -ms-overflow-style: none;
+}
+.carouselContainer::-webkit-scrollbar {
+    display: none;
+}
+.carouselContainer.open {
+    animation: openContainer 2s ease-in;
+    max-height: 50vh;
+    /* max-height: 800px; */
+}
+.carouselContainer.close {
+    animation: closeContainer .5s ease-in;
+    max-height: 20px;
 }
 
-/* NAVIGATION */
+
 
