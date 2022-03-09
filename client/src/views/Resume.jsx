@@ -33,7 +33,7 @@ const Resume = () => {
     const loadData = () => {
         setTimeout(() => {
             setLoading(false)
-        }, 3000)
+        }, 1500)
     }
 
     // function to be added to the onResize event listener

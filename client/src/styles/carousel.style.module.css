@@ -56,11 +56,13 @@
     max-width: 1140px;
     min-width: 1130px;
     /* width: 1130px; */
+    /* width: 1130px; */
     perspective: 2000px; 
     /* padding-top: 5%;  */
     /* margin-bottom: 3rem;  */
     transition: 0.5s ease-in;
     /* height: inherit; */
+    /* border: 2px solid rgba(245, 245, 245, 0.4); */
 }
 
 .spinner { 
@@ -76,6 +78,7 @@
     height: inherit;
     position: absolute;
     transform-origin: 50% 0% -550px;
+    /* border: 2px solid rgba(245, 245, 245, 0.4); */
 }
 
 /* Postiion cards around y-axis */

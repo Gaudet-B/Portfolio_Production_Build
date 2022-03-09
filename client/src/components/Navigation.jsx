@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 
 const Navigation = props => {
 
-    const { left, right, windowWidth } = props
+    const { left, right, windowWidth, menu, setMenu, setInnerLoading, closeCarousel } = props
     
     const [ page, setPage ] = useState("")
     const [ coordX, setCoordX ] = useState("10rem")
@@ -85,7 +85,16 @@ const Navigation = props => {
             }, 500);
             
         }
+        
+    }
 
+    const handleRefresh = () => {
+        if (menu || menu === undefined) return
+        else closeCarousel()
+        setTimeout(() => {
+            setMenu(true)
+            setInnerLoading(true)
+        }, 800)
     }
 
     useEffect(() => {
@@ -105,7 +114,11 @@ const Navigation = props => {
                     </div>
                     :
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        {(page === "projectpages") ? 
+                        <p id={"link-projects"} onClick={handleRefresh} className={styles.active + " " + styles.navLink} style={{ cursor: "pointer" }} >PROJECTS</p>
+                        :
                         <a id={"link-projects"} href="/projectpages" className={(page === "projectpages") ? styles.active + " " + styles.navLink : styles.navLink} >PROJECTS</a>
+                        }
                         <a id={"link-resume"} href="/resume" className={(page === "resume") ? styles.active + " " + styles.navLink : styles.navLink} >RESUME</a>
                         <a id={"link-contact"} href="/contact" className={(page === "contact") ? styles.active + " " + styles.navLink : styles.navLink} >CONTACT</a>
                     </div>

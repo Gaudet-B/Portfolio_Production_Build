@@ -36,6 +36,9 @@ const ProjectPages = () => {
     // boolean for spinner
     const [loading, setLoading] = useState(true)
 
+    // 
+    const [innerLoading, setInnerLoading] = useState(true)
+
     // will be set to all projects from database when component loads (see useEffect)
     const [projects, setProjects] = useState([])
 
@@ -47,7 +50,7 @@ const ProjectPages = () => {
 
     // function that displays loading spinner 
     const loadData = async () => {
-        await new Promise((res) => setTimeout(res, 3000))
+        await new Promise((res) => setTimeout(res, 1500))
         setLoading(false)
     }
 
@@ -78,8 +81,19 @@ const ProjectPages = () => {
         document.getElementById("container").classList.add(menuStyles.close)
     }
 
+    const openCarousel = () => {
+        document.getElementById("pjContainer").classList.remove(styles.close)
+            document.getElementById("pjContainer").classList.add(styles.open)
+    }
+    
+    const closeCarousel = () => {
+        document.getElementById("pjContainer").classList.add(menuStyles.close)
+        document.getElementById("pjContainer").classList.remove(menuStyles.open)
+    }
+
     const handleClick = e => {
         // console.log(e.target)
+        // closeCarousel()
         closeContainer()
         let target = parseInt(getTarget(e))
         // console.log(target)
@@ -99,11 +113,10 @@ const ProjectPages = () => {
         }
         setStartingLeft(left)
         setStartingRight(right)
-        setTimeout(() => {
-            setMenu(false)
-            document.getElementById("carouselContainer").classList.add(styles.open)
-    }, 600)
-        // setTimeout(() => document.getElementById("carouselContainer").classList.add(styles.open), 200);
+        setTimeout(() => setMenu(false), 600)
+        setTimeout(() => openCarousel(), 700)
+        setTimeout(() => setInnerLoading(false), 1000)
+        // setTimeout(() => document.getElementById("pjContainer").classList.add(styles.open), 200);
         // return (
         //     setTimeout(() => {
         //         setStartingLeft(left)
@@ -123,6 +136,9 @@ const ProjectPages = () => {
                 setProjects(res.data)
             })
             .catch(err => console.log(err))
+        
+        // setTimeout(() => document.getElementById("pjContainer").classList.add(styles.open), 1700);
+        // document.getElementById("pjContainer").classList.add(styles.open)
         // remove event listener when component unmounts
         return () => {
             window.removeEventListener("resize", resizeWindow)
@@ -150,27 +166,35 @@ const ProjectPages = () => {
         return (
             <div className={styles.bg}>
                 <div id="projectsContainer" className={styles.projectsBackground}>
-                    <Navigation left="HOME" right="CONTACT" windowWidth={windowWidth} />
+                    <Navigation left="HOME" right="CONTACT" windowWidth={windowWidth} menu={menu} setMenu={setMenu} setInnerLoading={setInnerLoading} closeCarousel={closeCarousel} />
                     {/* windowWidth={Math.max(windowWidth, 1200)}/> */}
                     {/* <div style={{ width: "fit-content", margin: "auto" }}> */}
                         {/* arrays of projects and images are passed to the child components */}
                     {(windowWidth > 800) ?
-                    <div id="carouselContainer" className={styles.carouselContainer} style={{ width: "1140px", maxWidth: "100vw", margin: "auto" }}>
-                        {(menu) ?
+                    <div id="carouselContainer" className={styles.carouselContainer} >
+                        {/* {(menu) ?
                         <ProjectMenu handleClick={handleClick} openContainer={openContainer} />
-                        :
+                        : */}
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
                         <div className={styles.border} style={{ marginRight: "2px" }} >
                             <div className={fillerStyle} ></div>
                         </div>
+                        {(menu) ?
+                        <ProjectMenu handleClick={handleClick} openContainer={openContainer} />
+                        :
                             <div id="pjContainer" className={styles.newContainer}>
+                                {(innerLoading) ? 
+                                <Loading />
+                                :
                                 <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} startingLeft={startingLeft} startingRight={startingRight} />
-                            </div>
+                                }
+                                </div>
+                        }
                         <div className={styles.border} style={{ marginRight: "2px" }} >
                             <div className={fillerStyle} ></div>
                         </div>
                         </div>
-                        }
+                        {/* } */}
                     </div>
                     :
                     <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>

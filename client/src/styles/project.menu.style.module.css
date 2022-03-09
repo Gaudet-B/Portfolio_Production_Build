@@ -1,6 +1,6 @@
 /* background image */
 @keyframes openMenu {
-    from {height: 80px;}
+    from {height: 00px;}
     to {height: 80vh;}
 
     /* 0% {height: 80px;}
@@ -168,13 +168,13 @@
 }
 
 .menuContainer {
-    height: 90px;
+    height: 0px;
     background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.5) 100%);
     padding-top: 2em;
     width: 1140px;
     max-width: 100vw;
-    margin: 1rem auto;
-    border: 1px solid rgba(245, 245, 245, 0.4);
+    margin: 0 auto;
+    border: 2px solid rgba(245, 245, 245, 0.4);
     /* border: 1px solid transparent; */
     border-radius: 5px;
     overflow: scroll;
@@ -186,8 +186,9 @@
 }
 .menuContainer.open {
     animation: openMenu .6s ease-in;
-    height: 80vh;
+    height: 85vh;
     max-height: 800px;
+    /* min-height: fit-content; */
 }
 .menuContainer.close {
     animation: closeMenu .5s ease-in;

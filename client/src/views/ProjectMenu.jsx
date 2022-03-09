@@ -24,7 +24,7 @@ const ProjectMenu = props => {
     const [windowHeight, setWindowHeight] = useState(getWindowHeight())
     const [windowWidth, setWindowWidth] = useState(getWindowWidth())
     // boolean for spinner
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
     // 
     const [projects, setProjects] = useState([])
 
@@ -37,18 +37,19 @@ const ProjectMenu = props => {
     }
 
     // function that displays loading spinner 
-    const loadData = async () => {
-        await new Promise((res) => setTimeout(res, 1000))
-        setLoading(false)
+    // const loadData = async () => {
+        // await new Promise((res) => setTimeout(res, 1000))
+        // setLoading(false)
+        // openContainer()
         // 
         // openContainer()
-        setTimeout(() => openContainer(), 250);
+        // setTimeout(() => openContainer(), 250);
         // setTimeout(() => openContainer(), 2500);
         // setTimeout(() => setHeight("100vh"), 2000);
-    }
+    // }
 
     useEffect(() => {
-        loadData()
+        // loadData()
         // allow scrolling, in case that was disabled from Landing component
         document.querySelector("html").setAttribute("style", "overflow-y: scroll;")
         // add the resizeWindow function to the window as an event listener
@@ -57,6 +58,7 @@ const ProjectMenu = props => {
         axios.get("http://localhost:8000/api/projects")
             .then(res => {
                 setProjects(res.data)
+                setTimeout(() => openContainer(), 500);
             })
             .catch(err => console.log(err))
         // remove event listener when component unmounts
@@ -66,18 +68,18 @@ const ProjectMenu = props => {
     }, [])
 
     // display spinner while component mounts
-    if (loading) {
-        return (
-            <div className={styles.loadingBackground} >
-                <div className={styles.loadingMask}>
-                    <div className={styles.spinner}></div>
-                    <div className={styles.logoSpinner}></div>
-                    <div className={styles.logo}></div>
-                </div>
-            </div>
-        )
+    // if (loading) {
+    //     return (
+    //         <div className={styles.loadingBackground} >
+    //             <div className={styles.loadingMask}>
+    //                 <div className={styles.spinner}></div>
+    //                 <div className={styles.logoSpinner}></div>
+    //                 <div className={styles.logo}></div>
+    //             </div>
+    //         </div>
+    //     )
 
-    } else {
+    // } else {
         return (
             // <div className={styles.menuBg} >
             // <div className={styles.menuBackground}>
@@ -111,6 +113,6 @@ const ProjectMenu = props => {
             // </div>
         // </div>
     )}
-}
+// }
 
 export default ProjectMenu
