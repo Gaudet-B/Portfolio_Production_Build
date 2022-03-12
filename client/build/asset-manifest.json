@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.783787de.chunk.css",
-    "main.js": "/static/js/main.158ffe9e.chunk.js",
-    "main.js.map": "/static/js/main.158ffe9e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e69f07d7.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e69f07d7.js.map",
-    "static/js/2.83451395.chunk.js": "/static/js/2.83451395.chunk.js",
-    "static/js/2.83451395.chunk.js.map": "/static/js/2.83451395.chunk.js.map",
-    "static/js/3.6b27892a.chunk.js": "/static/js/3.6b27892a.chunk.js",
-    "static/js/3.6b27892a.chunk.js.map": "/static/js/3.6b27892a.chunk.js.map",
+    "main.css": "/static/css/main.09dd4b0c.chunk.css",
+    "main.js": "/static/js/main.08335db2.chunk.js",
+    "main.js.map": "/static/js/main.08335db2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.529c108d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.529c108d.js.map",
+    "static/js/2.391462fe.chunk.js": "/static/js/2.391462fe.chunk.js",
+    "static/js/2.391462fe.chunk.js.map": "/static/js/2.391462fe.chunk.js.map",
+    "static/js/3.67b11fe9.chunk.js": "/static/js/3.67b11fe9.chunk.js",
+    "static/js/3.67b11fe9.chunk.js.map": "/static/js/3.67b11fe9.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.783787de.chunk.css.map": "/static/css/main.783787de.chunk.css.map",
-    "static/js/2.83451395.chunk.js.LICENSE.txt": "/static/js/2.83451395.chunk.js.LICENSE.txt",
+    "static/css/main.09dd4b0c.chunk.css.map": "/static/css/main.09dd4b0c.chunk.css.map",
+    "static/js/2.391462fe.chunk.js.LICENSE.txt": "/static/js/2.391462fe.chunk.js.LICENSE.txt",
     "static/media/contact.style.module.css": "/static/media/3d-background.dec1b34e.png",
     "static/media/landing.style.module.css": "/static/media/LinkedIn.95a9f7d2.jpg",
     "static/media/pizza.style.module.css": "/static/media/pizza-slice-vector.ff6e3e13.png",
@@ -54,6 +54,8 @@
     "static/media/recommendations-1.109cafcc.PNG": "/static/media/recommendations-1.109cafcc.PNG",
     "static/media/recommendations-2.19494a0b.PNG": "/static/media/recommendations-2.19494a0b.PNG",
     "static/media/register_1.ca818856.PNG": "/static/media/register_1.ca818856.PNG",
+    "static/media/sample_hero_1.6e7d0ef2.png": "/static/media/sample_hero_1.6e7d0ef2.png",
+    "static/media/sample_hero_1.c426ea20.png": "/static/media/sample_hero_1.c426ea20.png",
     "static/media/shop_1.8681d6bb.PNG": "/static/media/shop_1.8681d6bb.PNG",
     "static/media/shopping_cart_1.e3b8e7fc.PNG": "/static/media/shopping_cart_1.e3b8e7fc.PNG",
     "static/media/sicilian-crust-temp.c668e6e8.png": "/static/media/sicilian-crust-temp.c668e6e8.png",
@@ -64,9 +66,9 @@
     "static/media/white-sauce-thumb.5b1d7568.png": "/static/media/white-sauce-thumb.5b1d7568.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.e69f07d7.js",
-    "static/js/2.83451395.chunk.js",
-    "static/css/main.783787de.chunk.css",
-    "static/js/main.158ffe9e.chunk.js"
+    "static/js/runtime-main.529c108d.js",
+    "static/js/2.391462fe.chunk.js",
+    "static/css/main.09dd4b0c.chunk.css",
+    "static/js/main.08335db2.chunk.js"
   ]
 }
