@@ -332,18 +332,18 @@ const Landing = () => {
             {/* if this is the first visit, display typewriter animation to user */}
                 {(!loaded) ?
                         <div className={styles.typewriterDiv}>
-                            <h1 id="name" className={typedLineClassOne}></h1>
+                            <h1 id="name" className={typedLineClassOne} style={(windowWidth < 800) ? { fontSize: "2.5rem" } : null }></h1>
                             <h3 id="line-two" className={typedLineClassInvis}></h3>
-                            <h3 id="line-three" className={typedLineClassTwo}></h3>
-                            <h3 id="line-four" className={typedLineClassTwo}></h3>
+                            <h3 id="line-three" className={typedLineClassTwo} style={(windowWidth < 800) ? { fontSize: "2rem" } : null }></h3>
+                            <h3 id="line-four" className={typedLineClassTwo} style={(windowWidth < 800) ? { fontSize: "2rem" } : null }></h3>
                         </div>
                     :
             // otherwise, text will appear without the animation
                         <div className={styles.typewriterDiv}>
-                            <h1 id="name" className={typedLineClassOne}>{ dataText[0] }</h1>
+                            <h1 id="name" className={typedLineClassOne} style={(windowWidth < 800) ? { fontSize: "2.5rem" } : null }>{ dataText[0] }</h1>
                             <h3 id="line-two" className={typedLineClassInvis}>{ dataText[1] }</h3>
-                            <h3 id="line-three" className={typedLineClassTwo}>{ dataText[2] }</h3>
-                            <h3 id="line-four" className={typedLineClassTwo}>{ dataText[3] }<span aria-hidden="true"></span></h3>
+                            <h3 id="line-three" className={typedLineClassTwo} style={(windowWidth < 800) ? { fontSize: "2rem" } : null }>{ dataText[2] }</h3>
+                            <h3 id="line-four" className={typedLineClassTwo} style={(windowWidth < 800) ? { fontSize: "2rem" } : null }>{ dataText[3] }<span aria-hidden="true"></span></h3>
                         </div>
                 }
 

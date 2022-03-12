@@ -59,6 +59,7 @@
     
     background-color: #262626;
 
+    /* padding: 1rem 0 2rem 0; */
     padding: 2rem 0;
 }
 
@@ -171,7 +172,7 @@
 
 .githubLink {
     /* color: rgba(0, 143, 17); */
-    color: rgb(7, 204, 30);
+    color: rgb(17, 255, 45);
     /* color: rgba(123, 255, 139); */
     font-family: helvetica;
     font-size: 16pt;

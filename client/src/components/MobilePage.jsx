@@ -174,9 +174,31 @@ const MobilePage = props => {
     return (
         <div className={styles.projectsContainer}>
 
+            <div className={styles.projectFooter} style={{ padding: "2rem 0 0 0" }}>
+                <div id="left" onClick={handleBack} style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", marginLeft: "0", cursor: "pointer" }}>
+                    <div className={styles.left}>
+                        <img src={arrow} alt="right chevron" height={"30"} width={"50"} />
+                    </div>
+                    <div className={styles.projectLink} style={{ borderRadius: "0px 10px 10px 0px", color: "rgba(0, 240, 17)", textAlign: "start", marginLeft: "10px" }}>
+                        <p style={{ marginTop: "5px" }}>previous</p>
+                        <p style={{ marginBottom: "10px", marginLeft: "5px" }}>project</p>
+                        {/* <p style={{ fontWeight: "bold" }}>&#123; {prevProject} &#125;</p> */}
+                    </div>
+                </div>
+                <div id="right" onClick={handleNext} style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", marginRight: "0", cursor: "pointer"}}>
+                    <div className={styles.projectLink} style={{ borderRadius: "10px 0px 0px 10px", color: "rgba(0, 240, 17)", textAlign: "end", marginRight: "10px" }}>
+                        <p style={{ marginTop: "5px", marginRight: "10px" }}>next</p>
+                        <p style={{ marginBottom: "10px" }}>project</p>
+                        {/* <p style={{ fontWeight: "bold" }}>&#123; {nextProject} &#125;</p> */}
+                    </div>
+                    <div className={styles.right}>
+                        <img src={arrow} alt="right chevron" height={"30"} width={"50"} /></div> 
+                </div>
+            </div>
+
             <div className={styles.projectHeader}>
                 <p style={{ fontSize: "3rem", fontWeight: "bold", margin: "18px 0px 14px 0px", letterSpacing: ".4rem" }}>{project.title}</p>
-                <p style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "30px", color: "rgba(0, 143, 17, .7)", margin: "2rem 2rem" }}> {project.languages} </p>
+                <p style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "30px", color: "rgba(0, 143, 17, .9)", margin: "2rem 2rem" }}> {project.languages} </p>
                 <p style={{ fontSize: "1.25rem", margin: "0px 5px 20px 5px", maxWidth: "70%", margin: "auto" }}>{project.summary}</p>
             </div>
 
@@ -284,15 +306,15 @@ const MobilePage = props => {
                     <div className={styles.left}>
                         <img src={arrow} alt="right chevron" height={"30"} width={"50"} />
                     </div>
-                    <div className={styles.projectLink} style={{ borderRadius: "0px 10px 10px 0px" }}>
+                    <div className={styles.projectLink} style={{ borderRadius: "0px 10px 10px 0px", color: "rgba(0, 240, 17)", textAlign: "start", marginLeft: "10px" }}>
                         <p style={{ marginTop: "5px" }}>previous</p>
-                        <p style={{ marginBottom: "10px" }}>project</p>
+                        <p style={{ marginBottom: "10px", marginLeft: "5px" }}>project</p>
                         {/* <p style={{ fontWeight: "bold" }}>&#123; {prevProject} &#125;</p> */}
                     </div>
                 </div>
                 <div id="right" onClick={handleNext} style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", marginRight: "0", cursor: "pointer"}}>
-                    <div className={styles.projectLink} style={{ borderRadius: "10px 0px 0px 10px" }}>
-                        <p style={{ marginTop: "5px" }}>next</p>
+                    <div className={styles.projectLink} style={{ borderRadius: "10px 0px 0px 10px", color: "rgba(0, 240, 17)", textAlign: "end", marginRight: "10px" }}>
+                        <p style={{ marginTop: "5px", marginRight: "10px" }}>next</p>
                         <p style={{ marginBottom: "10px" }}>project</p>
                         {/* <p style={{ fontWeight: "bold" }}>&#123; {nextProject} &#125;</p> */}
                     </div>
