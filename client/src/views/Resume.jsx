@@ -24,7 +24,8 @@ const Resume = () => {
     // height and width of window are stored in local state
     const [windowHeight, setWindowHeight] = useState(getWindowHeight())
     const [windowWidth, setWindowWidth] = useState(getWindowWidth())
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     // import classnames utility --> https://github.com/JedWatson/classnames //
     const classNames = require("classnames")
@@ -45,7 +46,7 @@ const Resume = () => {
     }
 
     useEffect(() => {
-        loadData()
+        // loadData()
 
         // add Bootstrap to document, remove when component unmounts (return statement - line 61)
         const link = document.createElement("link")

@@ -11,11 +11,11 @@
     /* 1%, 4%, 32%, 40%, 50% {opacity: 0} */
 }
 
-/* subtle glow effect for headers */
+/* subtle glow effect for interactive demo link */
 @keyframes glow {
-    0% {color: rgba(255,255,255,.75); }
-    50% {color: whitesmoke; font-size: 14.5pt;}
-    100% {color: rgba(255,255,255,.75); }
+    0% { box-shadow: 0 0 5px 5px transparent; }
+    50% { box-shadow: 0 0 10px 0px rgba(0, 173, 17, 1); }
+    100% { box-shadow: 0 0 5px 5px transparent; }
 }
 
 /* image gallery animations */
@@ -52,14 +52,9 @@
 /* Styles: */
 
 .carousel {
-    /* width: 90vw; */
     max-width: 1140px;
     min-width: 1130px;
-    /* width: 1130px; */
-    /* width: 1130px; */
     perspective: 2000px; 
-    /* padding-top: 5%;  */
-    /* margin-bottom: 3rem;  */
     transition: 0.5s ease-in;
     /* height: inherit; */
     /* border: 2px solid rgba(245, 245, 245, 0.4); */
@@ -86,62 +81,6 @@
 .card1Div { transform: rotateY(-90deg); }
 .card2Div { transform: rotateY(-180deg); }
 .card3Div { transform: rotateY(-270deg); }
-
-/* these are the 3D "sides" of the cards: */
-/* .left {
-    position: absolute;
-    margin-left: -2px;
-    height: 95%;
-    margin-top: 19px;
-    border: 1px solid transparent;
-    border-radius: 20% / 50%;
-    width: 10px;
-    background-color: whitesmoke;
-    opacity: .7;
-    transform-origin: center;
-    transform: translate3d(0, 0, -5px) translate(0px) rotateY(80deg);
-}
-.right {
-    position: absolute;
-    height: 95%;
-    margin-top: 19px;
-    border: 1px solid transparent;
-    border-radius: 20% / 50%;
-    width: 10px;
-    background-color: whitesmoke;
-    opacity: .7;
-    transform-origin: center;
-    transform: translate3d(0, 0, -5px) translate(542px) rotateY(-100deg);
-} */
-
-/* left and right directional buttons -> *NOTE* the font syle of parent element will affect the style of these buttons! *NOTE* */
-/* .span { 
-    color: rgba(255,255,255,.75);
-    margin: 5%;
-    display: inline-block; 
-    text-decoration: none; 
-    font-size: 6rem; 
-    transition: 0.6s color; 
-    position: relative; 
-    margin-top: -33rem; 
-    border-bottom: none; 
-    line-height: 0;
-}
-.span:hover { color: whitesmoke; text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.788); font-size: 6.1rem; cursor: pointer; }
-
-.spanLeft {
-    float: left;
-}
-
-.spanRight {
-    float: right;
-} */
-
-/* .card img {
-    width: 99%;
-    border: 1px solid transparent;
-    border-radius: 5% / 8%;
-} */
 
 p {
     margin: 0
@@ -173,13 +112,6 @@ p {
     color: whitesmoke;
 }
 
-/* .card {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: whitesmoke;
-} */
-
 .cardFront {
     width: 100%;
     position: absolute;
@@ -206,26 +138,22 @@ p {
     background: linear-gradient(to bottom, #262626 0%, #262626 80%, transparent 100%);
 }
 
-/* .cardFront {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: whitesmoke;
-    height: 100%;
-} */
-
-/* .cardBack {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    color: whitesmoke;
-    height: 100%;
-} */
-
-/* .container {
-    width: fit-content;
-    padding: 12px 40px;
-} */
+.interactiveDemo {
+    font-weight: bold;
+    padding: 8px 0;
+    background: linear-gradient(to right, transparent 0%, rgba(0, 173, 17, .1) 5%, rgba(0, 173, 17, 1) 40%, rgba(0, 173, 17, 1) 60%, rgba(0, 173, 17, .1) 95%, transparent 100%);
+    width: 90%;
+    margin: 0 auto 3rem auto;
+    border-radius: 10px;
+    font-size: 16pt;
+    cursor: pointer;
+    animation: glow 3s infinite ease;
+}
+.interactiveDemo:hover {
+    background-color: rgba(0, 173, 17, 1);
+    animation: none;
+    transition: .3s ease-in background-color;
+}
 
 .demo {
     margin: 10px;
@@ -290,54 +218,6 @@ p {
     font-size: 13pt;
     margin-bottom: 2rem;
 }
-
-/* .demoOpen {
-    animation: un-mask .5s ease-in;
-}
-.demoClose {
-    animation: mask .5s ease-in;
-} */
-
-/* classes that handle card flipping */
-/* .flip {
-    animation: front-flip .8s ease-in;
-}
-.reverse {
-    animation: back-flip .8s ease-in;
-} */
-
-/* .flipLink {
-    font-weight: bold;
-    font-size: 14pt;
-    cursor: pointer;
-    margin: auto;
-    color: rgba(255,255,255,.3);
-    background: linear-gradient(90deg, rgba(255,255,255,.3) 0%, rgb(123, 255, 139) 45%, rgb(61, 252, 84) 50%, rgb(123, 255, 139) 55%, rgba(255,255,255,.3) 100%);
-    -webkit-background-size: 100% 100px;
-    -moz-background-size: 100% 100px;
-    background-size: 100% 100px;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    -webkit-text-stroke-width: 0.1px;
-    -webkit-text-stroke-color: rgba(255,255,255,.3);
-
-    animation: shine 10s infinite ease-in-out;
-    animation: flicker 15s linear infinite;
-    animation-delay: 2s;
-}
-.flipLink strong {
-    font-size: 16pt;
-}
-.flipLink:hover {
-    transition: 1s ease-in;
-    color: whitesmoke;
-    font-size: 14.5pt;
-    animation: none;
-} */
 
 .responsiveLink {
     font-weight: bold;

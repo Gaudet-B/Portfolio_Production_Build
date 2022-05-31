@@ -27,7 +27,7 @@ const ProjectPages = () => {
     const [windowWidth, setWindowWidth] = useState(getWindowWidth())
 
     // 
-    const [menu, setMenu] = useState(true)
+    const [menu, setMenu] = useState(false)
 
     // 
     const [startingLeft, setStartingLeft] = useState(0)
@@ -36,7 +36,7 @@ const ProjectPages = () => {
     // boolean for spinner
     const [loading, setLoading] = useState(true)
 
-    // 
+    /** @NOTE -> why is <Navigation/> using this??? */
     const [innerLoading, setInnerLoading] = useState(true)
 
     // will be set to all projects from database when component loads (see useEffect)
@@ -50,8 +50,9 @@ const ProjectPages = () => {
 
     // function that displays loading spinner 
     const loadData = async () => {
-        await new Promise((res) => setTimeout(res, 1500))
+        await new Promise((res) => setTimeout(res, 500))
         setLoading(false)
+        openContainer()
     }
 
     // function to be added to the onResize event listener
@@ -115,7 +116,7 @@ const ProjectPages = () => {
         setStartingRight(right)
         setTimeout(() => setMenu(false), 600)
         setTimeout(() => openCarousel(), 700)
-        setTimeout(() => setInnerLoading(false), 1000)
+        // setTimeout(() => setInnerLoading(false), 1000)
         // setTimeout(() => document.getElementById("pjContainer").classList.add(styles.open), 200);
         // return (
         //     setTimeout(() => {
@@ -124,8 +125,55 @@ const ProjectPages = () => {
         // )
     }
 
+    // const renderFullScreen = () => { 
+    //     return (
+    //         // <div id="carouselContainer" className={styles.carouselContainer} >
+    //             /* {(menu) ?
+    //             <ProjectMenu handleClick={handleClick} openContainer={openContainer} />
+    //             : */
+                
+    //             /* } */
+    //         // </div>
+    //     )
+    // }
+
+    const renderMobile = () => {
+        return (
+            <div id={"TEST-TEST-TEST"} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                {/* <ProjectCards projects={projects} images={images} /> */}
+                <MobilePages projects={projects} images={images} />
+            </div>
+        )
+    }
+
+    const renderMenu = () => {
+        return (
+            <ProjectMenu handleClick={handleClick} openContainer={openContainer} projects={projects} />
+        )
+    }
+
+    const renderCarousel = () => {
+        return (
+            <div id="pjContainer" className={styles.newContainer}>
+                {/* {(innerLoading) ? 
+                <Loading />
+                : */}
+                <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} startingLeft={startingLeft} startingRight={startingRight} />
+                {/* } */}
+            </div>
+        )
+    }
+
+    const renderLoading = () => {
+        return (
+            <div className={styles.loadingBackground} >
+                <Loading />
+            </div>
+        )
+    }
+
     useEffect(() => {
-        loadData()
+        // loadData()
         // allow scrolling, in case that was disabled from Landing component
         // document.querySelector("html").setAttribute("style", "overflow: auto; -ms-overflow-style: none; scrollbar-width: none;")
         // add the resizeWindow function to the window as an event listener
@@ -134,6 +182,9 @@ const ProjectPages = () => {
         axios.get("http://localhost:8000/api/projects")
             .then(res => {
                 setProjects(res.data)
+                setMenu(true)
+                loadData()
+                // setTimeout(() => openContainer(), 500)
             })
             .catch(err => console.log(err))
         
@@ -150,12 +201,13 @@ const ProjectPages = () => {
         return (
             <MobilePages projects={projects} images={images} windowWidth={windowWidth}/>
         )
-    } else if (loading) {
-        return (
-            <div className={styles.loadingBackground} >
-                <Loading />
-            </div>
-        )
+    // } else if (loading) {
+
+    //     return (
+    //         <div className={styles.loadingBackground} >
+    //             <Loading />
+    //         </div>
+    //     )
 
     // } else if (windowWidth < 800) {
     //     return (
@@ -170,38 +222,31 @@ const ProjectPages = () => {
                     {/* windowWidth={Math.max(windowWidth, 1200)}/> */}
                     {/* <div style={{ width: "fit-content", margin: "auto" }}> */}
                         {/* arrays of projects and images are passed to the child components */}
-                    {(windowWidth > 800) ?
+                    {/* {(windowWidth > 800) ? */}
                     <div id="carouselContainer" className={styles.carouselContainer} >
-                        {/* {(menu) ?
-                        <ProjectMenu handleClick={handleClick} openContainer={openContainer} />
-                        : */}
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-                        <div className={styles.border} style={{ marginRight: "2px" }} >
-                            <div className={fillerStyle} ></div>
+                            <div className={styles.border} style={{ marginRight: "2px" }} >
+                                <div className={fillerStyle} ></div>
+                            </div>
+                            <div id="container" className={menuStyles.menuContainer} >
+                            {(loading) ? renderLoading() : null}
+                            {(!loading && menu) ? renderMenu() : null}
+                            {(!loading && !menu) ? renderCarousel() : null}
+                            </div>
+                            {/* <ProjectMenu handleClick={handleClick} openContainer={openContainer} projects={projects} /> */}
+                            {/* : */}
+                            
+                            {/* } */}
+                            <div className={styles.border} style={{ marginRight: "2px" }} >
+                                <div className={fillerStyle} ></div>
+                            </div>
                         </div>
-                        {(menu) ?
-                        <ProjectMenu handleClick={handleClick} openContainer={openContainer} />
-                        :
-                            <div id="pjContainer" className={styles.newContainer}>
-                                {(innerLoading) ? 
-                                <Loading />
-                                :
-                                <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} startingLeft={startingLeft} startingRight={startingRight} />
-                                }
-                                </div>
-                        }
-                        <div className={styles.border} style={{ marginRight: "2px" }} >
-                            <div className={fillerStyle} ></div>
-                        </div>
-                        </div>
-                        {/* } */}
+                        {/* {renderFullScreen()} */}
                     </div>
-                    :
-                    <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                        {/* <ProjectCards projects={projects} images={images} /> */}
-                        <MobilePages projects={projects} images={images} />
-                    </div>
-                    }
+                    {/* {(loading) ? <Loading /> : null} */}
+                    {/* : */}
+                    {/* renderMobile() */}
+                    {/* } */}
                 </div>
             </div> 
         ) 

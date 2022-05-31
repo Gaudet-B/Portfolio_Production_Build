@@ -42,6 +42,16 @@ const Navi = props => {
         }
     }
 
+    const handleCartMask = e => {
+        e.preventDefault()
+        let menu = e.target
+        // console.log(menu)
+        menu.classList.add("show")
+        let mask = document.createElement("div")
+        mask.setAttribute("class", "fade modal-backdrop show")
+        document.body.appendChild(mask)
+    }
+
     return (
 
         <Navbar className="d-flex flex-row justify-content-between p-0 border rounded" bg="light" style={{ width: "inherit", maxHeight: "62px" }} >
@@ -69,7 +79,7 @@ const Navi = props => {
 
                     {/* shopping cart dropdown */}
                         <Dropdown align="end">
-                            <Dropdown.Toggle variant="dark" className="bg-light border-light ms-3" style={{ padding: "0px" }}>
+                            <Dropdown.Toggle onClick={handleCartMask} variant="dark" className="bg-light border-light ms-3 me-1" style={{ padding: "0px" }}>
                             
                             {/* handle image change when cart has order(s) */}
                             {(!isEmpty) ?
@@ -78,7 +88,8 @@ const Navi = props => {
                                 alt="shopping cart icon" 
                                 height="30px"
                                 width="30px"
-                                className="me-2"
+                                style={{ margin: "0 !important" }}
+                                // className="me-2"
                             />
                             :
                             <img 
@@ -86,7 +97,8 @@ const Navi = props => {
                                 alt="shopping cart icon" 
                                 height="30px"
                                 width="30px"
-                                className="me-2"
+                                style={{ margin: "0 !important" }}
+                                // className="me-2"
                             />
                             }
                             </Dropdown.Toggle>
@@ -132,11 +144,12 @@ const Navi = props => {
                                             <p className="mb-1">{item.crust.name}</p>
                                             <p className="mb-1">{item.sauce.name}</p>
                                             <p className="mb-1">toppings... (<strong>{item.toppings.cheese.length + item.toppings.meat.length + item.toppings.other.length}</strong>)</p>
+                                            <p className="mb-1 text-danger">remove <strong className="ms-2 fs-5" style={{ cursor: "pointer" }}>x</strong></p>
                                     </Container>
                                     )
                                 })}
                                 <Dropdown.Divider />
-                                <a className="ms-2 fw-bold link-danger text-decoration-none" onClick={handleCheckout} style={(!shoppingCart || shoppingCart.length < 1) ? null : { cursor: "pointer"}}>Checkout &gt;</a>
+                                <a className="ms-2 fw-bold link-danger text-decoration-none" onClick={handleCheckout} style={(!shoppingCart || shoppingCart.length < 1) ? null : { cursor: "pointer"}}>Checkout</a>
                             </Dropdown.Menu>
                                 }
                         </Dropdown>

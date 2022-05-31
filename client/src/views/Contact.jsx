@@ -22,7 +22,8 @@ const Contact = () => {
     const [windowHeight, setWindowHeight] = useState(getWindowHeight())
     const [windowWidth, setWindowWidth] = useState(getWindowWidth())
     // boolean for spinner
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     // 
     // const [height, setHeight] = useState("100px")
 
@@ -50,7 +51,8 @@ const Contact = () => {
     }
 
     useEffect(() => {
-        loadData()
+        // loadData()
+        setTimeout(() => openContainer(), 300);
         // allow scrolling, in case that was disabled from Landing component
         document.querySelector("html").setAttribute("style", "overflow-y: scroll;")
         // add the resizeWindow function to the window as an event listener

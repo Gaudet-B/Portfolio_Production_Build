@@ -277,7 +277,7 @@ const ProjectPage = props => {
                     </div>
                     
                     {(project.title === "P!ZZA") ? 
-                    <p onClick={handlePizza} style={{ fontWeight: "bold", padding: "8px 0", background: "linear-gradient(to right, transparent 0%, rgba(0, 173, 17, .1) 5%, rgba(0, 173, 17, 1) 40%, rgba(0, 173, 17, 1) 60%, rgba(0, 173, 17, .1) 95%, transparent 100%)", width: "90%", margin: "0 auto 3rem auto", borderRadius: "10px", fontSize:"16-pt", cursor: "pointer" }}>this project has an interactive demo!</p>
+                    <p className={ styles.interactiveDemo } onClick={handlePizza} style={{  }}>this project has an interactive demo!</p>
                     : null
                     }
                     

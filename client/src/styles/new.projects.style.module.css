@@ -177,7 +177,7 @@
     width: 26px;
     padding-top: 20px;
     border-left: 4px solid;
-    border-image: linear-gradient(to top, rgba(160, 160, 160), rgb(26, 26, 26))1 100%;
+    border-image: linear-gradient(to top, rgba(160, 160, 160), rgb(26, 26, 26)) 100%;
     border-right: 4px solid rgba(160, 160, 160);
     background-color: rgb(26, 26, 26);
     /* border-radius: 50%; */

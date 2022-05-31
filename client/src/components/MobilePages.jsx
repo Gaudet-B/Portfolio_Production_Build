@@ -57,7 +57,7 @@ const MobilePages = props => {
                     <MobilePage key={idx} index={idx} project={project} images={images} responsive={true} spin={() => null} />
                     )
             }))} */}
-            {(loading) ? <Loading /> : <MobilePage loading={loading} project={projects[step]} images={images} step={step} handleBack={handleBack} handleNext={handleNext} images={images} responsive={true} spin={() => null} /> }
+            {(loading) ? <Loading /> : <MobilePage loading={loading} project={projects[step]} images={images} step={step} handleBack={handleBack} handleNext={handleNext} responsive={true} spin={() => null} /> }
         </div>
 
 )}

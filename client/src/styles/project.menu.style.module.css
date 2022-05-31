@@ -170,7 +170,7 @@
 .menuContainer {
     height: 0px;
     background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.5) 100%);
-    padding-top: 2em;
+    /* padding-top: 2em; */
     width: 1140px;
     max-width: 100vw;
     margin: 0 auto;
@@ -193,6 +193,11 @@
 .menuContainer.close {
     animation: closeMenu .5s ease-in;
     height: 0px;
+}
+
+.menuWrapper {
+    height: 100%;
+    padding-top: 2em;
 }
 
 .title {
@@ -219,6 +224,7 @@
     /* animation: flicker 3s linear; */
 }
 
+/* add white border??? */
 .projectCard {
     transform: 
         perspective(500px)

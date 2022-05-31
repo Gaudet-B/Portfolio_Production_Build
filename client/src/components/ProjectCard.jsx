@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import styles from '../styles/project.menu.style.module.css'
 
@@ -22,8 +22,10 @@ const ProjectCard = props => {
     const [source, setSource] = useState(getSource(project.title))
     const [width, setWidth] = useState()
     const [height, setHeight] = useState()
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
     const [isActive, setIsActive] = useState(false)
+
+    const loading = !project ? true : false 
 
     const handleOver = e => {
         // e.target.firstElementChild.classList.add(styles.cardMaskActive)
@@ -39,11 +41,11 @@ const ProjectCard = props => {
         }, 300);
     }
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 300);
-    }, [])
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setLoading(false)
+    //     }, 300);
+    // }, [])
 
     return (
     (loading)?
