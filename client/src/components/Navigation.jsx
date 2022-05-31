@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 
 const Navigation = props => {
 
-    const { left, right, windowWidth, menu, setMenu, setInnerLoading, closeCarousel } = props
+    const { left, right, windowWidth, menu, setMenu, setInnerLoading, closeCarousel, handleRefresh } = props
     
     const [ page, setPage ] = useState("")
     const [ coordX, setCoordX ] = useState("10rem")
@@ -88,14 +88,14 @@ const Navigation = props => {
         
     }
 
-    const handleRefresh = () => {
-        if (menu || menu === undefined) return
-        else closeCarousel()
-        setTimeout(() => {
-            setMenu(true)
-            setInnerLoading(true)
-        }, 800)
-    }
+    // const handleRefresh = () => {
+    //     if (menu || menu === undefined) return
+    //     else closeCarousel()
+    //     setTimeout(() => {
+    //         setMenu(true)
+    //         // setInnerLoading(true)
+    //     }, 800)
+    // }
 
     useEffect(() => {
         let url = window.location.href
@@ -105,31 +105,31 @@ const Navigation = props => {
     }, [])
 
     return (
-        <div style={(windowWidth < 800) ? { width: "100%", height: "10vh", display: "flex", flexDirection: "column", padding: "0", backgroundColor: "rgba(25,25,25,1)" } : { height: "fit-content", display: "flex", flexDirection: "column", padding: "20px 55px 0pc 55px", backgroundColor: "rgba(25,25,25,1)" }} >
-                <div style={{ zIndex: "1", position: "relative", backgroundColor: "rgba(25,25,25,1)", display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "0px 20px" }}>
-                    <a href="/" style={(windowWidth < 800) ? { height: "fit-content", marginTop: "1.25rem" } : { height: "fit-content" }}> <img src={logo} style={{ marginBottom: "12px" }}/> </a>
-                    {(windowWidth < 800) ?
-                    <div style={{ display: "flex", flexDirection: "column", marginTop: ".5rem" }}>
-                        <a onClick={handleClick}> <img src={burger} style={{ transform: "scale(0.8)" }} alt="hamburger menu"/> </a>
-                    </div>
-                    :
-                    <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                        {(page === "projectpages") ? 
-                        <p id={"link-projects"} onClick={handleRefresh} className={styles.active + " " + styles.navLink} style={{ cursor: "pointer" }} >PROJECTS</p>
-                        :
-                        <a id={"link-projects"} href="/projectpages" className={(page === "projectpages") ? styles.active + " " + styles.navLink : styles.navLink} >PROJECTS</a>
-                        }
-                        <a id={"link-resume"} href="/resume" className={(page === "resume") ? styles.active + " " + styles.navLink : styles.navLink} >RESUME</a>
-                        <a id={"link-contact"} href="/contact" className={(page === "contact") ? styles.active + " " + styles.navLink : styles.navLink} >CONTACT</a>
-                    </div>
-                    }
+        <div style={(windowWidth < 800) ? { width: "100%", height: "10vh", display: "flex", flexDirection: "column", padding: "0", backgroundColor: "rgba(25,25,25,1)" } : { height: "fit-content", display: "flex", flexDirection: "column", padding: "20px 55px 0 55px", marginBottom: "5px", backgroundColor: "rgba(25,25,25,1)" }} >
+            <div style={{ zIndex: "1", position: "relative", backgroundColor: "rgba(25,25,25,1)", display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "0px 20px" }}>
+                <a href="/" style={(windowWidth < 800) ? { height: "fit-content", marginTop: "1.25rem" } : { height: "fit-content" }}> <img src={logo} style={{ marginBottom: "12px" }}/> </a>
+                {(windowWidth < 800) ?
+                <div style={{ display: "flex", flexDirection: "column", marginTop: ".5rem" }}>
+                    <a onClick={handleClick}> <img src={burger} style={{ transform: "scale(0.8)" }} alt="hamburger menu"/> </a>
                 </div>
+                :
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                    {(page === "projectpages") ?
+                    <p id={"link-projects"} onClick={handleRefresh} className={styles.active + " " + styles.navLink} style={{ cursor: "pointer" }} >PROJECTS</p>
+                    :
+                    <a id={"link-projects"} href="/projectpages" className={(page === "projectpages") ? styles.active + " " + styles.navLink : styles.navLink} >PROJECTS</a>
+                    }
+                    <a id={"link-resume"} href="/resume" className={(page === "resume") ? styles.active + " " + styles.navLink : styles.navLink} >RESUME</a>
+                    <a id={"link-contact"} href="/contact" className={(page === "contact") ? styles.active + " " + styles.navLink : styles.navLink} >CONTACT</a>
+                </div>
+                }
+            </div>
             <div style={{ zIndex: "5", display: "flex", flexDirection: "row", justifyContent: "flex-end", width: "100vw" }}>
-            <div id="navMenu" className={(show) ? styles.navMenu : ""} style={{ transform: `perspective(50px) translate3d(${coordX}, ${coordY}, ${coordZ}) scale(${scale})`, zIndex: "5" }} >
+                <div id="navMenu" className={(show) ? styles.navMenu : ""} style={{ transform: `perspective(50px) translate3d(${coordX}, ${coordY}, ${coordZ}) scale(${scale})`, zIndex: "5" }} >
                     <a id={"link-projects"} href="/projectpages" className={(page === "projectpages") ? styles.active + " " + styles.smallNav : styles.smallNav} ></a>
                     <a id={"link-resume"} href="/resume" className={(page === "resume") ? styles.active + " " + styles.smallNav : styles.smallNav} ></a>
                     <a id={"link-contact"} href="/contact" className={(page === "contact") ? styles.active + " " + styles.smallNav : styles.smallNav} ></a>
-            </div>
+                </div>
             </div>
         </div>
     )

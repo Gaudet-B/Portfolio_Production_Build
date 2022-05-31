@@ -168,8 +168,8 @@
 }
 
 .menuContainer {
-    height: 0px;
-    background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.5) 100%);
+    min-height: 22px;
+    /* background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.5) 100%); */
     /* padding-top: 2em; */
     width: 1140px;
     max-width: 100vw;
@@ -185,25 +185,27 @@
     display: none;
 }
 .menuContainer.open {
-    animation: openMenu .6s ease-in;
+    animation: openMenu .9s ease-in;
     height: 85vh;
     max-height: 800px;
     /* min-height: fit-content; */
 }
 .menuContainer.close {
-    animation: closeMenu .5s ease-in;
+    animation: closeMenu .8s ease-in;
     height: 0px;
 }
 
 .menuWrapper {
     height: 100%;
-    padding-top: 2em;
+    /* padding-top: 2em; */
 }
 
 .title {
     font-size: 36pt;
-    margin: 0 0 32px 0;
+    padding: 32px 0;
     text-shadow: 1px 1px 1px rgba(245, 245, 245, 0.3);
+    /* background: linear-gradient(to bottom, rgb(38, 38, 38) 0%, rgb(38, 38, 38, 0.5) 100%); */
+    background-color: rgb(38, 38, 38);
 }
 .titleResponsive {
     font-size: 24pt;

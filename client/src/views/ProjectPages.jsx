@@ -37,7 +37,7 @@ const ProjectPages = () => {
     const [loading, setLoading] = useState(true)
 
     /** @NOTE -> why is <Navigation/> using this??? */
-    const [innerLoading, setInnerLoading] = useState(true)
+    // const [innerLoading, setInnerLoading] = useState(true)
 
     // will be set to all projects from database when component loads (see useEffect)
     const [projects, setProjects] = useState([])
@@ -74,6 +74,7 @@ const ProjectPages = () => {
     }
 
     const openContainer = () => {
+        document.getElementById("container").classList.remove(menuStyles.close)
         document.getElementById("container").classList.add(menuStyles.open)
     }
     
@@ -84,12 +85,12 @@ const ProjectPages = () => {
 
     const openCarousel = () => {
         document.getElementById("pjContainer").classList.remove(styles.close)
-            document.getElementById("pjContainer").classList.add(styles.open)
+        document.getElementById("pjContainer").classList.add(styles.open)
     }
     
     const closeCarousel = () => {
-        document.getElementById("pjContainer").classList.add(menuStyles.close)
-        document.getElementById("pjContainer").classList.remove(menuStyles.open)
+        document.getElementById("pjContainer").classList.add(styles.close)
+        document.getElementById("pjContainer").classList.remove(styles.open)
     }
 
     const handleClick = e => {
@@ -114,8 +115,15 @@ const ProjectPages = () => {
         }
         setStartingLeft(left)
         setStartingRight(right)
-        setTimeout(() => setMenu(false), 600)
-        setTimeout(() => openCarousel(), 700)
+        // setTimeout(() => openCarousel(), 500)
+        // setMenu(false)
+        setTimeout(() => setMenu(false), 300)
+        setTimeout(() => {
+            openContainer()
+            openCarousel()
+            // setMenu(false)
+        }, 600)
+
         // setTimeout(() => setInnerLoading(false), 1000)
         // setTimeout(() => document.getElementById("pjContainer").classList.add(styles.open), 200);
         // return (
@@ -123,6 +131,13 @@ const ProjectPages = () => {
         //         setStartingLeft(left)
         //     }, 500)
         // )
+    }
+
+    const handleRefresh = () => {
+        closeCarousel()
+        closeContainer()
+        setTimeout(() => setMenu(true), 400)
+        setTimeout(() => openContainer(), 800)
     }
 
     // const renderFullScreen = () => { 
@@ -137,14 +152,14 @@ const ProjectPages = () => {
     //     )
     // }
 
-    const renderMobile = () => {
-        return (
-            <div id={"TEST-TEST-TEST"} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-                {/* <ProjectCards projects={projects} images={images} /> */}
-                <MobilePages projects={projects} images={images} />
-            </div>
-        )
-    }
+    // const renderMobile = () => {
+    //     return (
+    //         <div id={"TEST-TEST-TEST"} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+    //             {/* <ProjectCards projects={projects} images={images} /> */}
+    //             <MobilePages projects={projects} images={images} />
+    //         </div>
+    //     )
+    // }
 
     const renderMenu = () => {
         return (
@@ -218,7 +233,7 @@ const ProjectPages = () => {
         return (
             <div className={styles.bg}>
                 <div id="projectsContainer" className={styles.projectsBackground}>
-                    <Navigation left="HOME" right="CONTACT" windowWidth={windowWidth} menu={menu} setMenu={setMenu} setInnerLoading={setInnerLoading} closeCarousel={closeCarousel} />
+                    <Navigation left="HOME" right="CONTACT" windowWidth={windowWidth} menu={menu} setMenu={setMenu} closeCarousel={closeCarousel} handleRefresh={handleRefresh} />
                     {/* windowWidth={Math.max(windowWidth, 1200)}/> */}
                     {/* <div style={{ width: "fit-content", margin: "auto" }}> */}
                         {/* arrays of projects and images are passed to the child components */}

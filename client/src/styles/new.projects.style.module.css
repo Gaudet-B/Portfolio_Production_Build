@@ -150,7 +150,8 @@
 /*  */
 .newContainer {
     height: 20px;
-    border: 2px solid rgba(245, 245, 245, 0.4);
+    background: transparent;
+    /* border: 2px solid rgba(245, 245, 245, 0.4); */
     border-radius: 5px;
     -ms-overflow-style: none;
     scrollbar-width: 0px;
@@ -161,7 +162,7 @@
     display: none;
 }
 .newContainer.open {
-    animation: openContainer .8s ease-in;
+    animation: openContainer .9s ease-in;
     /* height: 110vh; */
     height: 90vh;
 }

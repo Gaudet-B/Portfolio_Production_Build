@@ -80,7 +80,7 @@ const Carousel = props => {
     }, [])
 
     return (
-        <div className="" >
+        // <div className="" >
 
             <div id="carousel" className={styles.carousel} style={{ height: `${windowHeight}px` }} >
 
@@ -100,9 +100,9 @@ const Carousel = props => {
                 </div>
             </div>
 
-            {/* <div id="spanLeft" className={leftArrow}  onClick={spin}>&lt;</div>
-            <div id="spanRight" className={rightArrow}  onClick={spin} style={(windowWidth < 1201 && windowWidth > 800) ? { marginRight: "18px" } : {}} >&gt;</div> */}
-        </div>
+            /* <div id="spanLeft" className={leftArrow}  onClick={spin}>&lt;</div>
+            <div id="spanRight" className={rightArrow}  onClick={spin} style={(windowWidth < 1201 && windowWidth > 800) ? { marginRight: "18px" } : {}} >&gt;</div> */
+        // </div>
     )
 }
 
