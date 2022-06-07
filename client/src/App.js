@@ -45,7 +45,7 @@ function App() {
               <ProjectMenu />
             </Route>
 
-            <Route exact path="/projectpages">
+            <Route exact path="/projects">
               <ProjectPages />
             </Route>
 
