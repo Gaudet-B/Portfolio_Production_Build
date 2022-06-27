@@ -226,6 +226,61 @@
     /* animation: flicker 3s linear; */
 }
 
+/* =============================== */
+/* =============================== */
+
+.filtersListContainer {
+    /* height: 100px; */
+}
+
+.filtersList {
+    /* position: relative; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 80%;
+    margin: auto;
+    font-size: 22px;
+}
+
+.filterTab {
+    color: whitesmoke;
+    cursor: pointer;
+    list-style: none;
+    /* flex: 1; */
+    margin: 0 12px;
+}
+
+.filterTabActive {
+    list-style: none;
+    color: rgb(0, 173, 17);
+    /* flex: 1; */
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+.projectsListContainer {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.projectsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.projectListItem {
+
+}
+
 /* add white border??? */
 .projectCard {
     transform: 

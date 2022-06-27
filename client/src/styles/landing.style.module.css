@@ -231,7 +231,14 @@ html::-webkit-scrollbar {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: 0px;
 }
+.body::-webkit-scrollbar {
+    display: none;
+}
+
 .responsiveBody {
     min-height: 100vh;
     height: fit-content;

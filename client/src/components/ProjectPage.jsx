@@ -252,11 +252,11 @@ const ProjectPage = props => {
     }, [])
 
     return (
-        <div className={styles.cardDiv + " " + cardDiv}>
+        // <div className={styles.cardDiv + " " + cardDiv}>
             <div id={"card-" + card} className={styles.card} >
-                <div className={styles.cardBack}>
+                {/* <div className={styles.cardBack}>
 
-                </div>
+                </div> */}
                 <div className={styles.cardFront} style={{  }}>
                     
                     <div style={{ margin: "4rem 0rem" }}>
@@ -400,7 +400,7 @@ const ProjectPage = props => {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     )
 }
 

@@ -21,7 +21,7 @@ const Navigation = props => {
 
     const setActivePage = page => {
         let link
-        if (page === "projectpages") {
+        if (page === "projects") {
             link = document.getElementById("link-projects")
             // document.getElementById("link-projects").style.color = "rgb(0,143,17)"
         } else if (page === "resume") {
@@ -114,10 +114,10 @@ const Navigation = props => {
                 </div>
                 :
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                    {(page === "projectpages") ?
+                    {(page === "projects") ?
                     <p id={"link-projects"} onClick={handleRefresh} className={styles.active + " " + styles.navLink} style={{ cursor: "pointer" }} >PROJECTS</p>
                     :
-                    <a id={"link-projects"} href="/projectpages" className={(page === "projectpages") ? styles.active + " " + styles.navLink : styles.navLink} >PROJECTS</a>
+                    <a id={"link-projects"} href="/projects" className={(page === "projects") ? styles.active + " " + styles.navLink : styles.navLink} >PROJECTS</a>
                     }
                     <a id={"link-resume"} href="/resume" className={(page === "resume") ? styles.active + " " + styles.navLink : styles.navLink} >RESUME</a>
                     <a id={"link-contact"} href="/contact" className={(page === "contact") ? styles.active + " " + styles.navLink : styles.navLink} >CONTACT</a>
@@ -126,7 +126,7 @@ const Navigation = props => {
             </div>
             <div style={{ zIndex: "5", display: "flex", flexDirection: "row", justifyContent: "flex-end", width: "100vw" }}>
                 <div id="navMenu" className={(show) ? styles.navMenu : ""} style={{ transform: `perspective(50px) translate3d(${coordX}, ${coordY}, ${coordZ}) scale(${scale})`, zIndex: "5" }} >
-                    <a id={"link-projects"} href="/projectpages" className={(page === "projectpages") ? styles.active + " " + styles.smallNav : styles.smallNav} ></a>
+                    <a id={"link-projects"} href="/projects" className={(page === "projects") ? styles.active + " " + styles.smallNav : styles.smallNav} ></a>
                     <a id={"link-resume"} href="/resume" className={(page === "resume") ? styles.active + " " + styles.smallNav : styles.smallNav} ></a>
                     <a id={"link-contact"} href="/contact" className={(page === "contact") ? styles.active + " " + styles.smallNav : styles.smallNav} ></a>
                 </div>

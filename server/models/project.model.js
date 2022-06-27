@@ -11,7 +11,8 @@ const ProjectSchema = mongoose.Schema({
     demo: {type: Array},
     image: {type: String},
     mainImage: {type: Buffer},
-    github: {type: String}
+    github: {type: String},
+    categories: {type: Array},
 }, { timestamps: true })
 
 module.exports.Project = mongoose.model("Project", ProjectSchema)

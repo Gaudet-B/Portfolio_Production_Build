@@ -10,6 +10,7 @@ import menuStyles from '../styles/project.menu.style.module.css'
 
 import getImages from '../scripts/images.js'
 import Loading from '../components/Loading';
+import ProjectPage from '../components/ProjectPage';
 import ProjectMenu from './ProjectMenu';
 
 const ProjectPages = () => {
@@ -42,18 +43,22 @@ const ProjectPages = () => {
     // will be set to all projects from database when component loads (see useEffect)
     const [projects, setProjects] = useState([])
 
+    //
+    const [activeProject, setActiveProject] = useState()
+
     // gets images from assets directory
-    const [images, setImages] = useState(getImages())
+    // const [images, setImages] = useState(getImages())
+    const IMAGES = getImages()
 
     //
     const [ fillerStyle, setFillerStyle ] = useState(styles.filler)
 
     // function that displays loading spinner 
-    const loadData = async () => {
-        await new Promise((res) => setTimeout(res, 500))
-        setLoading(false)
-        openContainer()
-    }
+    // const loadData = async () => {
+    //     await new Promise((res) => setTimeout(res, 500))
+    //     setLoading(false)
+    //     openContainer()
+    // }
 
     // function to be added to the onResize event listener
     const resizeWindow = () => {
@@ -133,6 +138,13 @@ const ProjectPages = () => {
         // )
     }
 
+    const handleProjectClick = project => {
+        closeContainer()
+        setTimeout(() => setMenu(false), 300)
+        setTimeout(() => openContainer(), 600)
+        setActiveProject(project)
+    }
+
     const handleRefresh = () => {
         closeCarousel()
         closeContainer()
@@ -163,7 +175,7 @@ const ProjectPages = () => {
 
     const renderMenu = () => {
         return (
-            <ProjectMenu handleClick={handleClick} openContainer={openContainer} projects={projects} />
+            <ProjectMenu handleProjectClick={handleProjectClick} openContainer={openContainer} projects={projects} />
         )
     }
 
@@ -173,9 +185,15 @@ const ProjectPages = () => {
                 {/* {(innerLoading) ? 
                 <Loading />
                 : */}
-                <Carousel projects={projects} images={images} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} startingLeft={startingLeft} startingRight={startingRight} />
+                <Carousel projects={projects} images={IMAGES} windowHeight={windowHeight} windowWidth={windowWidth} setFillerStyle={setFillerStyle} startingLeft={startingLeft} startingRight={startingRight} />
                 {/* } */}
             </div>
+        )
+    }
+
+    const renderPage = () => {
+        return (
+            <ProjectPage index={projects.indexOf(activeProject)} project={activeProject} images={IMAGES[projects.indexOf(activeProject)]} reponsive={false}/>
         )
     }
 
@@ -198,8 +216,11 @@ const ProjectPages = () => {
             .then(res => {
                 setProjects(res.data)
                 setMenu(true)
-                loadData()
-                // setTimeout(() => openContainer(), 500)
+                // loadData()
+                // setTimeout(() => {
+                    setLoading(false)
+                    openContainer()
+                // }, 500)
             })
             .catch(err => console.log(err))
         
@@ -214,7 +235,7 @@ const ProjectPages = () => {
     // spinner
     if (windowWidth < 800) {
         return (
-            <MobilePages projects={projects} images={images} windowWidth={windowWidth}/>
+            <MobilePages projects={projects} images={IMAGES} windowWidth={windowWidth}/>
         )
     // } else if (loading) {
 
@@ -246,7 +267,8 @@ const ProjectPages = () => {
                             <div id="container" className={menuStyles.menuContainer} >
                             {(loading) ? renderLoading() : null}
                             {(!loading && menu) ? renderMenu() : null}
-                            {(!loading && !menu) ? renderCarousel() : null}
+                            {/* {(!loading && !menu) ? renderCarousel() : null} */}
+                            {(!loading && !menu) ? renderPage() : null}
                             </div>
                             {/* <ProjectMenu handleClick={handleClick} openContainer={openContainer} projects={projects} /> */}
                             {/* : */}

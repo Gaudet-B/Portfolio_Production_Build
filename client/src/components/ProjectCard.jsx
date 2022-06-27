@@ -10,7 +10,7 @@ import portfolio from '../assets/portfolio/portfolio_hero.png'
 
 const ProjectCard = props => {
 
-    const { project, index, handleClick } = props
+    const { project, index, handleProjectClick } = props
     
     const getSource = project => {
         if (project === "P!ZZA") return pizza
@@ -19,9 +19,10 @@ const ProjectCard = props => {
         else return portfolio
     }
 
-    const [source, setSource] = useState(getSource(project.title))
-    const [width, setWidth] = useState()
-    const [height, setHeight] = useState()
+    // const [source, setSource] = useState(getSource(project.title))
+    const SOURCE = getSource(project.title)
+    // const [width, setWidth] = useState()
+    // const [height, setHeight] = useState()
     // const [loading, setLoading] = useState(true)
     const [isActive, setIsActive] = useState(false)
 
@@ -41,6 +42,10 @@ const ProjectCard = props => {
         }, 300);
     }
 
+    const handleClick = () => {
+        handleProjectClick(project)
+    }
+
     // useEffect(() => {
     //     setTimeout(() => {
     //         setLoading(false)
@@ -55,7 +60,7 @@ const ProjectCard = props => {
             <div className={styles.smallLogoSpinner}></div>
         </div>
         :
-        <div onMouseOver={handleOver} onMouseOut={handleOut} onClick={handleClick} className={styles.projectCard} style={{ height: "300px", width: "400px", backgroundImage: `url(${source})`, backgroundSize: "cover" }}>
+        <div onMouseOver={handleOver} onMouseOut={handleOut} onClick={handleClick} className={styles.projectCard} style={{ height: "300px", width: "400px", backgroundImage: `url(${SOURCE})`, backgroundSize: "cover" }}>
             <div id={"mask-" + index} className={styles.cardMask}>
                 {(project.title === "chata") ? 
                 <div style={{ maxWidth: "80%", margin: "0 auto" }}>
