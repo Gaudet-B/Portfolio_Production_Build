@@ -259,11 +259,12 @@ const ProjectPages = () => {
                     {/* <div style={{ width: "fit-content", margin: "auto" }}> */}
                         {/* arrays of projects and images are passed to the child components */}
                     {/* {(windowWidth > 800) ? */}
-                    <div id="carouselContainer" className={styles.carouselContainer} >
-                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}>
-                            <div className={styles.border} style={{ marginRight: "2px" }} >
+                    {/* <div id="carouselContainer" className={styles.carouselContainer} > */}
+                    <div >
+                        {/* <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }}> */}
+                            {/* <div className={styles.border} style={{ marginRight: "2px" }} >
                                 <div className={fillerStyle} ></div>
-                            </div>
+                            </div> */}
                             <div id="container" className={menuStyles.menuContainer} >
                             {(loading) ? renderLoading() : null}
                             {(!loading && menu) ? renderMenu() : null}
@@ -274,10 +275,10 @@ const ProjectPages = () => {
                             {/* : */}
                             
                             {/* } */}
-                            <div className={styles.border} style={{ marginRight: "2px" }} >
+                            {/* <div className={styles.border} style={{ marginRight: "2px" }} >
                                 <div className={fillerStyle} ></div>
-                            </div>
-                        </div>
+                            </div> */}
+                        {/* </div> */}
                         {/* {renderFullScreen()} */}
                     </div>
                     {/* {(loading) ? <Loading /> : null} */}

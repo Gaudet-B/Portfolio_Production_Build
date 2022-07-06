@@ -19,6 +19,9 @@ const Admin = () => {
     // input validation
     const [validState, setValidState] = useState({})
 
+    // loading boolean
+    const [loading, setLoading] = useState(true)
+
     // projects from database
     const [projects, setProjects] = useState([])
 
@@ -33,12 +36,17 @@ const Admin = () => {
         withCredentials: true,
         baseURL: "http://localhost:8000/api"
     })
+
+    const CATEGORY_TAGS = [ 'Personal Project', 'Professional Experience', 'Frontend', 'Backend', 'Full Stack', 'MERN', 'React', 'Java', 'Javascript', 'Python', 'Bootstrap' ]
     
     useEffect(() => {
 
         // retrieve all projects from database
         instance.get("/projects/all")
-            .then(res => setProjects(res.data))
+            .then(res => {
+                setProjects(res.data)
+                setLoading(false)
+            })
             .catch(err => console.log(err))
 
         // add Bootstrap to document, remove when component unmounts (return statement - line 55)
@@ -63,6 +71,12 @@ const Admin = () => {
             ...formState,
             [e.target.name]: e.target.value
         })
+    }
+
+    //
+    const handleCheckBoxChange = e => {
+        e.preventDefault()
+        
     }
 
     // handler for project creation form
@@ -123,7 +137,9 @@ const Admin = () => {
         const config = { headers: {'content-type': 'multipart/form-data'}}
         instance.post("/projects/new", data, config)
             .then(res => {
-                // setPJformState({})
+                setPJformState({})
+                console.log(res)
+                console.log('great success !!')
             })
             .catch(err => {
                 console.log(`ERROR: ${err.response.data}`)
@@ -183,13 +199,15 @@ const Admin = () => {
     // if admin logged in, present content management system
     } else {
         return (
-            <div className="bg-dark p-4 text-center">
+            <div className="bg-dark p-4 text-center text-light">
                 <h1 className="display-2 my-3">CONTENT MANAGEMENT</h1>
                 <div className="text-center my-4">
                     <h1 className="display-5">Current Project Content</h1>
                 </div>
-
                 {/* table displays all projects from database */}
+                {loading ? 
+                <span>loading...</span> 
+                :
                 <table className="table">
                     <thead className="bg-light">
                         <tr>
@@ -229,6 +247,7 @@ const Admin = () => {
                         }
                     </tbody>
                 </table>
+                }
 
                 {/* form to add a new project */}
                 <div className="border border-secondary rounded my-5" style={{ width: "75%", height: "2px", margin: "auto" }}></div>
@@ -301,7 +320,17 @@ const Admin = () => {
                                 <label className="form-label fs-4 ms-4" htmlFor="github">Github</label>
                                 <input onChange={handlePjChange} className="form-control" name="github" style={{ width: "60%" }}/>
                             </div>
-
+                        {/* CATEGORY TAGS */}
+                        <div className="d-flex flex-column align-items-center">
+                            {CATEGORY_TAGS.map((tag, idx) => {
+                                return (
+                                    <div className="form-check d-flex flex-row justify-content-start my-3">
+                                        <input onChange={handleCheckBoxChange} className="form-check-input" name={`${tag}`} value={`${tag}`} type="checkbox"/>
+                                        <label className="form-check-label fs-4 ms-4" htmlFor={`${tag}`}>{tag}</label>
+                                    </div>
+                                )
+                            })}
+                        </div>
                             <button className="btn btn-outline-light mt-4 mb-3 fs-5" style={{ width: "30%", minWidth: "fit-content", margin: "auto" }} >create</button>
                         
                         </form>

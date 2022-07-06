@@ -3,9 +3,12 @@ import { useState } from 'react'
 import styles from '../styles/project.menu.style.module.css'
 
 import draft from '../assets/draft/sample_hero_1.png'
-import pizza from '../assets/pizza/sample_hero_1.png'
+import pizza from '../assets/pizza/hero_01.PNG'
+// import pizza from '../assets/pizza/sample_hero_1.png'
 import chata from '../assets/chata/sample_hero_1.png'
 import portfolio from '../assets/portfolio/portfolio_hero.png'
+import estimatica from '../assets/estimatica/hero_01.PNG'
+import vapyr from '../assets/vapyr/hero_01.PNG'
 
 
 const ProjectCard = props => {
@@ -16,6 +19,8 @@ const ProjectCard = props => {
         if (project === "P!ZZA") return pizza
         else if (project === "MyDraft Partner") return draft
         else if (project === "chata") return chata
+        else if (project === "Estimatica Redesign") return estimatica
+        else if (project === "Vapyr Analytics") return vapyr
         else return portfolio
     }
 
@@ -54,13 +59,13 @@ const ProjectCard = props => {
 
     return (
     (loading)?
-        <div className={styles.projectCard} style={{ height: "300px", width: "400px" }}>
+        <div className={styles.projectCard} >
         {/* <div> */}
             <div className={styles.smallSpinner}></div>
             <div className={styles.smallLogoSpinner}></div>
         </div>
         :
-        <div onMouseOver={handleOver} onMouseOut={handleOut} onClick={handleClick} className={styles.projectCard} style={{ height: "300px", width: "400px", backgroundImage: `url(${SOURCE})`, backgroundSize: "cover" }}>
+        <div onMouseOver={handleOver} onMouseOut={handleOut} onClick={handleClick} className={styles.projectCard} style={{ backgroundImage: `url(${SOURCE})`, backgroundSize: "cover" }}>
             <div id={"mask-" + index} className={styles.cardMask}>
                 {(project.title === "chata") ? 
                 <div style={{ maxWidth: "80%", margin: "0 auto" }}>

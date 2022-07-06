@@ -26,18 +26,29 @@ import chat5 from '../assets/chata/convo_2.PNG'
 import chat6 from '../assets/chata/convo_3.PNG'
 import chat7 from '../assets/chata/logout.PNG'
 
+import estimatica1 from '../assets/estimatica/before_01.PNG'
+import estimatica2 from '../assets/estimatica/after_02.PNG'
+
 
 const draftImages = [draft1, draft3, draft4, draft5, draft6, draft7]
 const pizzaImages = [pizza1, pizza2, pizza3, pizza4, pizza5, pizza6, pizza7]
 const portfolioImages = [portfolio1, portfolio2]
 const chatImages = [chat1, chat2, chat3, chat5, chat6, chat7]
+const vapyrImages = []
+const estimaticaImages = [estimatica2, estimatica1]
+const epochImages = []
+const borderImages = []
 
 const getImages = () => {
-    let object = {
+    const object = {
         0: draftImages,
         1: pizzaImages,
         2: portfolioImages,
-        3: chatImages
+        3: chatImages,
+        4: vapyrImages,
+        5: estimaticaImages,
+        6: epochImages,
+        7: borderImages,
     }
     return object
 }
