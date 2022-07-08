@@ -9,6 +9,7 @@ import chata from '../assets/chata/sample_hero_1.png'
 import portfolio from '../assets/portfolio/portfolio_hero.png'
 import estimatica from '../assets/estimatica/hero_01.PNG'
 import vapyr from '../assets/vapyr/hero_01.PNG'
+import border from '../assets/border/hero_02.PNG'
 
 
 const ProjectCard = props => {
@@ -21,6 +22,7 @@ const ProjectCard = props => {
         else if (project === "chata") return chata
         else if (project === "Estimatica Redesign") return estimatica
         else if (project === "Vapyr Analytics") return vapyr
+        else if (project === "Border") return border
         else return portfolio
     }
 
