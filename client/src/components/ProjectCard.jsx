@@ -2,14 +2,17 @@ import { useState } from 'react'
 
 import styles from '../styles/project.menu.style.module.css'
 
-import draft from '../assets/draft/sample_hero_1.png'
+import draft from '../assets/draft/hero_02.PNG'
+// import draft from '../assets/draft/sample_hero_1.png'
 import pizza from '../assets/pizza/hero_01.PNG'
 // import pizza from '../assets/pizza/sample_hero_1.png'
 import chata from '../assets/chata/sample_hero_1.png'
-import portfolio from '../assets/portfolio/portfolio_hero.png'
+// import portfolio from '../assets/portfolio/portfolio_hero.png'
+import portfolio from '../assets/portfolio/hero_01.PNG'
 import estimatica from '../assets/estimatica/hero_01.PNG'
 import vapyr from '../assets/vapyr/hero_01.PNG'
 import border from '../assets/border/hero_02.PNG'
+import epochit from '../assets/epochit/hero_02.PNG'
 
 
 const ProjectCard = props => {
@@ -23,6 +26,7 @@ const ProjectCard = props => {
         else if (project === "Estimatica Redesign") return estimatica
         else if (project === "Vapyr Analytics") return vapyr
         else if (project === "Border") return border
+        else if (project === "Epoch IT Solutions") return epochit
         else return portfolio
     }
 
@@ -68,17 +72,19 @@ const ProjectCard = props => {
         </div>
         :
         <div onMouseOver={handleOver} onMouseOut={handleOut} onClick={handleClick} className={styles.projectCard} style={{ backgroundImage: `url(${SOURCE})`, backgroundSize: "cover" }}>
+            <div className={styles.cardOverlay}>
             <div id={"mask-" + index} className={styles.cardMask}>
-                {(project.title === "chata") ? 
+                {/* {(project.title === "chata") ? 
                 <div style={{ maxWidth: "80%", margin: "0 auto" }}>
                     <p style={(isActive) ? { color: "whitesmoke", fontSize: "1.2rem" } : { color: "transparent" }}>Front End:  React.js</p>
                     <p style={(isActive) ? { color: "whitesmoke", fontSize: "1.2rem", marginTop: "5px" } : { color: "transparent" }}>{project.languages}</p>
                 </div>
-                :
-                <p className={styles.projectLanguages}  style={(isActive) ? { color: "whitesmoke" } : { color: "transparent" }}>{project.languages}</p>
-                }
+                : */}
+                <p className={styles.projectLanguages}  style={(isActive) ? { color: "whitesmoke" } : { color: "transparent" }}>{(project.categories.indexOf("Personal Project") >= 0) ? "Personal Project" : "Professional Experience"}</p>
+                {/* } */}
                 <p className={styles.projectTitle} style={(isActive) ? { color: "rgba(0,143,17)" } : { color: "transparent" }}>{project.title}</p>
                 <p className={styles.projectLink} style={(isActive) ? { color: "whitesmoke" } : { color: "transparent" }}>click for details</p>
+            </div>
             </div>
         </div>
     )

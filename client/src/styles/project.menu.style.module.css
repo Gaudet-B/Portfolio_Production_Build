@@ -61,7 +61,7 @@
 /*  */
 @keyframes shadow {
     from {}
-    to {box-shadow: 0px 0px 25px 15px whitesmoke;}
+    to {box-shadow: 0px 0px 25px 15px rgba(245, 245, 245, 0.6);}
 }
 
 /*   */
@@ -463,8 +463,14 @@
         translate3d(0px, 0px, 50px);
         /* scale(1.5, 1.5); */
     /* border: 2px solid whitesmoke; */
-    animation: shadow 1s ease-out;
-    box-shadow: 0px 0px 25px 15px whitesmoke;
+    /* animation: shadow 1s ease-out; */
+    box-shadow: 0px 0px 25px 15px rgba(245, 245, 245, 0.6);
+}
+
+.cardOverlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(26, 26, 26, 0.2);
 }
 
 .cardMask {
@@ -475,7 +481,7 @@
     flex-direction: column;
     justify-content: space-around;
     background-color: transparent;
-    background-color: rgba(26, 26, 26, 0.8);
+    background-color: rgba(26, 26, 26, 0.86);
 
     /*  */
     top: 50%;

@@ -7,7 +7,7 @@ const Button = props => {
     const BORDER = props.arrowDirection ? undefined : true;
 
     const handleClick = e => {
-        console.log('click')
+        // console.log('click')
         e.preventDefault();
         if (props.onClick) {
             return props.onClick();

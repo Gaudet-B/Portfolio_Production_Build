@@ -130,10 +130,32 @@ const ProjectMenu = props => {
         for (const tag of categories) {
             // console.log(tag)
             // console.log(project.categories.indexOf(tag))
-            if (project.categories.indexOf(tag) === -1) result = false
+            if (project.categories.indexOf(tag) === -1 && categories[0] != "All") result = false
         }
+        if (project.categories.indexOf(developerRole) === -1 && developerRole != "All") result = false
+        if (project.categories.indexOf(projectType) === -1 && projectType != "All") result = false
         // console.log(result)
         return result
+    }
+
+    const renderProjectCard = (project, index) => {
+        // <ul className={styles.projectsList}>
+            // {projects.map((project, index) => {
+                // use reduce here?????????????????????????????
+                // if (checkProjectTags(project) || categories[0] === 'All') {
+                    return (
+                        <li className={styles.projectListItem} key={`project-card-${index}`}>
+                            <ProjectCard 
+                                handleProjectClick={handleProjectClick}
+                                key={project._id}
+                                index={index}
+                                project={project}
+                            />
+                        </li>
+                    )
+                // }
+            // })}
+        // </ul>
     }
 
     // project.categories.indexOf(categories[0]) > -1
@@ -166,18 +188,21 @@ const ProjectMenu = props => {
                 {renderCategoryFilters()}
                 <div className={styles.projectsListContainer}>
                     <ul className={styles.projectsList}>
+                        {/* {renderProjectCards()} */}
                         {projects.map((project, index) => {
                             // use reduce here?????????????????????????????
-                            if (checkProjectTags(project) || categories[0] === 'All') {
+                            if (checkProjectTags(project)) {
+                            // if (checkProjectTags(project) || categories[0] === 'All') {
                                 return (
-                                    <li className={styles.projectListItem}>
-                                        <ProjectCard 
-                                            handleProjectClick={handleProjectClick}
-                                            key={project._id}
-                                            index={index}
-                                            project={project}
-                                        />
-                                    </li>
+                                    renderProjectCard(project, index)
+                                    // <li className={styles.projectListItem}>
+                                    //     <ProjectCard 
+                                    //         handleProjectClick={handleProjectClick}
+                                    //         key={project._id}
+                                    //         index={index}
+                                    //         project={project}
+                                    //     />
+                                    // </li>
                                 )
                             }
                         })}
