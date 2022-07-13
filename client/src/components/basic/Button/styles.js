@@ -12,6 +12,7 @@ const FONT_COLOR = {
 }
 
 export const StyledButton = styled.button`
+    width: fit-content;
     cursor: pointer;
     background-color: transparent;
     color: whitesmoke;

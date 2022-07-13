@@ -70,6 +70,13 @@
     to {z-index: 0; margin-top: 0;}
 }
 
+/*  */
+@keyframes blink {
+    from { background-color: rgb(0, 173, 17); }
+    50% { background-color: rgb(0, 122, 12); box-shadow: rgba(0, 0, 0, 0.2) 0 0px 7px 1px, inset rgba(0, 122, 12, 0.664) 0 0px 9px, rgb(0, 255, 26) 0 0px 0; }
+    to { background-color: rgb(0, 173, 17); }
+}
+
 
 /* { loading... } */
 .loadingBackground {
@@ -251,46 +258,112 @@
     display: flex;
     /* flex: 2 1 auto; */
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0;
-    padding: 1em 0 0 0;
-    font-size: 22px;
+    gap: 2em;
+    margin-top: 1em;
+    /* padding: 1em 0 0 0; */
+    font-size: 16px;
     /* border-top: 2px solid rgba(245, 245, 245, 0.9);
     border-bottom: 2px solid rgba(245, 245, 245, 0.9); */
     border-radius: 3px;
     z-index: 2;
-    background-color: rgb(26, 26, 26);
+    background-color: transparent;
+    /* background-color: rgb(26, 26, 26); */
 }
 
 .projectTypes {
+    flex: 1;
+    width: 40%;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    text-align: start;
     list-style: none;
     margin: 0;
-    padding: 10px 0;
-    margin-right: 10px;
-    margin-top: -2px;
+    padding: 0;
+    /* margin-right: 10px; */
+    /* margin-top: -2px; */
     /* border-top: 2px solid rgba(245, 245, 245, 0.9); */
     /* border-bottom: 2px solid rgba(245, 245, 245, 0.9); */
 }
 
-.developerRoles {
+.radioGroup {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 3px 0;
+    cursor: pointer;
+}
+
+.radioButtonContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* margin-left: 6px; */
+    /* margin-top: 2px; */
+}
+
+.radioButton {
+    height: 15px;
+    width: 15px;
+    background-color: rgba(245, 245, 245, 0.3);
+    border: 3px double black;
+    border-radius: 50%;
+}
+.radioButton.active {
+    /* border: none; */
+    background-color: rgb(0, 173, 17);
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0px 7px 1px, inset rgba(0, 134, 13, 0.837) 0 0px 9px, rgb(0, 255, 26) 0 0px 12px;
+    animation: blink 5s infinite;
+}
+
+.radioLabel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: min-content;
+    /* text-align: end; */
+    color: rgba(245, 245, 245, 0.3);
+    /* transform: scale(0.9); */
+}
+.radioLabel.active {
+    color: rgb(0, 173, 17);
+    /* transform: scale(1.0); */
+    /* transition: .1s ease-out transform; */
+    font-weight: bold;
+}
+
+.developerRoles {
+    flex: 1;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    text-align: end;
     list-style: none;
     margin: 0;
-    padding: 10px 0 10px 5px;
-    margin-left: 10px;
-    margin-top: -2px;
+    padding: 0;
+    /* padding: 10px 0 10px 5px; */
+    /* margin-left: 10px; */
+    /* margin-top: -2px; */
     /* border-top: 2px solid rgba(245, 245, 245, 0.9); */
     /* border-bottom: 2px solid rgba(245, 245, 245, 0.9); */
+}
+
+.buttonWrapper {
+    margin-top: 10px;
 }
 
 .categoryFiltersContainer {
     z-index: 1;
     margin-top: 5px;
     display: flex;
+    flex: 3;
     /* flex: 1 1 auto; */
     flex-direction: column;
     justify-content: flex-start;
@@ -300,11 +373,16 @@
 .categoryFilters {
     /* position: relative; */
     /* display: none; */
+    max-width: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px 0;
+    flex-wrap: wrap;
     list-style: none;
-    padding: 0;
+    /* padding: 0; */
     margin: 0;
-    padding: 6px 0;
+    padding: 10px 0;
     background-color: transparent;
     border-radius: 5px;
     /* position: relative; */
@@ -429,6 +507,7 @@
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr; */
 
+    margin: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -481,7 +560,7 @@
     flex-direction: column;
     justify-content: space-around;
     background-color: transparent;
-    background-color: rgba(26, 26, 26, 0.86);
+    background-color: rgba(26, 26, 26, 0.9);
 
     /*  */
     top: 50%;

@@ -68,12 +68,25 @@ const ProjectMenu = props => {
             <ul className={styles.projectTypes}>
                 {projectTypes.map((filter, index) => {
                     return (
-                        <li className={filter === projectType ? styles.filterTabActive : styles.filterTab} onClick={() => handleProjectType(filter)} id={`filter-${filter}`} key={`${filter}-${index}`} >
-                            {filter}
+                        <li id={`project-type-${index}`} className={filter === projectType ? `${styles.radioGroup} ${styles.active}` : styles.radioGroup} onClick={() => handleProjectType(filter)} key={`${filter}-${index}`} >
+                            {/* unfinished... */}
+                            {/* <input className={filter === projectType ? styles.filterTabActive : styles.filterTab} onClick={() => handleProjectType(filter)} id={`filter-${filter}`} key={`${filter}-${index}`} /> */}
+                            <div className={styles.radioButtonContainer} style={{ marginRight: "6px"}} >
+                                <div className={filter === projectType ? `${styles.radioButton} ${styles.active}` : styles.radioButton}></div>
+                            </div>
+                            <span className={filter === projectType ? `${styles.radioLabel} ${styles.active}` : styles.radioLabel}>
+                                {filter}
+                            </span>
                         </li>
+                        // <li className={filter === projectType ? styles.filterTabActive : styles.filterTab} onClick={() => handleProjectType(filter)} id={`filter-${filter}`} key={`${filter}-${index}`} >
+                        //     {filter}
+                        // </li>
                     )
                 })}
-                <Button text={'reset'} size={'extraSmall'} color={'dark'} onClick={() => setProjectType('All')} />
+                <div className={styles.buttonWrapper} >
+                    <Button text={'off'} size={'extraSmall'} color={'dark'} onClick={() => setProjectType('All')} />
+                </div>
+                {/* <Button text={'reset'} size={'extraSmall'} color={'dark'} onClick={() => setProjectType('All')} /> */}
             </ul>
         )
     }
@@ -84,12 +97,22 @@ const ProjectMenu = props => {
             <ul className={styles.developerRoles} >
                 {developerRoles.map((filter, index) => {
                     return (
-                        <li className={filter === developerRole ? styles.filterTabActive : styles.filterTab} onClick={() => handleDeveloperRole(filter)} id={`filter-${filter}`} key={`${filter}-${index + 2}`} >
-                            {filter}
+                        <li id={`dev-role-${index}`} className={filter === projectType ? `${styles.developerRole} ${styles.active}` : styles.radioGroup} onClick={() => handleDeveloperRole(filter)} key={`${filter}-${index}`} >
+                            <span className={filter === developerRole ? `${styles.radioLabel} ${styles.active}` : styles.radioLabel} >
+                                {filter}
+                            </span>
+                            <div className={styles.radioButtonContainer} style={{ marginLeft: "6px" }} >
+                                <div className={filter === developerRole ? `${styles.radioButton} ${styles.active}` : styles.radioButton}></div>
+                            </div>
                         </li>
+                        // <li className={filter === developerRole ? styles.filterTabActive : styles.filterTab} onClick={() => handleDeveloperRole(filter)} id={`filter-${filter}`} key={`${filter}-${index + 2}`} >
+                        //     {filter}
+                        // </li>
                     )
                 })}
-                <Button text={'reset'} size={'extraSmall'} color={'dark'} onClick={() => setDeveloperRole('All')}/>
+                <div className={styles.buttonWrapper} >
+                    <Button text={'off'} size={'extraSmall'} color={'dark'} onClick={() => setDeveloperRole('All')}/>
+                </div>
             </ul>
         )
     };
@@ -172,6 +195,7 @@ const ProjectMenu = props => {
                 <div className={styles.filtersListContainer} >
                     {/* <ul className={styles.filtersList}> */}
                         {renderProjectTypes()}
+                        {renderCategoryFilters()}
                         {/* <div style={{ width: '2px', borderLeft: '2px solid whitesmoke' }} ></div> */}
                         {renderDeveloperRoles()}
                         {/* {renderCategoryFilters()} */}
@@ -185,7 +209,7 @@ const ProjectMenu = props => {
                         })}
                     </ul> */}
                 </div>
-                {renderCategoryFilters()}
+                {/* {renderCategoryFilters()} */}
                 <div className={styles.projectsListContainer}>
                     <ul className={styles.projectsList}>
                         {/* {renderProjectCards()} */}
